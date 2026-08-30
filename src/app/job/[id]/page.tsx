@@ -246,7 +246,7 @@ export default async function JobPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Content Column */}
           <div className="lg:col-span-8 space-y-6">
-            <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm transition-colors">
+            <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-xs transition-colors">
               {/* Header Box */}
               <div className="p-6 sm:p-8 bg-slate-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-850 dark:to-indigo-950/40 border-b border-slate-200 dark:border-slate-800">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -378,7 +378,7 @@ export default async function JobPage({ params }: Props) {
                           href={directLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 px-5 rounded-xl transition-all shadow-sm shrink-0"
+                          className="inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-xs shrink-0"
                         >
                           <span>Click Here</span>
                           <ExternalLink size={13} />
@@ -386,17 +386,17 @@ export default async function JobPage({ params }: Props) {
                       </div>
                     ) : null}
 
-                    {/* Row 2: Official Website */}
-                    <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors">
+                    {/* Row 2: Official Authority Website */}
+                    <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900">
                       <div>
                         <span className="font-bold text-slate-900 dark:text-white block">Official Website</span>
                         <span className="text-xs text-slate-500 dark:text-slate-400">Visit recruiting authority official homepage</span>
                       </div>
                       <a
-                        href={directLink || 'https://google.com'}
+                        href={directLink || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs py-2.5 px-5 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors shrink-0"
+                        className="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-900 text-white dark:bg-slate-700 dark:hover:bg-slate-600 font-bold text-xs py-2.5 px-5 rounded-xl border border-slate-700 shrink-0"
                       >
                         <span>Official Portal</span>
                         <ExternalLink size={13} />
@@ -459,7 +459,7 @@ export default async function JobPage({ params }: Props) {
                   href={directLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm py-3.5 px-4 rounded-xl transition-all shadow-md hover:-translate-y-0.5 text-center"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm py-3.5 px-4 rounded-xl shadow-md text-center"
                 >
                   {actionText}
                   <ExternalLink size={15} />

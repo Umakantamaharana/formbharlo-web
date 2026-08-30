@@ -17,6 +17,16 @@ function normalizeUrl(url?: string): string {
   return `https://${trimmed}`;
 }
 
+function formatShortAction(action?: string): string {
+  if (!action) return 'Apply';
+  const lower = action.toLowerCase();
+  if (lower.includes('admit') || lower.includes('hall ticket')) return 'Admit Card';
+  if (lower.includes('result') || lower.includes('scorecard') || lower.includes('merit')) return 'Check Result';
+  if (lower.includes('key') || lower.includes('answer')) return 'Answer Key';
+  if (lower.includes('apply')) return 'Apply Online';
+  return action.length > 14 ? `${action.slice(0, 12)}...` : action;
+}
+
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
   Government: { bg: 'bg-emerald-500/10', text: 'text-emerald-700 dark:text-emerald-400', border: 'border-emerald-500/30' },
   Banking: { bg: 'bg-blue-500/10', text: 'text-blue-700 dark:text-blue-400', border: 'border-blue-500/30' },
@@ -32,10 +42,10 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
   const category = job.category || 'Government';
   const colorScheme = categoryColors[category] || categoryColors.General;
   const directLink = normalizeUrl(job.website_content?.actual_link);
-  const actionText = job.website_content?.action || 'Apply';
+  const actionLabel = formatShortAction(job.website_content?.action);
 
   return (
-    <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-950/30 flex flex-col justify-between h-full">
+    <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-950/30 flex flex-col justify-between h-full overflow-hidden">
       <div>
         {/* Top Badges */}
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
@@ -46,8 +56,8 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           </span>
 
           <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-xs bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5 rounded">
-            <Calendar size={12} className="text-slate-400" />
-            {job.date || 'Recent'}
+            <Calendar size={12} className="text-slate-400 shrink-0" />
+            <span className="truncate">{job.date || 'Recent'}</span>
           </span>
         </div>
 
@@ -70,11 +80,11 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300 mb-3">
           {job.vacancies && (
             <span className="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 px-2 py-0.5 rounded font-semibold text-[11px]">
-              <Users size={11} /> {job.vacancies} Posts
+              <Users size={11} className="shrink-0" /> {job.vacancies} Posts
             </span>
           )}
           <span className="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded text-[11px] text-slate-600 dark:text-slate-300">
-            <MapPin size={11} className="text-slate-400" /> {job.location || 'India'}
+            <MapPin size={11} className="text-slate-400 shrink-0" /> {job.location || 'India'}
           </span>
           <span className="bg-emerald-50 dark:bg-slate-800/80 border border-emerald-200 dark:border-slate-700/60 px-2 py-0.5 rounded text-[11px] text-emerald-700 dark:text-emerald-400 font-medium">
             Online Form
@@ -82,24 +92,34 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
       </div>
 
-      {/* Card Action Buttons */}
-      <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 mt-auto">
+      {/* Card Action Buttons (Responsive Layout with zero overflow) */}
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 mt-auto">
         <Link
           href={`/job/${job.id}`}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors text-center"
+          className="inline-flex items-center justify-center gap-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold py-2.5 px-2 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors text-center truncate"
         >
-          View Notice <ArrowRight size={13} />
+          <span>View Notice</span>
+          <ArrowRight size={12} className="shrink-0" />
         </Link>
 
-        {directLink && (
+        {directLink ? (
           <a
             href={directLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition-colors shadow-sm shrink-0"
+            className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl transition-colors shadow-xs text-center truncate"
+            title={job.website_content?.action || 'Direct Portal Link'}
           >
-            {actionText} <ExternalLink size={12} />
+            <span className="truncate">{actionLabel}</span>
+            <ExternalLink size={11} className="shrink-0" />
           </a>
+        ) : (
+          <Link
+            href={`/job/${job.id}`}
+            className="inline-flex items-center justify-center gap-1 bg-blue-600/10 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold py-2.5 px-2 rounded-xl border border-blue-200 dark:border-blue-800 text-center truncate"
+          >
+            <span>Full Details</span>
+          </Link>
         )}
       </div>
     </div>
