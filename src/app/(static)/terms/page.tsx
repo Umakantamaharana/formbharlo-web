@@ -1,55 +1,78 @@
 import React from 'react';
+import { AlertTriangle, ShieldCheck, ExternalLink, FileCheck } from 'lucide-react';
 
 export const metadata = {
-    title: 'Terms of Service | Career135',
-    description: 'Terms of Service for Career135.',
+  title: 'Terms of Service & Disclaimer | Career135',
+  description: 'Terms and conditions of using Career135 recruitment information portal and official disclaimers.',
 };
 
 export default function TermsPage() {
-    return (
-        <div className="min-h-screen bg-slate-50 py-12">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold text-slate-900 mb-6">Terms of Service</h1>
-                <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 prose prose-slate max-w-none">
-                    <p className="text-gray-600 mb-6">Last updated: {new Date().toLocaleDateString()}</p>
-
-                    <p>
-                        Welcome to Career135. By accessing this website, we assume you accept these terms and conditions.
-                        Do not continue to use Career135 if you do not agree to take all of the terms and conditions stated on this page.
-                    </p>
-
-                    <h2 className="text-xl font-semibold mt-8 mb-4">1. Information Disclaimer</h2>
-                    <p>
-                        The information provided on Career135 is for general informational purposes only. While we strive to keep
-                        the information up to date and correct, we make no representations or warranties of any kind, express or implied,
-                        about the completeness, accuracy, reliability, suitability or availability with respect to the website or the
-                        information contained on the website for any purpose.
-                    </p>
-                    <p>
-                        <strong>Always verify job details, eligibility criteria, and deadlines on the official notification or official website before applying.</strong>
-                    </p>
-
-                    <h2 className="text-xl font-semibold mt-8 mb-4">2. External Links</h2>
-                    <p>
-                        Through this website you are able to link to other websites which are not under the control of Career135.
-                        We have no control over the nature, content, and availability of those sites. The inclusion of any links does
-                        not necessarily imply a recommendation or endorse the views expressed within them.
-                    </p>
-
-                    <h2 className="text-xl font-semibold mt-8 mb-4">3. No Affiliation</h2>
-                    <p>
-                        Career135 is an independent job portal and is not affiliated, associated, authorized, endorsed by, or in any way
-                        officially connected with any government agency, public sector undertaking, or private corporation whose job
-                        postings are listed on this website.
-                    </p>
-
-                    <h2 className="text-xl font-semibold mt-8 mb-4">4. Modifications to Terms</h2>
-                    <p>
-                        We reserve the right to revise these terms of service for its website at any time without notice. By using this
-                        website you are agreeing to be bound by the then current version of these terms of service.
-                    </p>
-                </div>
-            </div>
+  return (
+    <div className="min-h-screen bg-slate-950 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/40 text-blue-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-4">
+            <FileCheck size={14} className="text-blue-400" />
+            Terms &amp; Disclaimers
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            Terms of Service
+          </h1>
+          <p className="mt-3 text-xs sm:text-sm text-slate-400">
+            Last Updated: August 2026
+          </p>
         </div>
-    );
-};
+
+        {/* Content Box */}
+        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 space-y-8 text-slate-300 text-sm leading-relaxed shadow-xl">
+          <section className="space-y-3 bg-amber-950/30 border border-amber-800/40 p-5 rounded-2xl">
+            <h2 className="text-lg font-bold text-amber-300 flex items-center gap-2">
+              <AlertTriangle size={18} />
+              1. Non-Affiliation Disclaimer (Important)
+            </h2>
+            <p className="text-xs sm:text-sm text-amber-100/90 leading-relaxed">
+              <strong>Career135 is an independent informational and news aggregation portal.</strong> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Government of India, any State Government, Union Public Service Commission (UPSC), Staff Selection Commission (SSC), Railway Recruitment Boards (RRB), or any other recruitment board or PSU.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <ShieldCheck size={18} className="text-blue-400" />
+              2. Accuracy of Information
+            </h2>
+            <p>
+              While we make every effort to ensure that the notices, admit cards, eligibility criteria, exam schedules, and results published on Career135 are accurate and up-to-date, candidates are strongly advised to cross-verify all notifications with the original official recruitment gazettes and websites before taking any action or making payments.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <ExternalLink size={18} className="text-blue-400" />
+              3. External Links
+            </h2>
+            <p>
+              Career135 contains links to external portals for application forms and recruitment documents. We have no control over the content, security, or privacy policies of third-party websites.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-bold text-white">4. Intellectual Property</h2>
+            <p>
+              All trademarks, logos, and recruitment names belong to their respective statutory owners. Use of these names on Career135 is strictly for informational and identification purposes.
+            </p>
+          </section>
+
+          <section className="space-y-3 pt-4 border-t border-slate-800">
+            <h2 className="text-lg font-bold text-white">5. Revisions &amp; Inquiries</h2>
+            <p>
+              Career135 may revise these terms of service at any time without notice. If you have questions regarding these terms, contact us at <a href="mailto:support@career135.com" className="text-blue-400 hover:underline">support@career135.com</a>.
+            </p>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  );
+}

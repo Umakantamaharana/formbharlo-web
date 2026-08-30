@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Octokit } from '@octokit/rest';
+import { Job } from '@/types';
 
 // Ensure the token is available
 const GITHUB_PAT = process.env.GITHUB_PAT;
@@ -19,7 +20,7 @@ export async function GET() {
             throw new Error('Failed to fetch from GitHub');
         }
 
-        const data = await response.json();
+        const data: Job[] = await response.json();
         return NextResponse.json(data);
     } catch (error) {
         console.error('Admin API Error reading jobs:', error);
@@ -50,18 +51,26 @@ export async function POST(request: Request) {
 
         // Decode current content
         const content = Buffer.from(fileData.content, 'base64').toString('utf8');
-        const jobs = JSON.parse(content);
+        const jobs: Job[] = JSON.parse(content);
 
         // 2. Perform the requested update
         let updated = false;
         for (const job of jobs) {
-            if (job.id === id) {
+            if (String(job.id) === String(id)) {
                 if (action === 'update_status' && status) {
                     job.status = status;
                     updated = true;
                 } else if (action === 'update_link' && link !== undefined) {
-                    if (!job.website_content) job.website_content = {};
-                    job.website_content.actual_link = link;
+                    if (!job.website_content) {
+                        job.website_content = {
+                            title: '',
+                            markdown_content: '',
+                            actual_link: link,
+                            action: 'Apply'
+                        };
+                    } else {
+                        job.website_content.actual_link = link;
+                    }
                     updated = true;
                 }
                 break;
@@ -90,8 +99,9 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: true, message: 'Updated successfully pushed to GitHub' });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('Admin API Error updating GitHub:', error);
-        return NextResponse.json({ error: error.message || 'Failed to update GitHub' }, { status: 500 });
+        const errorMessage = error instanceof Error ? error.message : 'Failed to update GitHub';
+        return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
 }

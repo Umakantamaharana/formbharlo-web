@@ -1,25 +1,137 @@
-import React from 'react';
-import Link from 'next/link';
-import { Briefcase } from 'lucide-react';
+'use client';
 
-const Header: React.FC = () => {
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Briefcase, Menu, X, Send, MessageCircle, Sparkles, Award, CheckCircle2, Key } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
+
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: 'Latest Jobs', href: '/?cat=Government', icon: <Briefcase size={14} className="text-blue-500" /> },
+    { label: 'Admit Cards', href: '/?cat=State%20Exams', icon: <Award size={14} className="text-emerald-500" /> },
+    { label: 'Results', href: '/?cat=Banking', icon: <CheckCircle2 size={14} className="text-rose-500" /> },
+    { label: 'Answer Keys', href: '/?cat=Engineering', icon: <Key size={14} className="text-amber-500" /> },
+    { label: 'About', href: '/about' },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-accent text-white p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
-            <Briefcase size={24} />
+    <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
+      {/* Top Notification / Community Bar */}
+      <div className="bg-gradient-to-r from-blue-50 via-slate-100 to-indigo-50 dark:from-blue-900/40 dark:via-slate-900 dark:to-indigo-900/40 border-b border-slate-200 dark:border-slate-800/80 py-1.5 px-4 text-xs transition-colors">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
+            <span className="inline-flex items-center gap-1 bg-amber-500/15 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded text-[10px] font-bold border border-amber-500/30">
+              <Sparkles size={11} /> 100% Free Govt Job Alerts
+            </span>
+            <span className="hidden sm:inline text-slate-600 dark:text-slate-400">
+              Central &amp; State Govt Recruitment, Exam Dates, &amp; Admit Cards
+            </span>
           </div>
-          <span className="text-xl font-bold text-slate-900 tracking-tight">Career135</span>
-        </Link>
-        <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-accent transition-colors">Home</Link>
-          <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-accent transition-colors">About</Link>
-          <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-accent transition-colors">Contact</Link>
-        </nav>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="https://t.me/career135"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-sm"
+            >
+              <Send size={11} /> Telegram
+            </a>
+            <a
+              href="https://whatsapp.com/channel/career135"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-sm"
+            >
+              <MessageCircle size={11} /> WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Main Navigation Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+              C
+            </div>
+            <div>
+              <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                CAREER<span className="text-blue-600">135</span>
+              </span>
+              <span className="block text-[10px] uppercase font-bold tracking-widest text-slate-500 dark:text-slate-400 -mt-1">
+                Sarkari Exam Portal
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav Items */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </Link>
+            ))}
+          </nav>
+
+          {/* Theme Toggle & Mobile Menu Button */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 px-4 py-4 space-y-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            >
+              {link.icon}
+              <span>{link.label}</span>
+            </Link>
+          ))}
+          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
+            <a
+              href="https://t.me/career135"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-sm"
+            >
+              Join Telegram
+            </a>
+            <a
+              href="https://whatsapp.com/channel/career135"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm"
+            >
+              Join WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}

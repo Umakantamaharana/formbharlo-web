@@ -1,119 +1,134 @@
-'use client';
+import React from 'react';
+import { Metadata } from 'next';
+import { fetchJobsServer } from '@/services/serverJobService';
+import JobFilterFeed from '@/components/JobFilterFeed';
+import AdBanner from '@/components/AdBanner';
+import CommunityBanner from '@/components/CommunityBanner';
+import BreakingTicker from '@/components/BreakingTicker';
+import SarkariMatrix from '@/components/SarkariMatrix';
+import SocialLinks from '@/components/SocialLinks';
+import { Sparkles, Users, ShieldCheck } from 'lucide-react';
 
-import React, { useEffect, useState } from 'react';
-import { Search } from 'lucide-react';
-import { fetchJobs } from '../services/jobService';
-import { Job } from '../types';
-import JobCard from '../components/JobCard';
-import AdBanner from '../components/AdBanner';
-import SocialLinks from '../components/SocialLinks';
+export const revalidate = 1800; // 30 minutes ISR revalidation
 
-export default function HomePage() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+export const metadata: Metadata = {
+  title: 'Career135 - Sarkari Result, Latest Govt Jobs, Admit Cards & Exam Dates 2026',
+  description:
+    'Find instant updates on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
+  alternates: {
+    canonical: 'https://career135.com',
+  },
+};
 
-  useEffect(() => {
-    const loadJobs = async () => {
-      try {
-        const data = await fetchJobs();
-        setJobs(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadJobs();
-  }, []);
+interface HomePageProps {
+  searchParams: Promise<{ cat?: string }>;
+}
 
-  const filteredJobs = jobs.filter(job =>
-    (job.website_content?.title || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (job.location || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (job.type || "").toLowerCase().includes(searchTerm.toLowerCase())
-  );
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const params = await searchParams;
+  const initialCategory = params?.cat || 'All Notifications';
+  const jobs = await fetchJobsServer();
+
+  // Metrics
+  const totalJobs = jobs.length;
+  const govtJobs = jobs.filter((j) => j.category === 'Government' || j.category === 'State Exams').length;
+  const techJobs = jobs.filter((j) => j.category === 'Engineering' || j.category === 'Banking').length;
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <div className="bg-slate-900 text-white py-12 sm:py-20 w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6">
-            <span className="text-blue-400">Career135</span>
-          </h1>
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Latest Govt Jobs, Exam Dates, Results & Career Updates in India
-          </p>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col space-y-6 sm:space-y-8 pb-16 transition-colors">
+      {/* 1. Breaking Alert Ticker */}
+      <BreakingTicker jobs={jobs} />
 
-          <div className="relative w-full max-w-xl mx-auto">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
-            </div>
-            <input
-              type="text"
-              className="block w-full pl-10 pr-3 py-4 border-transparent rounded-full leading-5 bg-white text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg"
-              placeholder="Search by job title, location, or type..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-6 sm:space-y-8">
+        {/* 2. Top Leaderboard Ad Unit (Zero CLS) */}
+        <div className="w-full">
+          <AdBanner format="leaderboard" slot="home-top-leaderboard" />
         </div>
-      </div>
 
-      <div className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-          {/* Main Content - Job List */}
-          <div className="lg:col-span-8 space-y-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900">Latest Openings</h2>
-              <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{filteredJobs.length} Jobs Found</span>
-            </div>
-
-            {loading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-64 bg-gray-100 rounded-xl animate-pulse"></div>
-                ))}
+        {/* 3. Hero Header with Instant Stats */}
+        <section className="bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-colors">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-bold">
+                <Sparkles size={13} />
+                <span>Verified Government & Tech Job Alerts 2026</span>
               </div>
-            ) : filteredJobs.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredJobs.map((job) => (
-                  <JobCard key={job.id} job={job} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
-                <p className="text-gray-500 text-lg">No jobs found matching your search.</p>
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="mt-4 text-blue-600 font-medium hover:underline"
-                >
-                  Clear search
-                </button>
-              </div>
-            )}
-
-            {/* Mid-content Ad */}
-            <AdBanner className="my-8 rounded-xl overflow-hidden" slot="home-feed" />
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 sticky top-24">
-              <h3 className="text-lg font-bold text-slate-900 mb-4">Connect With Us</h3>
-              <p className="text-sm text-gray-500 mb-6">
-                Join our community on social media to get instant updates on new job postings.
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                India’s Cleanest Portal for <span className="text-blue-600 dark:text-blue-400">Govt Job Notifications</span> &amp; Results
+              </h1>
+              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+                Direct access to official application forms, exam dates, admit cards, and merit lists. Zero clickbait, 100% verified links.
               </p>
-              <SocialLinks />
+            </div>
 
-              <div className="mt-8 border-t border-gray-100 pt-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Sponsored</h3>
-                <AdBanner format="vertical" slot="sidebar-home" />
+            {/* Quick Metrics Cards */}
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 w-full md:w-auto shrink-0 text-center">
+              <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 p-3 sm:p-4 rounded-2xl">
+                <span className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white block">{totalJobs}+</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">Active Posts</span>
+              </div>
+              <div className="bg-emerald-50 dark:bg-slate-800/60 border border-emerald-200 dark:border-slate-700/60 p-3 sm:p-4 rounded-2xl">
+                <span className="text-lg sm:text-2xl font-black text-emerald-700 dark:text-emerald-400 block">{govtJobs}+</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">Sarkari Exams</span>
+              </div>
+              <div className="bg-blue-50 dark:bg-slate-800/60 border border-blue-200 dark:border-slate-700/60 p-3 sm:p-4 rounded-2xl">
+                <span className="text-lg sm:text-2xl font-black text-blue-700 dark:text-blue-400 block">{techJobs}+</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">Bank &amp; Tech</span>
               </div>
             </div>
           </div>
+        </section>
 
+        {/* 4. The 4-Box Sarkari Matrix */}
+        <SarkariMatrix jobs={jobs} />
+
+        {/* 5. Main Feed & Sticky Ad Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
+          {/* Main Feed Column */}
+          <div className="lg:col-span-8 space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+                All Active Recruitment Notices
+              </h2>
+            </div>
+            <JobFilterFeed initialJobs={jobs} initialCategory={initialCategory} />
+          </div>
+
+          {/* Sidebar Column */}
+          <aside className="lg:col-span-4 space-y-6">
+            {/* Telegram & WhatsApp Channel Capture */}
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-3xl shadow-xs space-y-4 transition-colors">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Users size={18} className="text-blue-600 dark:text-blue-400" />
+                Join 50k+ Aspirants
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Get breaking exam results, admit cards, and recruitment notices delivered instantly to your phone.
+              </p>
+              <CommunityBanner variant="full" />
+            </div>
+
+            {/* Sticky Skyscraper Ad Unit (300x600) */}
+            <div className="sticky top-20 space-y-6">
+              <AdBanner
+                format="vertical"
+                slot="home-sidebar-skyscraper"
+                className="bg-white/60 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800"
+              />
+
+              {/* Social Channels */}
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-3xl text-center space-y-3 transition-colors shadow-xs">
+                <h4 className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                  Official Channels
+                </h4>
+                <SocialLinks />
+                <div className="pt-2 text-[11px] text-slate-500 flex items-center justify-center gap-1">
+                  <ShieldCheck size={13} className="text-emerald-600 dark:text-emerald-400" />
+                  <span>100% Free Public Exam Alerts</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </div>

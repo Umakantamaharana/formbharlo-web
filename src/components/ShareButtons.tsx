@@ -1,69 +1,112 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Share2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Share2, MessageCircle, Send, Check, Copy, Twitter } from 'lucide-react';
 
 interface ShareButtonsProps {
-    title: string;
-    url: string;
+  title: string;
+  url: string;
 }
 
 const ShareButtons: React.FC<ShareButtonsProps> = ({ title, url }) => {
-    const [currentUrl, setCurrentUrl] = useState('');
+  const [copied, setCopied] = useState(false);
 
-    useEffect(() => {
-        // Only access window on client
-        setCurrentUrl(window.location.origin + url.replace('https://career135.com', ''));
-    }, [url]);
+  const getActiveUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return url;
+  };
 
-    const handleShare = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: title,
-                    url: currentUrl || url,
-                });
-            } catch (err) {
-                console.error('Error sharing:', err);
-            }
-        } else {
-            // Fallback: Copy to clipboard
-            navigator.clipboard.writeText(currentUrl || url);
-            alert('Link copied to clipboard!');
-        }
-    };
+  const handleShare = async () => {
+    const activeUrl = getActiveUrl();
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title,
+          url: activeUrl,
+        });
+      } catch {
+        // Ignored if user cancels share dialog
+      }
+    } else {
+      copyToClipboard();
+    }
+  };
 
-    const shareWhatsApp = () => {
-        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + " " + (currentUrl || url))}`, '_blank');
-    };
+  const copyToClipboard = () => {
+    const activeUrl = getActiveUrl();
+    navigator.clipboard.writeText(`${title} - ${activeUrl}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-    const shareTelegram = () => {
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(currentUrl || url)}&text=${encodeURIComponent(title)}`, '_blank');
-    };
+  const shareWhatsApp = () => {
+    const activeUrl = getActiveUrl();
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(`🔔 ${title}\n\nApply here: ${activeUrl}`)}`, '_blank');
+  };
 
-    return (
-        <div className="flex gap-3 flex-wrap">
-            <button
-                onClick={shareWhatsApp}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-green-500 text-green-600 font-bold hover:bg-green-500 hover:text-white transition-colors"
-            >
-                WhatsApp
-            </button>
-            <button
-                onClick={shareTelegram}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-blue-500 text-blue-600 font-bold hover:bg-blue-500 hover:text-white transition-colors"
-            >
-                Telegram
-            </button>
-            <button
-                onClick={handleShare}
-                className="p-2 rounded-full border-2 border-slate-200 text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors"
-                aria-label="Share"
-            >
-                <Share2 size={20} />
-            </button>
-        </div>
-    );
+  const shareTelegram = () => {
+    const activeUrl = getActiveUrl();
+    window.open(`https://t.me/share/url?url=${encodeURIComponent(activeUrl)}&text=${encodeURIComponent(`🔔 ${title}`)}`, '_blank');
+  };
+
+  const shareTwitter = () => {
+    const activeUrl = getActiveUrl();
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🔔 ${title}`)}&url=${encodeURIComponent(activeUrl)}`, '_blank');
+  };
+
+  return (
+    <div className="flex gap-2.5 flex-wrap items-center">
+      <button
+        onClick={shareWhatsApp}
+        className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors shadow-sm"
+      >
+        <MessageCircle size={15} /> WhatsApp
+      </button>
+
+      <button
+        onClick={shareTelegram}
+        className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-colors shadow-sm"
+      >
+        <Send size={15} /> Telegram
+      </button>
+
+      <button
+        onClick={shareTwitter}
+        className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition-colors"
+      >
+        <Twitter size={15} /> X / Twitter
+      </button>
+
+      <button
+        onClick={copyToClipboard}
+        className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition-colors"
+        title="Copy URL"
+      >
+        {copied ? (
+          <>
+            <Check size={15} className="text-emerald-400" />
+            <span className="text-emerald-400">Copied!</span>
+          </>
+        ) : (
+          <>
+            <Copy size={15} />
+            <span>Copy Link</span>
+          </>
+        )}
+      </button>
+
+      <button
+        onClick={handleShare}
+        className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
+        aria-label="Native Share"
+        title="More Share Options"
+      >
+        <Share2 size={16} />
+      </button>
+    </div>
+  );
 };
 
 export default ShareButtons;

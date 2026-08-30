@@ -1,25 +1,19 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { fetchJobsServer } from '@/services/serverJobService';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 1800; // 30 minutes cache
 
 export async function GET() {
-    try {
-        const response = await fetch('https://raw.githubusercontent.com/Umakantamaharana/job-scrapper-backend/main/latest_jobs.json', {
-            next: { revalidate: 3600 } // Cache for 1 hour
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch from GitHub');
-        }
-
-        let data = await response.json();
-
-        // Filter out UNPUBLISHED
-        data = data.filter((item: any) => item.status === 'GENERATED');
-
-        return NextResponse.json(data);
-    } catch (error) {
-        console.error('API Error reading jobs:', error);
-        return NextResponse.json({ error: 'Failed to load jobs' }, { status: 500 });
-    }
+  try {
+    const jobs = await fetchJobsServer();
+    return NextResponse.json(jobs, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+      },
+    });
+  } catch (error) {
+    console.error('API Error reading jobs:', error);
+    return NextResponse.json({ error: 'Failed to load jobs' }, { status: 500 });
+  }
 }
