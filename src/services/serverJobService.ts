@@ -33,13 +33,19 @@ const monthMap: Record<string, string> = {
 
 function extractRealDate(item: RawJobData): string {
   if (item.date && item.date.length === 10 && !item.date.includes('undefined')) {
-    return item.date;
+    const yr = parseInt(item.date.split('-')[0], 10);
+    if (yr >= 2024 && yr <= 2027) return item.date;
   }
 
   const content = `${item.website_content?.markdown_content || ''} ${item.website_content?.title || ''}`;
 
-  // Pattern 1: DD-MM-YYYY or DD/MM/YYYY
-  const m1 = content.match(/(?:Release Date|Notification Released|Result Date|Published|Start Date|Date|Exam Date)[:\s*]*(\d{1,2})[-/](\d{1,2})[-/](\d{4})/i);
+  // Filter out candidate Date of Birth (DOB) and age criteria sentences
+  const cleanedContent = content
+    .replace(/born\s+(?:between|before|after|not\s+before|not\s+after)[^.]*/gi, '')
+    .replace(/(?:date\s+of\s+birth|dob|age\s+limit|born\s+on)[^.]*/gi, '');
+
+  // Pattern 1: DD-MM-YYYY or DD/MM/YYYY with valid notice year (2024-2027)
+  const m1 = cleanedContent.match(/(?:Release Date|Notification Released|Result Date|Published|Start Date|Date|Exam Date)[:\s*]*(\d{1,2})[-/](\d{1,2})[-/](202[4-7])/i);
   if (m1) {
     const day = m1[1].padStart(2, '0');
     const month = m1[2].padStart(2, '0');
@@ -47,8 +53,8 @@ function extractRealDate(item: RawJobData): string {
     return `${year}-${month}-${day}`;
   }
 
-  // Pattern 2: DD Month YYYY
-  const m2 = content.match(/(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})/i);
+  // Pattern 2: DD Month YYYY with valid notice year (2024-2027)
+  const m2 = cleanedContent.match(/(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(202[4-7])/i);
   if (m2) {
     const day = m2[1].padStart(2, '0');
     const month = monthMap[m2[2].toLowerCase()] || '01';
@@ -58,8 +64,8 @@ function extractRealDate(item: RawJobData): string {
 
   const idNum = parseInt(item.id || '0', 10);
 
-  // Pattern 3: If 2025 in content
-  if (content.includes('2025')) {
+  // Pattern 3: If 2025 in title
+  if (item.website_content?.title?.includes('2025')) {
     const day = String((idNum % 28) + 1).padStart(2, '0');
     const month = String((idNum % 12) + 1).padStart(2, '0');
     return `2025-${month}-${day}`;
