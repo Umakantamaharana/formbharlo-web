@@ -71,7 +71,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Get breaking exam results, admit cards, and recruitment notices delivered instantly to your phone.
               </p>
-              <CommunityBanner variant="full" />
+              <CommunityBanner variant="sidebar" />
             </div>
 
             {/* Sticky Skyscraper Ad Unit (300x600) */}
