@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Search, Layers, ChevronLeft, ChevronRight, Archive, RotateCcw } from 'lucide-react';
 import { Job } from '../types';
 import JobCard from './JobCard';
@@ -9,6 +10,7 @@ import AdBanner from './AdBanner';
 interface JobFilterFeedProps {
   initialJobs: Job[];
   initialCategory?: string;
+  initialQuery?: string;
 }
 
 const CATEGORIES = [
@@ -24,14 +26,19 @@ const CATEGORIES = [
 
 const ITEMS_PER_PAGE = 18;
 
-export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilterFeedProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    initialCategory || 'All Notifications'
-  );
-  const [searchQuery, setSearchQuery] = useState('');
+function JobFilterFeedInner({ initialJobs, initialCategory, initialQuery }: JobFilterFeedProps) {
+  const searchParams = useSearchParams();
+  const urlQuery = searchParams.get('q') || initialQuery || '';
+  const urlCategory = searchParams.get('cat') || initialCategory || 'All Notifications';
+
+  const [userCategory, setUserCategory] = useState<string | null>(null);
+  const [userSearchQuery, setUserSearchQuery] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string>('ALL');
   const [currentPage, setCurrentPage] = useState(1);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const selectedCategory = userCategory !== null ? userCategory : urlCategory;
+  const searchQuery = userSearchQuery !== null ? userSearchQuery : urlQuery;
 
   // Extract unique available years from jobs
   const availableYears = useMemo(() => {
@@ -62,7 +69,8 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
         job.website_content?.title?.toLowerCase().includes(q) ||
         job.organization?.toLowerCase().includes(q) ||
         job.location?.toLowerCase().includes(q) ||
-        job.category?.toLowerCase().includes(q);
+        job.category?.toLowerCase().includes(q) ||
+        job.website_content?.action?.toLowerCase().includes(q);
 
       return matchesCategory && matchesYear && matchesSearch;
     });
@@ -102,7 +110,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
     }
   };
 
-  // Helper for generating pagination buttons list (e.g. 1, 2, 3, ..., 78)
   const getPaginationButtons = () => {
     const delta = 2;
     const range: (number | string)[] = [];
@@ -137,7 +144,7 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
               type="text"
               value={searchQuery}
               onChange={(e) => {
-                setSearchQuery(e.target.value);
+                setUserSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
               placeholder="Search by Exam Name, SSC, RRB, Bank, Teacher, State Police..."
@@ -173,7 +180,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
 
         {/* Category Pills with Left / Right Scroll Buttons (No Scrollbar) */}
         <div className="relative flex items-center gap-1.5 pt-1">
-          {/* Scroll Left Button */}
           <button
             type="button"
             onClick={() => scrollTags('left')}
@@ -183,7 +189,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
             <ChevronLeft size={16} />
           </button>
 
-          {/* Scrollable Container without visible scrollbar */}
           <div
             ref={scrollContainerRef}
             className="flex items-center gap-2 overflow-x-hidden no-scrollbar scroll-smooth w-full px-1"
@@ -196,7 +201,7 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
                   key={cat}
                   type="button"
                   onClick={() => {
-                    setSelectedCategory(cat);
+                    setUserCategory(cat);
                     setCurrentPage(1);
                   }}
                   className={`whitespace-nowrap px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 cursor-pointer ${
@@ -218,7 +223,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
             })}
           </div>
 
-          {/* Scroll Right Button */}
           <button
             type="button"
             onClick={() => scrollTags('right')}
@@ -240,8 +244,8 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
           <button
             type="button"
             onClick={() => {
-              setSearchQuery('');
-              setSelectedCategory('All Notifications');
+              setUserSearchQuery('');
+              setUserCategory('All Notifications');
               setSelectedYear('ALL');
               setCurrentPage(1);
             }}
@@ -279,9 +283,9 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
           <button
             type="button"
             onClick={() => {
-              setSelectedCategory('All Notifications');
+              setUserCategory('All Notifications');
               setSelectedYear('ALL');
-              setSearchQuery('');
+              setUserSearchQuery('');
               setCurrentPage(1);
             }}
             className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2 px-4 rounded-xl transition-colors cursor-pointer"
@@ -297,7 +301,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
           className="flex flex-wrap items-center justify-center gap-1.5 pt-6 pb-2"
           aria-label="Recruitment pagination"
         >
-          {/* Previous Page Button */}
           <button
             type="button"
             onClick={() => goToPage(validPage - 1)}
@@ -311,7 +314,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
             <ChevronLeft size={14} /> Prev
           </button>
 
-          {/* Numbered Buttons */}
           {getPaginationButtons().map((btn, idx) => {
             if (btn === '...') {
               return (
@@ -341,7 +343,6 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
             );
           })}
 
-          {/* Next Page Button */}
           <button
             type="button"
             onClick={() => goToPage(validPage + 1)}
@@ -357,5 +358,13 @@ export default function JobFilterFeed({ initialJobs, initialCategory }: JobFilte
         </nav>
       )}
     </section>
+  );
+}
+
+export default function JobFilterFeed(props: JobFilterFeedProps) {
+  return (
+    <Suspense fallback={<div className="h-64 rounded-3xl bg-slate-100 dark:bg-slate-800/40 animate-pulse" />}>
+      <JobFilterFeedInner {...props} />
+    </Suspense>
   );
 }

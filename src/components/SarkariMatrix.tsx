@@ -40,7 +40,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
       headerBg: 'bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-500/20 text-blue-900 dark:text-blue-300',
       badgeBg: 'bg-blue-100 dark:bg-blue-500/20 text-blue-800 dark:text-blue-300',
       jobs: latestJobs,
-      catFilter: 'Government',
+      searchQuery: 'recruitment',
     },
     {
       title: 'Admit Cards',
@@ -48,7 +48,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
       headerBg: 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-300',
       badgeBg: 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300',
       jobs: admitCards.length > 0 ? admitCards : jobs.slice(6, 12),
-      catFilter: 'State Exams',
+      searchQuery: 'admit',
     },
     {
       title: 'Results & Scorecards',
@@ -56,7 +56,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
       headerBg: 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-500/20 text-rose-900 dark:text-rose-300',
       badgeBg: 'bg-rose-100 dark:bg-rose-500/20 text-rose-800 dark:text-rose-300',
       jobs: results.length > 0 ? results : jobs.slice(12, 18),
-      catFilter: 'Banking',
+      searchQuery: 'result',
     },
     {
       title: 'Answer Keys & Syllabus',
@@ -64,19 +64,19 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
       headerBg: 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-500/20 text-amber-900 dark:text-amber-300',
       badgeBg: 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300',
       jobs: answerKeys.length > 0 ? answerKeys : jobs.slice(18, 24),
-      catFilter: 'Engineering',
+      searchQuery: 'key',
     },
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full" id="sarkari-matrix">
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
             <span>Quick Recruitment Matrix</span>
           </h2>
           <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-            Instant 1-click access to top active notifications and results
+            Instant 1-click access to top active notifications, admit cards, and results
           </p>
         </div>
       </div>
@@ -124,7 +124,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
             {/* Column Footer */}
             <div className="p-3 border-t border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 text-center mt-auto">
               <Link
-                href={`/?cat=${encodeURIComponent(col.catFilter)}`}
+                href={`/?q=${encodeURIComponent(col.searchQuery)}#recruitment-feed-top`}
                 className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 inline-flex items-center gap-1 transition-colors"
               >
                 View More {col.title} <ArrowRight size={13} />

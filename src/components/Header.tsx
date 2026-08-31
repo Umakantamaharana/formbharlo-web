@@ -2,22 +2,24 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Briefcase, Menu, X, Send, MessageCircle, Sparkles, Award, CheckCircle2, Key } from 'lucide-react';
+import { Home, Briefcase, Award, CheckCircle2, Key, Info, Mail, Menu, X, Send, MessageCircle, Sparkles } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Latest Jobs', href: '/?cat=Government', icon: <Briefcase size={14} className="text-blue-500" /> },
-    { label: 'Admit Cards', href: '/?cat=State%20Exams', icon: <Award size={14} className="text-emerald-500" /> },
-    { label: 'Results', href: '/?cat=Banking', icon: <CheckCircle2 size={14} className="text-rose-500" /> },
-    { label: 'Answer Keys', href: '/?cat=Engineering', icon: <Key size={14} className="text-amber-500" /> },
-    { label: 'About', href: '/about' },
+    { label: 'Home', href: '/', icon: <Home size={14} className="text-blue-500" /> },
+    { label: 'Top Forms', href: '/?q=form#recruitment-feed-top', icon: <Briefcase size={14} className="text-blue-600" /> },
+    { label: 'Admit Cards', href: '/?q=admit#recruitment-feed-top', icon: <Award size={14} className="text-emerald-500" /> },
+    { label: 'Results', href: '/?q=result#recruitment-feed-top', icon: <CheckCircle2 size={14} className="text-rose-500" /> },
+    { label: 'Answer Keys', href: '/?q=key#recruitment-feed-top', icon: <Key size={14} className="text-amber-500" /> },
+    { label: 'About', href: '/about', icon: <Info size={14} className="text-slate-500" /> },
+    { label: 'Contact', href: '/contact', icon: <Mail size={14} className="text-slate-500" /> },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
+    <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors">
       {/* Top Notification / Community Bar */}
       <div className="bg-gradient-to-r from-blue-50 via-slate-100 to-indigo-50 dark:from-blue-900/40 dark:via-slate-900 dark:to-indigo-900/40 border-b border-slate-200 dark:border-slate-800/80 py-1.5 px-4 text-xs transition-colors">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -35,7 +37,7 @@ export default function Header() {
               href="https://t.me/career135"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-sm"
+              className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
             >
               <Send size={11} /> Telegram
             </a>
@@ -43,7 +45,7 @@ export default function Header() {
               href="https://whatsapp.com/channel/career135"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-sm"
+              className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
             >
               <MessageCircle size={11} /> WhatsApp
             </a>
@@ -70,7 +72,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -117,7 +119,7 @@ export default function Header() {
               href="https://t.me/career135"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-sm"
+              className="flex-1 text-center py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-xs"
             >
               Join Telegram
             </a>
@@ -125,7 +127,7 @@ export default function Header() {
               href="https://whatsapp.com/channel/career135"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm"
+              className="flex-1 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-xs"
             >
               Join WhatsApp
             </a>
