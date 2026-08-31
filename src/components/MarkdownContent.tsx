@@ -6,6 +6,21 @@ interface MarkdownContentProps {
   content: string;
 }
 
+function normalizeMarkdownUrl(url?: string): string {
+  if (!url) return '#';
+  const trimmed = url.trim();
+  if (!trimmed || trimmed === '#' || trimmed.startsWith('mailto:') || trimmed.startsWith('tel:')) {
+    return trimmed;
+  }
+  if (trimmed.startsWith('/') || trimmed.startsWith('./')) {
+    return trimmed;
+  }
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  return `https://${trimmed}`;
+}
+
 export default function MarkdownContent({ content }: MarkdownContentProps) {
   return (
     <div className="markdown-content text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed space-y-4">
@@ -100,17 +115,20 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
               {children}
             </td>
           ),
-          a: ({ href, children }) => (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline font-semibold transition-colors"
-            >
-              <span>{children}</span>
-              <ExternalLink size={12} />
-            </a>
-          ),
+          a: ({ href, children }) => {
+            const safeHref = normalizeMarkdownUrl(href);
+            return (
+              <a
+                href={safeHref}
+                target={safeHref.startsWith('http') ? '_blank' : undefined}
+                rel={safeHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline font-semibold transition-colors"
+              >
+                <span>{children}</span>
+                {safeHref.startsWith('http') && <ExternalLink size={12} />}
+              </a>
+            );
+          },
           hr: () => <hr className="my-8 border-slate-200 dark:border-slate-800" />,
         }}
       >
