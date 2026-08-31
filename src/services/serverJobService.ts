@@ -46,54 +46,55 @@ function inferJobAttributes(item: RawJobData): Partial<Job> {
   const content = item.website_content?.markdown_content || '';
   const fullText = `${title} ${content}`.toLowerCase();
 
-  // Infer Category if not already present
+  // Accurate Category Classification with strict word-boundary matching
   let category: Job['category'] = (item.category as Job['category']) || 'General';
   if (!item.category || item.category === 'General') {
-    if (/nurse|aiims|medical|doctor|health|hospital|wbhrb|pharmacist|esic/i.test(fullText)) {
-      category = 'Healthcare';
-    } else if (/bank|sbi|ibps|rbi|nabard|clerk|po\b|lic/i.test(fullText)) {
-      category = 'Banking';
-    } else if (/engineer|software|developer|react|tech|bsnl|isro|drdo|gate|programmer|it officer/i.test(fullText)) {
-      category = 'Engineering';
-    } else if (/rrb|railway|ssc|upsc|psc|police|constable|si\b|group d|patwari|govt|government/i.test(fullText)) {
-      category = 'Government';
-    } else if (/army|navy|air force|defence|nda|cds|afcat|crpf|bsf|cisf/i.test(fullText)) {
+    if (/\b(army|navy|air force|airforce|defence|defense|nda|cds|afcat|crpf|bsf|cisf|itbp|ssb|agniveer|military|coast guard|territorial army|tes-\d+|cantonment)\b/i.test(fullText)) {
       category = 'Defence';
-    } else if (/teacher|tgt|pgt|prt|professor|lecturer|ctet|tet|ugc net|school/i.test(fullText)) {
+    } else if (/\b(nurse|nursing|aiims|medical|doctor|mbbs|hospital|wbhrb|pharmacist|esic|health|ayush|paramedical|lab technician)\b/i.test(fullText)) {
+      category = 'Healthcare';
+    } else if (/\b(teacher|tgt|pgt|prt|professor|lecturer|ctet|tet|ugc net|school|headmaster|faculty|bed|b\.ed)\b/i.test(fullText)) {
       category = 'Teaching';
-    } else if (/state|wb|bihar|up\b|rajasthan|delhi|maharashtra|odisha|kerala/i.test(fullText)) {
+    } else if (/\b(bank|banking|sbi|ibps|rbi|nabard|\bclerk\b|\bpo\b|\blic\b|sidbi|canara|pnb|bob|bank of baroda)\b/i.test(fullText)) {
+      category = 'Banking';
+    } else if (/\b(engineer|engineering|software|developer|react|node|bsnl|isro|drdo|gate|programmer|it officer|technician|junior engineer|\bje\b)\b/i.test(fullText)) {
+      category = 'Engineering';
+    } else if (/\b(state|wbpsc|bpsc|uppsc|rpsc|mpsc|opsc|kpsc|hssc|dsssb|high court|panchayat)\b/i.test(fullText)) {
       category = 'State Exams';
+    } else if (/\b(rrb|railway|ssc|upsc|psc|police|constable|sub inspector|patwari|ias|ips|collector|group c|group d|govt|sarkari|recruitment)\b/i.test(fullText)) {
+      category = 'Government';
+    } else {
+      category = 'Government';
     }
   }
 
   // Infer Organization
   let organization = item.organization || '';
   if (!organization) {
-    const orgMatch = title.match(/^([A-Z0-9\s]{2,10})\b/);
-    if (orgMatch && orgMatch[1].trim().length >= 2) {
-      organization = orgMatch[1].trim();
-    } else if (title.includes('AIIMS')) organization = 'AIIMS';
-    else if (title.includes('RRB')) organization = 'Railway Recruitment Board';
+    if (title.includes('Indian Army') || title.includes('Army')) organization = 'Indian Army';
+    else if (title.includes('Indian Navy') || title.includes('Navy')) organization = 'Indian Navy';
+    else if (title.includes('Air Force') || title.includes('IAF')) organization = 'Indian Air Force';
+    else if (title.includes('AIIMS')) organization = 'AIIMS';
+    else if (title.includes('RRB') || title.includes('Railway')) organization = 'Railway Recruitment Board';
     else if (title.includes('SSC')) organization = 'Staff Selection Commission';
     else if (title.includes('UPSC')) organization = 'Union Public Service Commission';
     else if (title.includes('BSNL')) organization = 'BSNL';
     else if (title.includes('SBI')) organization = 'State Bank of India';
+    else if (title.includes('IBPS')) organization = 'IBPS';
     else if (title.includes('WBHRB')) organization = 'WBHRB';
-    else if (title.includes('Indian Army')) organization = 'Indian Army';
     else if (title.includes('MPSC')) organization = 'Maharashtra PSC';
     else if (title.includes('Gujarat')) organization = 'Gujarat Govt';
-    else organization = 'Govt Recruitment';
+    else {
+      const orgMatch = title.match(/^([A-Z0-9\s]{2,12})\b/);
+      organization = orgMatch && orgMatch[1].trim().length >= 2 ? orgMatch[1].trim() : 'Govt Authority';
+    }
   }
 
   // Infer Vacancies
   let vacancies = item.vacancies || '';
   if (!vacancies) {
     const vacancyMatch = title.match(/(\d+[\d,]*)\s*(?:posts?|vacanc(?:y|ies))/i) || content.match(/(\d+[\d,]*)\s*(?:posts?|vacanc(?:y|ies))/i);
-    if (vacancyMatch) {
-      vacancies = vacancyMatch[1];
-    } else {
-      vacancies = 'Multiple';
-    }
+    vacancies = vacancyMatch ? vacancyMatch[1] : 'Multiple';
   }
 
   const summary = item.website_content?.summary || content
