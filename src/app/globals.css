@@ -46,6 +46,26 @@ body {
   scrollbar-width: none;
 }
 
+/* Smooth Infinite Marquee Animation */
+@keyframes ticker-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-marquee 40s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
 /* Print Friendly Styles for Job Aspirants */
 @media print {
   header, footer, aside, .no-print, [data-ad-unit], button {
