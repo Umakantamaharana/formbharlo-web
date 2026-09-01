@@ -207,9 +207,41 @@ export default async function JobPage({ params }: Props) {
     ],
   };
 
+  // High-CTR Google SERP FAQ Schema
+  const jsonLdFAQ = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `What is the application deadline for ${job.website_content?.title}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `The deadline to apply is ${job.deadline || 'as specified in the official notification. Candidates are advised to apply early.'}`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `What are the total vacancies for ${job.website_content?.title}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Total vacancies: ${job.vacancies || 'Multiple posts'} with recruiting body ${job.organization || 'Govt Authority'}. Location: ${job.location || 'All India'}.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Where can I find the official direct apply link for ${job.website_content?.title}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `You can access the verified direct application link and official authority portal in the Useful Important Links table on Career135.`,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-6 sm:py-8 transition-colors">
-      {/* Schema Injection */}
+      {/* Schema Injections */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdJobPosting) }}
@@ -217,6 +249,10 @@ export default async function JobPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
