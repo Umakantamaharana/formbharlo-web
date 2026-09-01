@@ -193,11 +193,14 @@ export const fetchJobsServer = async (): Promise<Job[]> => {
 
   let rawData: RawJobData[] = [];
 
-  // Strategy 1: Look in backend monorepo folder first if available
-  const backendPath = path.join(process.cwd(), '..', 'job-scrapper-backend', 'latest_jobs.json');
-  if (fs.existsSync(backendPath)) {
+  // Strategy 1: Look in backend folder first if available
+  const backendPath = path.join(process.cwd(), '..', 'formbharlo-scraper', 'latest_jobs.json');
+  const legacyBackendPath = path.join(process.cwd(), '..', 'job-scrapper-backend', 'latest_jobs.json');
+  const activeBackendPath = fs.existsSync(backendPath) ? backendPath : (fs.existsSync(legacyBackendPath) ? legacyBackendPath : null);
+
+  if (activeBackendPath) {
     try {
-      const fileContent = fs.readFileSync(backendPath, 'utf8');
+      const fileContent = fs.readFileSync(activeBackendPath, 'utf8');
       rawData = JSON.parse(fileContent) as RawJobData[];
     } catch (e) {
       console.warn('Could not read backend JSON:', e);
@@ -220,12 +223,20 @@ export const fetchJobsServer = async (): Promise<Job[]> => {
   // Strategy 3: Fallback to remote GitHub repository
   if (!rawData || rawData.length === 0) {
     try {
-      const response = await fetch(
+      const urls = [
+        'https://raw.githubusercontent.com/Umakantamaharana/formbharlo-scraper/main/latest_jobs.json',
         'https://raw.githubusercontent.com/Umakantamaharana/job-scrapper-backend/main/latest_jobs.json',
-        { next: { revalidate: 1800 } }
-      );
-      if (response.ok) {
-        rawData = (await response.json()) as RawJobData[];
+      ];
+      for (const url of urls) {
+        try {
+          const response = await fetch(url, { next: { revalidate: 1800 } });
+          if (response.ok) {
+            rawData = (await response.json()) as RawJobData[];
+            break;
+          }
+        } catch {
+          // try next
+        }
       }
     } catch (error) {
       console.warn('Could not fetch from remote GitHub repo:', error);
