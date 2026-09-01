@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Mediapartners-Google
+Allow: /
+
+Host: https://formbharlo.in
+Sitemap: https://formbharlo.in/sitemap.xml
