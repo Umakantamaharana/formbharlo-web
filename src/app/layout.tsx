@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import AdSenseScript from '@/components/AdSenseScript';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import Link from 'next/link';
 import { Sparkles, ShieldCheck } from 'lucide-react';
 
@@ -209,6 +210,7 @@ export default function RootLayout({
           </div>
         </footer>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
