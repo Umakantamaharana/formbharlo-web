@@ -337,13 +337,13 @@ export default function ImageResizerPage() {
 
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
+                className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-colors duration-200 ${
                   rawImageSrc
-                    ? 'border-blue-500/50 bg-blue-50/20 dark:bg-blue-950/20'
-                    : 'border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:bg-slate-50 dark:hover:bg-slate-850/50 bg-slate-50/40 dark:bg-slate-950/40'
+                    ? 'border-blue-500/50 dark:border-indigo-500/40 bg-blue-50/20 dark:bg-slate-900/80'
+                    : 'border-slate-300 dark:border-slate-800 hover:border-blue-500/60 dark:hover:border-slate-700 bg-slate-50/40 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80'
                 }`}
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-3 shadow-inner">
                   <Upload size={22} />
                 </div>
                 <div>
@@ -397,10 +397,10 @@ export default function ImageResizerPage() {
                         key={preset.id}
                         type="button"
                         onClick={() => handlePresetSelect(preset.id)}
-                        className={`text-left p-3.5 rounded-2xl border transition-all cursor-pointer relative group ${
+                        className={`text-left p-3.5 rounded-2xl border transition-colors duration-200 cursor-pointer relative group ${
                           isSelected
-                            ? 'border-blue-600 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/50 shadow-xs ring-1 ring-blue-500/20'
-                            : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 dark:bg-slate-850/40'
+                            ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 shadow-xs ring-1 ring-blue-500/20'
+                            : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80'
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1">
@@ -477,10 +477,10 @@ export default function ImageResizerPage() {
                     <button
                       type="button"
                       onClick={() => setResizeMode('fit-pad')}
-                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
+                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'fit-pad'
-                          ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Fit &amp; White Pad (Official)
@@ -488,10 +488,10 @@ export default function ImageResizerPage() {
                     <button
                       type="button"
                       onClick={() => setResizeMode('crop-fill')}
-                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
+                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'crop-fill'
-                          ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Smart Center Crop
@@ -499,10 +499,10 @@ export default function ImageResizerPage() {
                     <button
                       type="button"
                       onClick={() => setResizeMode('stretch')}
-                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
+                      className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'stretch'
-                          ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Exact Stretch
