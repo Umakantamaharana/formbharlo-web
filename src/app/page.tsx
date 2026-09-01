@@ -20,13 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-interface HomePageProps {
-  searchParams: Promise<{ cat?: string }>;
-}
-
-export default async function HomePage({ searchParams }: HomePageProps) {
-  const params = await searchParams;
-  const initialCategory = params?.cat || 'All Notifications';
+export default async function HomePage() {
   const jobs = await fetchJobsServer();
 
   // Metrics
@@ -57,7 +51,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
                 All Active Recruitment Notices
               </h2>
             </div>
-            <JobFilterFeed initialJobs={jobs} initialCategory={initialCategory} />
+            <JobFilterFeed initialJobs={jobs} />
           </div>
 
           {/* Sidebar Column */}
