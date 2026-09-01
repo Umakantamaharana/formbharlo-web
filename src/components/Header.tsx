@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, Briefcase, Award, CheckCircle2, Key, Info, Mail, Menu, X, Send, MessageCircle, Sparkles } from 'lucide-react';
+import { Home, Briefcase, Award, CheckCircle2, Key, Crop, Info, Mail, Menu, X, Send, MessageCircle, Sparkles } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
@@ -14,6 +14,7 @@ export default function Header() {
     { label: 'Admit Cards', href: '/?q=admit#recruitment-feed-top', icon: <Award size={14} className="text-emerald-500" /> },
     { label: 'Results', href: '/?q=result#recruitment-feed-top', icon: <CheckCircle2 size={14} className="text-rose-500" /> },
     { label: 'Answer Keys', href: '/?q=key#recruitment-feed-top', icon: <Key size={14} className="text-amber-500" /> },
+    { label: 'Photo Resizer', href: '/tools/image-resizer', icon: <Crop size={14} className="text-purple-500" /> },
     { label: 'About', href: '/about', icon: <Info size={14} className="text-slate-500" /> },
     { label: 'Contact', href: '/contact', icon: <Mail size={14} className="text-slate-500" /> },
   ];

@@ -10,42 +10,47 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Career135 | Latest Govt Jobs, Exam Dates, Results & Career Updates',
+    default: 'Career135 - Sarkari Result, Latest Govt Jobs, Admit Cards & Exam Dates 2026',
     template: '%s | Career135',
   },
-  description: 'Career135 is India’s premier job alert platform. Get real-time updates for Central & State Government Jobs, Admit Cards, Answer Keys, Results, and Tech Recruitment.',
+  description:
+    'Find instant updates on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
   keywords: [
-    'Govt Jobs 2026',
     'Sarkari Result',
+    'Govt Jobs 2026',
+    'Sarkari Naukri',
     'Free Job Alert',
-    'Railway Recruitment',
-    'SSC Exam',
-    'UPSC Notification',
-    'Banking Jobs',
-    'Engineering Jobs',
-    'Career135'
+    'Admit Card 2026',
+    'Exam Dates',
+    'SSC CGL',
+    'RRB NTPC',
+    'UPSC Recruitment',
+    'Bank PO Jobs',
   ],
   authors: [{ name: 'Career135 Editorial Team' }],
   creator: 'Career135',
   publisher: 'Career135',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   alternates: {
-    canonical: '/',
+    canonical: siteUrl,
     types: {
-      'application/rss+xml': [{ url: '/feed.xml', title: 'Career135 RSS Feed' }],
+      'application/rss+xml': [{ url: `${siteUrl}/feed.xml`, title: 'Career135 RSS Feed' }],
     },
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_IN',
+    title: 'Career135 - Sarkari Result, Latest Govt Jobs & Exam Dates 2026',
+    description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Sarkari Alerts.',
     url: siteUrl,
-    title: 'Career135 | Latest Govt Jobs, Exam Dates, Results & Career Updates',
-    description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Tech Careers in India.',
     siteName: 'Career135',
+    images: [
+      {
+        url: `${siteUrl}/globe.svg`,
+        width: 1200,
+        height: 630,
+        alt: 'Career135 Sarkari Job Portal',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -135,7 +140,7 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               {/* Brand Col */}
-              <div className="md:col-span-1 space-y-4">
+              <div className="md:span-1 space-y-4">
                 <Link href="/" className="flex items-center gap-2">
                   <div className="bg-blue-600 text-white p-2 rounded-xl shadow-lg shadow-blue-500/20">
                     <Briefcase size={20} />
@@ -167,11 +172,11 @@ export default function RootLayout({
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-4">Quick Resources</h4>
                 <ul className="space-y-2 text-xs">
+                  <li><Link href="/tools/image-resizer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Photo &amp; Signature Resizer</Link></li>
                   <li><Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Career135</Link></li>
                   <li><Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Support</Link></li>
                   <li><Link href="/feed.xml" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">RSS Feed (XML)</Link></li>
                   <li><Link href="/sitemap.xml" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">HTML / XML Sitemap</Link></li>
-                  <li><Link href="/admin" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Admin Portal</Link></li>
                 </ul>
               </div>
 
