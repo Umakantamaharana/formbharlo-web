@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="check-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Outer Badge -->
+  <rect x="24" y="24" width="464" height="464" rx="128" fill="url(#bg-grad)" filter="url(#shadow)" />
+  
+  <!-- Subtle Inner Border Highlight -->
+  <rect x="25" y="25" width="462" height="462" rx="127" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" />
+
+  <!-- Stylized Geometric "F" + Form + Checkmark Emblem -->
+  <g transform="translate(10, 5)">
+    <!-- Vertical Backbone of F -->
+    <rect x="135" y="115" width="60" height="270" rx="30" fill="#ffffff" />
+    
+    <!-- Top Horizontal Bar of F -->
+    <rect x="135" y="115" width="220" height="58" rx="29" fill="#ffffff" />
+    
+    <!-- Middle Horizontal Bar of F (Form Action Bar) -->
+    <rect x="135" y="230" width="160" height="54" rx="27" fill="#ffffff" opacity="0.95" />
+
+    <!-- Cyan Glow Accents on Top Tip -->
+    <circle cx="340" cy="144" r="15" fill="url(#accent-grad)" />
+
+    <!-- Form Checkmark Badge / Verification Seal -->
+    <g transform="translate(285, 235) scale(0.95)">
+      <!-- Checkmark Badge Base -->
+      <circle cx="65" cy="65" r="55" fill="#0f172a" stroke="#ffffff" stroke-width="8" />
+      <!-- Green Check Icon -->
+      <path d="M42 66 L58 82 L90 48" fill="none" stroke="url(#check-grad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>
