@@ -588,15 +588,27 @@ export default function ImageResizerPage() {
                         onClick={() => handlePresetSelect(preset.id)}
                         className={`text-left p-3.5 rounded-2xl border transition-colors duration-200 cursor-pointer relative group ${
                           isSelected
-                            ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 shadow-xs ring-1 ring-blue-500/20'
-                            : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80'
+                            ? 'border-blue-600 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/30 shadow-xs ring-1 ring-blue-500/30'
+                            : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/60'
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                          <span
+                            className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                              isSelected
+                                ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300'
+                                : 'bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                            }`}
+                          >
                             {preset.category}
                           </span>
-                          <span className="text-[10px] font-extrabold text-blue-600 dark:text-blue-400 bg-blue-100/80 dark:bg-blue-950/60 px-1.5 py-0.5 rounded">
+                          <span
+                            className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded ${
+                              isSelected
+                                ? 'text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/60'
+                                : 'text-slate-700 dark:text-slate-300 bg-slate-200/70 dark:bg-slate-800'
+                            }`}
+                          >
                             {preset.minKB} – {preset.maxKB} KB
                           </span>
                         </div>
@@ -694,8 +706,8 @@ export default function ImageResizerPage() {
                       onClick={() => setResizeMode('fit-pad')}
                       className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'fit-pad'
-                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
+                          ? 'border-blue-600 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/60 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Fit &amp; White Pad (Official)
@@ -705,8 +717,8 @@ export default function ImageResizerPage() {
                       onClick={() => setResizeMode('crop-fill')}
                       className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'crop-fill'
-                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
+                          ? 'border-blue-600 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/60 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Smart Center Crop
@@ -716,8 +728,8 @@ export default function ImageResizerPage() {
                       onClick={() => setResizeMode('stretch')}
                       className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-colors duration-200 cursor-pointer ${
                         resizeMode === 'stretch'
-                          ? 'border-blue-600 dark:border-indigo-500/80 bg-blue-50/80 dark:bg-slate-850 text-blue-700 dark:text-blue-300 shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400'
+                          ? 'border-blue-600 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/60 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       Exact Stretch
