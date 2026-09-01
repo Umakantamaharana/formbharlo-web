@@ -5,37 +5,37 @@ const SocialLinks: React.FC = () => {
   const socials = [
     {
       name: 'WhatsApp Channel',
-      url: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/career135',
+      url: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo',
       icon: <MessageCircle size={18} />,
       color: 'hover:bg-emerald-600 hover:text-white',
     },
     {
       name: 'Telegram Group',
-      url: process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/career135',
+      url: process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharlo',
       icon: <Send size={18} />,
       color: 'hover:bg-sky-600 hover:text-white',
     },
     {
       name: 'Twitter / X',
-      url: 'https://twitter.com/career135',
+      url: 'https://twitter.com/formbharlo',
       icon: <Twitter size={18} />,
       color: 'hover:bg-slate-700 hover:text-white',
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/company/career135',
+      url: 'https://linkedin.com/company/formbharlo',
       icon: <Linkedin size={18} />,
       color: 'hover:bg-blue-700 hover:text-white',
     },
     {
       name: 'YouTube',
-      url: 'https://youtube.com/@career135',
+      url: 'https://youtube.com/@formbharlo',
       icon: <Youtube size={18} />,
       color: 'hover:bg-red-600 hover:text-white',
     },
     {
       name: 'Instagram',
-      url: 'https://instagram.com/career135',
+      url: 'https://instagram.com/formbharlo',
       icon: <Instagram size={18} />,
       color: 'hover:bg-pink-600 hover:text-white',
     },

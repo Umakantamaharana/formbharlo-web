@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY || 'career135indexnowkey2026';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || 'formbharloindexnowkey2026';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
 export async function POST(req: NextRequest) {
   try {

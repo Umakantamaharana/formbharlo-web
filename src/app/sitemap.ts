@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { fetchJobsServer } from '@/services/serverJobService';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
   const staticPages: MetadataRoute.Sitemap = [
     {

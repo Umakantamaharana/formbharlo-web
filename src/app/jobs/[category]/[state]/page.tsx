@@ -10,7 +10,7 @@ interface Props {
   params: Promise<{ category: string; state: string }>;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
 function formatParam(slug: string): string {
   return slug
@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateName = formatParam(p.state);
 
   const title = `Latest ${categoryName} Jobs in ${stateName} 2026 - Vacancies, Eligibility & Online Form`;
-  const description = `Find all active ${categoryName} recruitment notifications, admit cards, and exam dates in ${stateName} 2026. 100% verified direct official application links on Career135.`;
+  const description = `Find all active ${categoryName} recruitment notifications, admit cards, and exam dates in ${stateName} 2026. 100% verified direct official application links on FormBharlo.`;
   const canonicalUrl = `${siteUrl}/jobs/${p.category}/${p.state}`;
 
   return {
-    title: `${title} | Career135`,
+    title: `${title} | FormBharlo`,
     description,
     alternates: {
       canonical: canonicalUrl,

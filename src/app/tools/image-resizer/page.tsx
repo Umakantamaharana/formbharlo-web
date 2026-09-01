@@ -301,7 +301,7 @@ export default function ImageResizerPage() {
                       🚀 Never miss application deadlines for SSC &amp; Railways!
                     </span>
                     <a
-                      href="https://t.me/career135"
+                      href="https://t.me/formbharlo"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-xs transition-all"

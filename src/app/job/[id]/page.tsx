@@ -27,7 +27,7 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
 function getActionContext(actionText: string, titleText: string) {
   const combined = `${actionText} ${titleText}`.toLowerCase();
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const job = await getJobByIdServer(p.id);
 
   if (!job) {
-    return { title: 'Job Not Found | Career135' };
+    return { title: 'Job Not Found | FormBharlo' };
   }
 
   const title = `${job.website_content?.title || 'Govt Job Notification 2026'}`;
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${siteUrl}/job/${job.id}`;
 
   return {
-    title: `${title} | Career135`,
+    title: `${title} | FormBharlo`,
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -158,15 +158,15 @@ export default async function JobPage({ params }: Props) {
     description: job.website_content?.markdown_content || job.website_content?.summary || '',
     identifier: {
       '@type': 'PropertyValue',
-      name: job.organization || 'Career135',
-      value: `CAREER135-${job.id}`,
+      name: job.organization || 'FormBharlo',
+      value: `FORMBHARLO-${job.id}`,
     },
     datePosted,
     validThrough: expiryDate,
     employmentType: job.type === 'Part-time' ? 'PART_TIME' : 'FULL_TIME',
     hiringOrganization: {
       '@type': 'Organization',
-      name: job.organization || 'Career135 Job Updates',
+      name: job.organization || 'FormBharlo Job Updates',
       sameAs: siteUrl,
     },
     jobLocation: {
@@ -233,7 +233,7 @@ export default async function JobPage({ params }: Props) {
         name: `Where can I find the official direct apply link for ${job.website_content?.title}?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `You can access the verified direct application link and official authority portal in the Useful Important Links table on Career135.`,
+          text: `You can access the verified direct application link and official authority portal in the Useful Important Links table on FormBharlo.`,
         },
       },
     ],
@@ -448,7 +448,7 @@ export default async function JobPage({ params }: Props) {
                   </h4>
                   <ShareButtons
                     title={job.website_content?.title || 'Job Update'}
-                    url={`https://career135.com/job/${job.id}`}
+                    url={`${siteUrl}/job/${job.id}`}
                   />
                 </div>
               </div>

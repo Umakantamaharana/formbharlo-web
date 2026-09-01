@@ -104,7 +104,7 @@ export default function AdminDashboard() {
               <Briefcase size={22} className="text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">Career135 Job Management Console</h1>
+              <h1 className="text-xl font-bold text-white">FormBharlo Job Management Console</h1>
               <p className="text-xs text-slate-400">Total Records: {jobs.length} &bull; Manage live status and application URLs</p>
             </div>
           </div>

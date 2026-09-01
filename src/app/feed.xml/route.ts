@@ -17,7 +17,7 @@ function escapeXml(unsafe: string): string {
 }
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
   const jobs = await fetchJobsServer();
 
   const itemsXml = jobs
@@ -48,9 +48,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Career135 - Latest Govt Jobs, Exam Dates &amp; Results</title>
+    <title>FormBharlo - Latest Govt Jobs, Exam Dates &amp; Results</title>
     <link>${siteUrl}</link>
-    <description>Instant job updates, govt notifications, admit cards, and results in India.</description>
+    <description>Har Sarkari Bharti, Ek Jagah - Instant job updates, govt notifications, admit cards, and results in India.</description>
     <language>en-in</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>

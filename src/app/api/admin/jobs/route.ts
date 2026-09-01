@@ -93,7 +93,7 @@ export async function POST(request: Request) {
             sha: sha, // The blob SHA of the file being replaced
             committer: {
                 name: 'Admin Dashboard',
-                email: 'admin@career135.com',
+                email: 'admin@formbharlo.in',
             },
         });
 

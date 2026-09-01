@@ -3,8 +3,8 @@ import { Mail, MessageSquare, Send, Clock } from 'lucide-react';
 import SocialLinks from '@/components/SocialLinks';
 
 export const metadata = {
-  title: 'Contact Us | Career135 Support & Queries',
-  description: 'Reach out to the Career135 team for feedback, correction requests, advertisements, or job alert inquiries.',
+  title: 'Contact Us | FormBharlo Support & Queries',
+  description: 'Reach out to the FormBharlo team for feedback, correction requests, advertisements, or job alert inquiries.',
 };
 
 export default function ContactPage() {
@@ -22,7 +22,7 @@ export default function ContactPage() {
             We’d Love to Hear From You
           </h1>
           <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Have a question about a job post, found a broken link, or want to partner with Career135? Our support team is here to assist.
+            Have a question about a job post, found a broken link, or want to partner with FormBharlo? Our support team is here to assist.
           </p>
         </div>
 
@@ -38,8 +38,8 @@ export default function ContactPage() {
                 <Mail className="text-blue-400 shrink-0 mt-0.5" size={18} />
                 <div>
                   <span className="text-xs text-slate-400 block font-medium">Official Contact Email</span>
-                  <a href="mailto:support@career135.com" className="text-white font-bold hover:text-blue-400 transition-colors">
-                    support@career135.com
+                  <a href="mailto:support@formbharlo.in" className="text-white font-bold hover:text-blue-400 transition-colors">
+                    support@formbharlo.in
                   </a>
                 </div>
               </div>

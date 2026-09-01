@@ -9,8 +9,8 @@ interface CommunityBannerProps {
 }
 
 const CommunityBanner: React.FC<CommunityBannerProps> = ({ variant = 'full', className = '' }) => {
-  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/career135';
-  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/career135';
+  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharlo';
+  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo';
 
   if (variant === 'compact' || variant === 'sidebar') {
     return (

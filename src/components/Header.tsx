@@ -35,7 +35,7 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://t.me/career135"
+              href="https://t.me/formbharlo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
@@ -43,7 +43,7 @@ export default function Header() {
               <Send size={11} /> Telegram
             </a>
             <a
-              href="https://whatsapp.com/channel/career135"
+              href="https://whatsapp.com/channel/formbharlo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
@@ -59,15 +59,15 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
-              C
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+              F
             </div>
             <div>
               <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                CAREER<span className="text-blue-600">135</span>
+                FORM<span className="text-blue-600">BHARLO</span>
               </span>
               <span className="block text-[10px] uppercase font-bold tracking-widest text-slate-500 dark:text-slate-400 -mt-1">
-                Sarkari Exam Portal
+                Har Sarkari Bharti, Ek Jagah
               </span>
             </div>
           </Link>
@@ -117,7 +117,7 @@ export default function Header() {
           ))}
           <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
             <a
-              href="https://t.me/career135"
+              href="https://t.me/formbharlo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-xs"
@@ -125,7 +125,7 @@ export default function Header() {
               Join Telegram
             </a>
             <a
-              href="https://whatsapp.com/channel/career135"
+              href="https://whatsapp.com/channel/formbharlo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-xs"

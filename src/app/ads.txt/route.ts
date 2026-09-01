@@ -7,7 +7,7 @@ export async function GET() {
   const cleanPubId = publisherId.replace(/^ca-/, '');
 
   // Standard IAB ads.txt format for Google AdSense & direct authorized sellers
-  const adsTxtContent = `# Career135 Authorized Digital Sellers (ads.txt)
+  const adsTxtContent = `# FormBharlo Authorized Digital Sellers (ads.txt)
 google.com, ${cleanPubId}, DIRECT, f08c47fec0942fa0
 `;
 

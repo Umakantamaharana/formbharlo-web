@@ -3,8 +3,8 @@ import { Target, Zap, CheckCircle2, Award, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Career135 - India\'s Trusted Govt & Tech Job Alerts',
-  description: 'Learn about Career135, our mission to deliver fast, verified, and direct recruitment notifications across Central & State departments in India.',
+  title: 'About FormBharlo - India\'s Trusted Govt & Sarkari Job Alerts',
+  description: 'Learn about FormBharlo, our mission to deliver fast, verified, and direct recruitment notifications across Central & State departments in India.',
 };
 
 export default function AboutPage() {
@@ -16,10 +16,10 @@ export default function AboutPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/40 text-blue-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-4">
             <Award size={14} className="text-blue-400" />
-            About Career135
+            About FormBharlo
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Empowering Job Seekers Across India
+            Har Sarkari Bharti, Ek Jagah
           </h1>
           <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             We simplify the career search landscape by aggregating authentic job openings, entrance tests, hall tickets, answer keys, and official notification PDFs in one unified place.
@@ -34,7 +34,7 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-sm leading-relaxed">
-              Every day, thousands of public sector and private career notices are scattered across hundreds of municipal, state, and central departmental websites. Our mission at <strong>Career135</strong> is to eliminate information asymmetry by providing clean, clutter-free, and real-time alerts directly linked to official application portals.
+              Every day, thousands of public sector and career notices are scattered across hundreds of municipal, state, and central departmental websites. Our mission at <strong>FormBharlo</strong> is to eliminate information asymmetry by providing clean, clutter-free, and real-time alerts directly linked to official application portals.
             </p>
           </div>
 

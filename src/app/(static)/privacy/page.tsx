@@ -2,8 +2,8 @@ import React from 'react';
 import { ShieldCheck, Lock, Eye, FileText } from 'lucide-react';
 
 export const metadata = {
-  title: 'Privacy Policy | Career135',
-  description: 'Career135 Privacy Policy, Google AdSense cookie consent, data practices, and user rights.',
+  title: 'Privacy Policy | FormBharlo',
+  description: 'FormBharlo Privacy Policy, Google AdSense cookie consent, data practices, and user rights.',
 };
 
 export default function PrivacyPage() {
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
               1. Overview
             </h2>
             <p>
-              At <strong>Career135</strong> (accessible from <code className="text-blue-300">https://career135.com</code>), protecting the privacy of our visitors is of utmost priority. This document details the types of information collected and recorded by Career135 and how we utilize it.
+              At <strong>FormBharlo</strong> (accessible from <code className="text-blue-300">https://formbharlo.in</code>), protecting the privacy of our visitors is of utmost priority. This document details the types of information collected and recorded by FormBharlo and how we utilize it.
             </p>
           </section>
 
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
               2. Cookies and Web Beacons
             </h2>
             <p>
-              Like most professional portals, Career135 uses standard &quot;cookies&quot;. These cookies store visitor preferences, user sessions, and pages accessed to personalize content and improve site performance.
+              Like most professional portals, FormBharlo uses standard &quot;cookies&quot;. These cookies store visitor preferences, user sessions, and pages accessed to personalize content and improve site performance.
             </p>
           </section>
 
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
               3. Google DoubleClick DART Cookie &amp; AdSense
             </h2>
             <p>
-              Google is a third-party vendor on our site. It uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.career135.com and other sites on the internet.
+              Google is a third-party vendor on our site. It uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.formbharlo.in and other sites on the internet.
             </p>
             <p className="text-xs text-slate-400">
               Visitors may choose to decline the use of DART cookies by visiting the Google Ad and Content Network Privacy Policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">https://policies.google.com/technologies/ads</a>
@@ -63,21 +63,21 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-white">4. Log Files</h2>
             <p>
-              Career135 follows standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser types, Internet Service Providers (ISP), date/time stamps, referring/exit pages, and number of clicks. These are not linked to any personally identifiable information.
+              FormBharlo follows standard procedure of using log files. These files log visitors when they visit websites. The information collected includes IP addresses, browser types, Internet Service Providers (ISP), date/time stamps, referring/exit pages, and number of clicks. These are not linked to any personally identifiable information.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-white">5. Third-Party Privacy Policies</h2>
             <p>
-              Career135&apos;s Privacy Policy does not apply to other advertisers or external employment websites linked on our portal. We strongly advise consulting the respective Privacy Policies of these third-party ad servers and government portals for more detailed information.
+              FormBharlo&apos;s Privacy Policy does not apply to other advertisers or external employment websites linked on our portal. We strongly advise consulting the respective Privacy Policies of these third-party ad servers and government portals for more detailed information.
             </p>
           </section>
 
           <section className="space-y-3 pt-4 border-t border-slate-800">
             <h2 className="text-lg font-bold text-white">6. Consent &amp; Contact</h2>
             <p>
-              By using our website, you hereby consent to our Privacy Policy and agree to its terms. If you have additional questions, please reach us at <a href="mailto:support@career135.com" className="text-blue-400 hover:underline">support@career135.com</a>.
+              By using our website, you hereby consent to our Privacy Policy and agree to its terms. If you have additional questions, please reach us at <a href="mailto:support@formbharlo.in" className="text-blue-400 hover:underline">support@formbharlo.in</a>.
             </p>
           </section>
         </div>

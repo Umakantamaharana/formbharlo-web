@@ -3,50 +3,52 @@ import './globals.css';
 import Header from '@/components/Header';
 import AdSenseScript from '@/components/AdSenseScript';
 import Link from 'next/link';
-import { Briefcase, ShieldCheck } from 'lucide-react';
+import { Sparkles, ShieldCheck } from 'lucide-react';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://career135.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Career135 - Sarkari Result, Latest Govt Jobs, Admit Cards & Exam Dates 2026',
-    template: '%s | Career135',
+    default: 'FormBharlo - Sarkari Result, Latest Govt Jobs, Admit Cards & Online Forms 2026',
+    template: '%s | FormBharlo',
   },
   description:
-    'Find instant updates on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
+    'Har Sarkari Bharti, Ek Jagah - FormBharlo. Instant updates on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
   keywords: [
+    'FormBharlo',
     'Sarkari Result',
     'Govt Jobs 2026',
     'Sarkari Naukri',
     'Free Job Alert',
     'Admit Card 2026',
     'Exam Dates',
+    'Online Form',
     'SSC CGL',
     'RRB NTPC',
     'UPSC Recruitment',
     'Bank PO Jobs',
   ],
-  authors: [{ name: 'Career135 Editorial Team' }],
-  creator: 'Career135',
-  publisher: 'Career135',
+  authors: [{ name: 'FormBharlo Editorial Team' }],
+  creator: 'FormBharlo',
+  publisher: 'FormBharlo',
   alternates: {
     canonical: siteUrl,
     types: {
-      'application/rss+xml': [{ url: `${siteUrl}/feed.xml`, title: 'Career135 RSS Feed' }],
+      'application/rss+xml': [{ url: `${siteUrl}/feed.xml`, title: 'FormBharlo RSS Feed' }],
     },
   },
   openGraph: {
-    title: 'Career135 - Sarkari Result, Latest Govt Jobs & Exam Dates 2026',
-    description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Sarkari Alerts.',
+    title: 'FormBharlo - Sarkari Result, Latest Govt Jobs & Exam Dates 2026',
+    description: 'Har Sarkari Bharti, Ek Jagah. Instant notifications on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Sarkari Alerts.',
     url: siteUrl,
-    siteName: 'Career135',
+    siteName: 'FormBharlo',
     images: [
       {
         url: `${siteUrl}/globe.svg`,
         width: 1200,
         height: 630,
-        alt: 'Career135 Sarkari Job Portal',
+        alt: 'FormBharlo Sarkari Job Portal',
       },
     ],
     locale: 'en_IN',
@@ -54,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Career135 | Latest Govt Jobs & Career Updates',
-    description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Tech Careers.',
-    creator: '@career135',
+    title: 'FormBharlo | Har Sarkari Bharti, Ek Jagah',
+    description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Online Registration Links.',
+    creator: '@formbharlo',
   },
   robots: {
     index: true,
@@ -79,7 +81,7 @@ export default function RootLayout({
   const jsonLdWebsite = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Career135',
+    name: 'FormBharlo',
     url: siteUrl,
     potentialAction: {
       '@type': 'SearchAction',
@@ -91,14 +93,14 @@ export default function RootLayout({
   const jsonLdOrg = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Career135',
+    name: 'FormBharlo',
     url: siteUrl,
     logo: `${siteUrl}/globe.svg`,
     sameAs: [
-      'https://whatsapp.com/channel/career135',
-      'https://t.me/career135',
-      'https://twitter.com/career135',
-      'https://facebook.com/career135',
+      'https://whatsapp.com/channel/formbharlo',
+      'https://t.me/formbharlo',
+      'https://twitter.com/formbharlo',
+      'https://facebook.com/formbharlo',
     ],
   };
 
@@ -143,15 +145,15 @@ export default function RootLayout({
               <div className="md:span-1 space-y-4">
                 <Link href="/" className="flex items-center gap-2">
                   <div className="bg-blue-600 text-white p-2 rounded-xl shadow-lg shadow-blue-500/20">
-                    <Briefcase size={20} />
+                    <Sparkles size={20} />
                   </div>
-                  <span className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Career135</span>
+                  <span className="text-xl font-black text-slate-900 dark:text-white tracking-tight">FormBharlo</span>
                 </Link>
                 <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-                  Career135 is a dedicated job aggregation and informational portal bringing the latest government exam notices, hall tickets, results, and direct apply links across India.
+                  FormBharlo is India&apos;s fastest government job aggregation and exam alert portal, bringing direct apply links, verified hall tickets, answer keys, and instant result scorecards.
                 </p>
                 <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                  <ShieldCheck size={16} /> Verified Official Notifications
+                  <ShieldCheck size={16} /> 100% Verified Official Notifications
                 </div>
               </div>
 
@@ -173,7 +175,7 @@ export default function RootLayout({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-4">Quick Resources</h4>
                 <ul className="space-y-2 text-xs">
                   <li><Link href="/tools/image-resizer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Photo &amp; Signature Resizer</Link></li>
-                  <li><Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Career135</Link></li>
+                  <li><Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About FormBharlo</Link></li>
                   <li><Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Support</Link></li>
                   <li><Link href="/feed.xml" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">RSS Feed (XML)</Link></li>
                   <li><Link href="/sitemap.xml" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">HTML / XML Sitemap</Link></li>
@@ -189,14 +191,14 @@ export default function RootLayout({
                   <li><Link href="/ads.txt" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Authorized Sellers (ads.txt)</Link></li>
                 </ul>
                 <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-[11px] leading-tight text-slate-600 dark:text-slate-400">
-                  <strong>Disclaimer:</strong> Career135 is an independent job portal and is not associated with any government department or agency.
+                  <strong>Disclaimer:</strong> FormBharlo is an independent informational job aggregation portal and is not affiliated with any government organization or ministry.
                 </div>
               </div>
             </div>
 
             {/* Bottom Copyright */}
             <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-              <p>&copy; {new Date().getFullYear()} Career135. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} FormBharlo. All rights reserved.</p>
               <div className="flex items-center gap-6">
                 <Link href="/privacy" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Privacy</Link>
                 <Link href="/terms" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Terms</Link>

@@ -44,7 +44,7 @@ export default function AdminLogin() {
             <Briefcase size={28} className="text-white" />
           </div>
           <h2 className="text-2xl font-black text-white tracking-tight">
-            Career135 Management
+            FormBharlo Management
           </h2>
           <p className="text-xs text-slate-400">
             Authorized administrator credentials required

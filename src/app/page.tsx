@@ -12,11 +12,11 @@ import { ShieldCheck, Sparkles } from 'lucide-react';
 export const revalidate = 1800; // 30 minutes ISR revalidation
 
 export const metadata: Metadata = {
-  title: 'Career135 - Sarkari Result, Latest Govt Jobs, Admit Cards & Exam Dates 2026',
+  title: 'FormBharlo - Sarkari Result, Latest Govt Jobs, Admit Cards & Online Forms 2026',
   description:
-    'Instant alerts on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
+    'Har Sarkari Bharti, Ek Jagah. Instant alerts on latest Central & State Govt recruitment, SSC, RRB, UPSC, Banking, Defence, Teaching jobs, Admit Cards, and Results 2026.',
   alternates: {
-    canonical: 'https://career135.com',
+    canonical: 'https://formbharlo.in',
   },
 };
 
@@ -102,7 +102,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="space-y-1 max-w-xl">
               <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
-                Career135 &bull; Sarkari Job Intelligence
+                FormBharlo &bull; Har Sarkari Bharti, Ek Jagah
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Verified Central &amp; State government recruitment announcements, admit card download links, and merit list scorecards across India.
