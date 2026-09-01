@@ -45,7 +45,10 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
   const actionLabel = formatShortAction(job.website_content?.action);
 
   return (
-    <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-950/30 flex flex-col justify-between h-full overflow-hidden">
+    <div className="group bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800/90 hover:border-blue-500/50 dark:hover:border-indigo-500/40 rounded-2xl p-4 sm:p-5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/8 dark:hover:shadow-indigo-500/10 dark:hover:bg-slate-850/95 flex flex-col justify-between h-full overflow-hidden relative">
+      {/* Subtle Glowing Gradient Accent on Hover */}
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500/80 dark:group-hover:via-indigo-400/80 transition-all duration-500" />
+
       <div>
         {/* Top Badges */}
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
@@ -55,7 +58,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
             {category}
           </span>
 
-          <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-xs bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5 rounded">
+          <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-xs bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5 rounded border border-transparent dark:border-slate-750">
             <Calendar size={12} className="text-slate-400 shrink-0" />
             <span className="truncate">{job.date || 'Recent'}</span>
           </span>
@@ -70,7 +73,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         )}
 
         {/* Title */}
-        <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors line-clamp-2 mb-3 leading-snug">
+        <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 line-clamp-2 mb-3 leading-snug">
           <Link href={`/job/${job.id}`}>
             {job.website_content?.title || 'Govt Recruitment Notification'}
           </Link>
@@ -83,23 +86,23 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
               <Users size={11} className="shrink-0" /> {job.vacancies} Posts
             </span>
           )}
-          <span className="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded text-[11px] text-slate-600 dark:text-slate-300">
+          <span className="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 px-2 py-0.5 rounded text-[11px] text-slate-600 dark:text-slate-300">
             <MapPin size={11} className="text-slate-400 shrink-0" /> {job.location || 'India'}
           </span>
-          <span className="bg-emerald-50 dark:bg-slate-800/80 border border-emerald-200 dark:border-slate-700/60 px-2 py-0.5 rounded text-[11px] text-emerald-700 dark:text-emerald-400 font-medium">
+          <span className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/20 px-2 py-0.5 rounded text-[11px] text-emerald-700 dark:text-emerald-400 font-medium">
             Online Form
           </span>
         </div>
       </div>
 
-      {/* Card Action Buttons (Responsive Layout with zero overflow) */}
-      <div className="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 mt-auto">
+      {/* Card Action Buttons */}
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800/90 grid grid-cols-2 gap-2 mt-auto">
         <Link
           href={`/job/${job.id}`}
-          className="inline-flex items-center justify-center gap-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold py-2.5 px-2 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors text-center truncate"
+          className="inline-flex items-center justify-center gap-1 bg-slate-100 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white text-xs font-bold py-2.5 px-2 rounded-xl border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 text-center truncate"
         >
-          <span>View Notice</span>
-          <ArrowRight size={12} className="shrink-0" />
+          <span>View Details</span>
+          <ArrowRight size={13} className="shrink-0 group-hover:translate-x-0.5 transition-transform duration-200" />
         </Link>
 
         {directLink ? (
@@ -107,18 +110,18 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
             href={directLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl transition-colors shadow-xs text-center truncate"
-            title={job.website_content?.action || 'Direct Portal Link'}
+            className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl transition-all duration-200 shadow-xs hover:shadow-md hover:shadow-blue-500/25 text-center truncate"
           >
-            <span className="truncate">{actionLabel}</span>
-            <ExternalLink size={11} className="shrink-0" />
+            <span>{actionLabel}</span>
+            <ExternalLink size={13} className="shrink-0" />
           </a>
         ) : (
           <Link
             href={`/job/${job.id}`}
-            className="inline-flex items-center justify-center gap-1 bg-blue-600/10 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold py-2.5 px-2 rounded-xl border border-blue-200 dark:border-blue-800 text-center truncate"
+            className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2.5 px-2 rounded-xl transition-all duration-200 shadow-xs hover:shadow-md hover:shadow-blue-500/25 text-center truncate"
           >
-            <span>Full Details</span>
+            <span>{actionLabel}</span>
+            <ArrowRight size={13} className="shrink-0" />
           </Link>
         )}
       </div>

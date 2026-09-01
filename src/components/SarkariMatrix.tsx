@@ -85,7 +85,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
         {columns.map((col, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all"
+            className="bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs hover:border-slate-300 dark:hover:border-slate-700/80 hover:shadow-lg dark:hover:shadow-indigo-950/20 transition-all duration-300"
           >
             {/* Column Header */}
             <div className={`px-4 py-3 border-b flex items-center justify-between ${col.headerBg}`}>
@@ -104,9 +104,9 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
                 <Link
                   key={item.id}
                   href={`/job/${item.id}`}
-                  className="group block p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+                  className="group block p-2.5 rounded-xl hover:bg-slate-50/90 dark:hover:bg-slate-800/70 border border-transparent hover:border-slate-200/60 dark:hover:border-slate-700/60 transition-all duration-200 hover:translate-x-0.5"
                 >
-                  <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors line-clamp-2 leading-snug mb-1">
+                  <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 line-clamp-2 leading-snug mb-1">
                     {item.website_content?.title || 'Govt Recruitment 2026'}
                   </h4>
                   <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
@@ -122,7 +122,7 @@ export default function SarkariMatrix({ jobs }: SarkariMatrixProps) {
             </div>
 
             {/* Column Footer */}
-            <div className="p-3 border-t border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 text-center mt-auto">
+            <div className="p-3 border-t border-slate-100 dark:border-slate-800/80 bg-slate-50/80 dark:bg-slate-900/80 text-center mt-auto">
               <Link
                 href={`/?q=${encodeURIComponent(col.searchQuery)}#recruitment-feed-top`}
                 className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 inline-flex items-center gap-1 transition-colors"
