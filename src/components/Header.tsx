@@ -7,6 +7,23 @@ import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharlo';
+  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { label: 'Home', href: '/', icon: <Home size={14} className="text-blue-500" /> },
@@ -35,7 +52,7 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://t.me/formbharlo"
+              href={telegramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
@@ -43,7 +60,7 @@ export default function Header() {
               <Send size={11} /> Telegram
             </a>
             <a
-              href="https://whatsapp.com/channel/formbharlo"
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all shadow-xs"
@@ -117,7 +134,7 @@ export default function Header() {
           ))}
           <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
             <a
-              href="https://t.me/formbharlo"
+              href={telegramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-xs"
@@ -125,7 +142,7 @@ export default function Header() {
               Join Telegram
             </a>
             <a
-              href="https://whatsapp.com/channel/formbharlo"
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-xs"

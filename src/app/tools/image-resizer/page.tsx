@@ -930,18 +930,28 @@ export default function ImageResizerPage() {
                   </button>
 
                   {/* Channel Community Hook */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40 border border-blue-200 dark:border-blue-500/30 text-center space-y-2">
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40 border border-blue-200 dark:border-blue-500/30 text-center space-y-2.5">
                     <span className="text-xs font-bold text-blue-900 dark:text-blue-300 block">
-                      🚀 Never miss application deadlines for SSC &amp; Railways!
+                      🚀 Never miss application deadlines for SSC, RRB &amp; State PSC!
                     </span>
-                    <a
-                      href="https://t.me/formbharlo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs py-2 px-4 rounded-xl shadow-xs transition-all"
-                    >
-                      <Send size={13} /> Join Telegram Alerts
-                    </a>
+                    <div className="flex items-center justify-center gap-2">
+                      <a
+                        href={process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharloin'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs py-2 px-3.5 rounded-xl shadow-xs transition-all"
+                      >
+                        <Send size={13} /> Telegram
+                      </a>
+                      <a
+                        href={process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-3.5 rounded-xl shadow-xs transition-all"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
               ) : (
