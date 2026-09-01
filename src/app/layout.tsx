@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import AdSenseScript from '@/components/AdSenseScript';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Link from 'next/link';
 import { Sparkles, ShieldCheck } from 'lucide-react';
 
@@ -207,6 +208,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );
