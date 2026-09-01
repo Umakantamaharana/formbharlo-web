@@ -14,40 +14,221 @@ import {
   RotateCw,
   RotateCcw,
   ZoomIn,
-  ZoomOut,
   FileText,
   AlertCircle,
   RefreshCw,
-  Layers,
   Check,
   Move,
-  Maximize2
+  Info
 } from 'lucide-react';
 import AdBanner from '@/components/AdBanner';
 
 interface ExamPreset {
   id: string;
   name: string;
-  category: 'SSC' | 'UPSC' | 'Railways' | 'Banking' | 'State / Other';
-  type: 'photo' | 'signature' | 'thumb';
+  category: 'SSC' | 'UPSC' | 'Railways' | 'Banking' | 'NTA / NEET' | 'State / Other';
+  type: 'photo' | 'signature' | 'thumb' | 'declaration';
   targetKB: number;
-  minKB?: number;
+  minKB: number;
+  maxKB: number;
   width: number;
   height: number;
-  aspectRatio: number; // width / height
+  aspectRatio: number;
+  format: string;
   description: string;
+  guidelines: string;
 }
 
 const PRESETS: ExamPreset[] = [
-  { id: 'ssc-photo', name: 'SSC CGL / CHSL / MTS Photo', category: 'SSC', type: 'photo', targetKB: 50, minKB: 20, width: 200, height: 230, aspectRatio: 200 / 230, description: '20 KB – 50 KB (3.5cm x 4.5cm)' },
-  { id: 'ssc-sign', name: 'SSC Signature', category: 'SSC', type: 'signature', targetKB: 20, minKB: 10, width: 140, height: 60, aspectRatio: 140 / 60, description: '10 KB – 20 KB (4.0cm x 2.0cm)' },
-  { id: 'upsc-photo', name: 'UPSC Civil Services Photo', category: 'UPSC', type: 'photo', targetKB: 100, minKB: 20, width: 350, height: 350, aspectRatio: 1, description: '20 KB – 300 KB (Square 350x350)' },
-  { id: 'upsc-sign', name: 'UPSC Signature', category: 'UPSC', type: 'signature', targetKB: 50, minKB: 20, width: 350, height: 150, aspectRatio: 350 / 150, description: '20 KB – 300 KB (350x150)' },
-  { id: 'rrb-photo', name: 'Railway RRB NTPC / Group D Photo', category: 'Railways', type: 'photo', targetKB: 50, minKB: 20, width: 200, height: 230, aspectRatio: 200 / 230, description: '20 KB – 50 KB (White Background)' },
-  { id: 'rrb-sign', name: 'Railway RRB Signature', category: 'Railways', type: 'signature', targetKB: 20, minKB: 10, width: 140, height: 60, aspectRatio: 140 / 60, description: '10 KB – 20 KB (Black / Blue Ink)' },
-  { id: 'bank-photo', name: 'IBPS / SBI PO & Clerk Photo', category: 'Banking', type: 'photo', targetKB: 50, minKB: 20, width: 200, height: 230, aspectRatio: 200 / 230, description: '20 KB – 50 KB (Passport Size)' },
-  { id: 'bank-sign', name: 'IBPS / SBI Signature', category: 'Banking', type: 'signature', targetKB: 20, minKB: 10, width: 140, height: 60, aspectRatio: 140 / 60, description: '10 KB – 20 KB' },
-  { id: 'bank-thumb', name: 'IBPS Left Thumb Impression', category: 'Banking', type: 'thumb', targetKB: 50, minKB: 20, width: 240, height: 240, aspectRatio: 1, description: '20 KB – 50 KB (White paper)' },
+  // SSC
+  {
+    id: 'ssc-photo',
+    name: 'SSC CGL / CHSL / MTS Photo',
+    category: 'SSC',
+    type: 'photo',
+    targetKB: 40,
+    minKB: 20,
+    maxKB: 50,
+    width: 200,
+    height: 230,
+    aspectRatio: 200 / 230,
+    format: 'JPG / JPEG',
+    description: '3.5 cm x 4.5 cm (20 KB – 50 KB)',
+    guidelines: 'Plain white/light background. 80% face coverage, both ears visible.',
+  },
+  {
+    id: 'ssc-sign',
+    name: 'SSC Scanned Signature',
+    category: 'SSC',
+    type: 'signature',
+    targetKB: 18,
+    minKB: 10,
+    maxKB: 20,
+    width: 140,
+    height: 60,
+    aspectRatio: 140 / 60,
+    format: 'JPG / JPEG',
+    description: '4.0 cm x 2.0 cm (10 KB – 20 KB)',
+    guidelines: 'Black ink ballpoint pen on plain white paper. No capital/block letters.',
+  },
+
+  // UPSC
+  {
+    id: 'upsc-photo',
+    name: 'UPSC Civil Services Photo (OTR)',
+    category: 'UPSC',
+    type: 'photo',
+    targetKB: 80,
+    minKB: 20,
+    maxKB: 300,
+    width: 350,
+    height: 350,
+    aspectRatio: 1,
+    format: 'JPG / JPEG',
+    description: 'Square 350x350 px (20 KB – 300 KB)',
+    guidelines: 'Recent photo (within 3 months). Face occupies 75% of frame with name & date.',
+  },
+  {
+    id: 'upsc-sign',
+    name: 'UPSC Signature (OTR)',
+    category: 'UPSC',
+    type: 'signature',
+    targetKB: 40,
+    minKB: 20,
+    maxKB: 100,
+    width: 350,
+    height: 150,
+    aspectRatio: 350 / 150,
+    format: 'JPG / JPEG',
+    description: '350 x 150 px (20 KB – 100 KB)',
+    guidelines: 'Black ink ballpoint on clean white sheet.',
+  },
+
+  // Banking (IBPS / SBI)
+  {
+    id: 'bank-photo',
+    name: 'IBPS / SBI PO & Clerk Photo',
+    category: 'Banking',
+    type: 'photo',
+    targetKB: 45,
+    minKB: 20,
+    maxKB: 50,
+    width: 200,
+    height: 230,
+    aspectRatio: 200 / 230,
+    format: 'JPG / JPEG',
+    description: '200 x 230 px (20 KB – 50 KB)',
+    guidelines: 'Passport style color photo on light/white background.',
+  },
+  {
+    id: 'bank-sign',
+    name: 'IBPS / SBI Signature',
+    category: 'Banking',
+    type: 'signature',
+    targetKB: 18,
+    minKB: 10,
+    maxKB: 20,
+    width: 140,
+    height: 60,
+    aspectRatio: 140 / 60,
+    format: 'JPG / JPEG',
+    description: '140 x 60 px (10 KB – 20 KB)',
+    guidelines: 'Must be signed with black ink pen on white paper.',
+  },
+  {
+    id: 'bank-thumb',
+    name: 'IBPS Left Thumb Impression',
+    category: 'Banking',
+    type: 'thumb',
+    targetKB: 40,
+    minKB: 20,
+    maxKB: 50,
+    width: 240,
+    height: 240,
+    aspectRatio: 1,
+    format: 'JPG / JPEG',
+    description: '240 x 240 px (20 KB – 50 KB)',
+    guidelines: 'Left thumb on white paper with blue/black ink stamp pad.',
+  },
+  {
+    id: 'bank-declaration',
+    name: 'IBPS Handwritten Declaration',
+    category: 'Banking',
+    type: 'declaration',
+    targetKB: 80,
+    minKB: 50,
+    maxKB: 100,
+    width: 800,
+    height: 400,
+    aspectRatio: 2,
+    format: 'JPG / JPEG',
+    description: '800 x 400 px (50 KB – 100 KB)',
+    guidelines: 'Handwritten text in English on plain white A4 paper using black ink.',
+  },
+
+  // Railways (RRB)
+  {
+    id: 'rrb-photo',
+    name: 'RRB Railway NTPC / Group D Photo',
+    category: 'Railways',
+    type: 'photo',
+    targetKB: 45,
+    minKB: 20,
+    maxKB: 50,
+    width: 200,
+    height: 230,
+    aspectRatio: 200 / 230,
+    format: 'JPG / JPEG',
+    description: '200 x 230 px (20 KB – 50 KB)',
+    guidelines: 'Clear front view with white background. No spectacles or caps.',
+  },
+  {
+    id: 'rrb-sign',
+    name: 'RRB Railway Signature',
+    category: 'Railways',
+    type: 'signature',
+    targetKB: 30,
+    minKB: 10,
+    maxKB: 40,
+    width: 140,
+    height: 60,
+    aspectRatio: 140 / 60,
+    format: 'JPG / JPEG',
+    description: '140 x 60 px (10 KB – 40 KB)',
+    guidelines: 'Blue or black ink ball pen on white paper.',
+  },
+
+  // NTA (NEET / JEE)
+  {
+    id: 'nta-photo',
+    name: 'NTA NEET / JEE Main Photo',
+    category: 'NTA / NEET',
+    type: 'photo',
+    targetKB: 90,
+    minKB: 10,
+    maxKB: 200,
+    width: 200,
+    height: 230,
+    aspectRatio: 200 / 230,
+    format: 'JPG / JPEG',
+    description: '200 x 230 px (10 KB – 200 KB)',
+    guidelines: '80% face coverage showing ears against plain white background.',
+  },
+  {
+    id: 'nta-sign',
+    name: 'NTA NEET / JEE Signature',
+    category: 'NTA / NEET',
+    type: 'signature',
+    targetKB: 20,
+    minKB: 4,
+    maxKB: 30,
+    width: 140,
+    height: 60,
+    aspectRatio: 140 / 60,
+    format: 'JPG / JPEG',
+    description: '140 x 60 px (4 KB – 30 KB)',
+    guidelines: 'Running handwriting in black ink (no capital letters).',
+  },
 ];
 
 type ResizeMode = 'fit-pad' | 'crop-fill' | 'stretch';
@@ -57,14 +238,15 @@ export default function ImageResizerPage() {
   // Preset & Custom Dimensions
   const [selectedPreset, setSelectedPreset] = useState<string>('ssc-photo');
   const [isCustom, setIsCustom] = useState<boolean>(false);
-  const [customKB, setCustomKB] = useState<number>(50);
+  const [customMinKB, setCustomMinKB] = useState<number>(20);
+  const [customMaxKB, setCustomMaxKB] = useState<number>(50);
   const [customWidth, setCustomWidth] = useState<number>(200);
   const [customHeight, setCustomHeight] = useState<number>(230);
 
-  // Resize Options & Quality Preservation
+  // Resize Options
   const [resizeMode, setResizeMode] = useState<ResizeMode>('fit-pad');
   const [exportFormat, setExportFormat] = useState<ExportFormat>('image/jpeg');
-  const [bgColor, setBgColor] = useState<string>('#ffffff');
+  const [paddingBgColor, setPaddingBgColor] = useState<string>('#ffffff');
   const [customFilename, setCustomFilename] = useState<string>('sarkari_photo');
 
   // Image Source & Crop Transformation
@@ -84,17 +266,16 @@ export default function ImageResizerPage() {
   const [resizedImage, setResizedImage] = useState<string | null>(null);
   const [resizedSizeKB, setResizedSizeKB] = useState<number>(0);
   const [outputDimensions, setOutputDimensions] = useState<{ w: number; h: number }>({ w: 200, h: 230 });
-  const [activeTab, setActiveTab] = useState<'adjust' | 'crop' | 'preview'>('adjust');
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const cropCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Current active targets
+  // Current active targets & official ranges
   const currentPreset = PRESETS.find((p) => p.id === selectedPreset);
   const targetWidth = isCustom ? customWidth : currentPreset?.width || 200;
   const targetHeight = isCustom ? customHeight : currentPreset?.height || 230;
-  const targetKB = isCustom ? customKB : currentPreset?.targetKB || 50;
-  const minKB = isCustom ? Math.max(5, Math.floor(customKB * 0.4)) : currentPreset?.minKB || 20;
+  const minKB = isCustom ? customMinKB : currentPreset?.minKB || 20;
+  const maxKB = isCustom ? customMaxKB : currentPreset?.maxKB || 50;
+  const targetKB = isCustom ? Math.floor((customMinKB + customMaxKB) / 2) : currentPreset?.targetKB || 40;
 
   // Handle Initial File Selection
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +285,6 @@ export default function ImageResizerPage() {
     setOriginalFile(file);
     setOriginalSizeKB(Math.round(file.size / 1024));
 
-    // Generate nice default filename based on preset
     const cleanName = file.name.replace(/\.[^/.]+$/, '').toLowerCase().replace(/[^a-z0-9_-]/g, '_');
     setCustomFilename(`${cleanName}_${selectedPreset}`);
 
@@ -115,7 +295,6 @@ export default function ImageResizerPage() {
       img.onload = () => {
         setOriginalDimensions({ w: img.width, h: img.height });
         setRawImageSrc(src);
-        // Reset transforms
         setRotation(0);
         setZoom(1);
         setCropOffset({ x: 0, y: 0 });
@@ -148,8 +327,8 @@ export default function ImageResizerPage() {
       tCtx.imageSmoothingEnabled = true;
       tCtx.imageSmoothingQuality = 'high';
 
-      // Fill Background
-      tCtx.fillStyle = bgColor;
+      // Fill canvas with chosen padding background
+      tCtx.fillStyle = paddingBgColor;
       tCtx.fillRect(0, 0, baseW, baseH);
 
       tCtx.save();
@@ -170,14 +349,13 @@ export default function ImageResizerPage() {
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
 
-      // Fill canvas background
-      ctx.fillStyle = bgColor;
+      // Fill final canvas background
+      ctx.fillStyle = paddingBgColor;
       ctx.fillRect(0, 0, targetWidth, targetHeight);
 
       if (resizeMode === 'stretch') {
         ctx.drawImage(transformCanvas, 0, 0, targetWidth, targetHeight);
       } else if (resizeMode === 'crop-fill') {
-        // Center crop to fill target without distortion
         const srcRatio = transformCanvas.width / transformCanvas.height;
         const targetRatio = targetWidth / targetHeight;
         let sWidth = transformCanvas.width;
@@ -194,7 +372,7 @@ export default function ImageResizerPage() {
         }
         ctx.drawImage(transformCanvas, sx, sy, sWidth, sHeight, 0, 0, targetWidth, targetHeight);
       } else {
-        // 'fit-pad': maintain aspect ratio with clean background padding (official exam standard)
+        // 'fit-pad': maintain exact aspect ratio with clean official padding
         const srcRatio = transformCanvas.width / transformCanvas.height;
         const targetRatio = targetWidth / targetHeight;
         let dWidth = targetWidth;
@@ -212,7 +390,7 @@ export default function ImageResizerPage() {
         ctx.drawImage(transformCanvas, 0, 0, transformCanvas.width, transformCanvas.height, dx, dy, dWidth, dHeight);
       }
 
-      // Step 3: Precise KB Binary-Search Compression Algorithm
+      // Step 3: Precise Binary-Search Compression targeting optimal middle of official range
       let minQuality = 0.1;
       let maxQuality = 0.98;
       let bestDataUrl = finalCanvas.toDataURL(exportFormat, maxQuality);
@@ -224,12 +402,16 @@ export default function ImageResizerPage() {
           const testDataUrl = finalCanvas.toDataURL(exportFormat, midQuality);
           const testSizeKB = Math.round((testDataUrl.length * 3) / 4 / 1024);
 
-          if (testSizeKB <= targetKB) {
+          // We want the file to be <= maxKB and ideally around targetKB
+          if (testSizeKB <= maxKB) {
             bestDataUrl = testDataUrl;
             bestSizeKB = testSizeKB;
-            minQuality = midQuality; // Search higher quality within limit
+            if (testSizeKB >= targetKB) {
+              break;
+            }
+            minQuality = midQuality;
           } else {
-            maxQuality = midQuality; // Reduce quality
+            maxQuality = midQuality;
           }
         }
       }
@@ -239,9 +421,8 @@ export default function ImageResizerPage() {
       setOutputDimensions({ w: targetWidth, h: targetHeight });
     };
     img.src = rawImageSrc;
-  }, [rawImageSrc, targetWidth, targetHeight, targetKB, rotation, zoom, cropOffset, resizeMode, exportFormat, bgColor]);
+  }, [rawImageSrc, targetWidth, targetHeight, maxKB, targetKB, rotation, zoom, cropOffset, resizeMode, exportFormat, paddingBgColor]);
 
-  // Re-process image whenever parameters change
   useEffect(() => {
     if (rawImageSrc) {
       processImage();
@@ -254,7 +435,8 @@ export default function ImageResizerPage() {
     setIsCustom(false);
     const p = PRESETS.find((item) => item.id === presetId);
     if (p) {
-      setCustomKB(p.targetKB);
+      setCustomMinKB(p.minKB);
+      setCustomMaxKB(p.maxKB);
       setCustomWidth(p.width);
       setCustomHeight(p.height);
       setCustomFilename(`sarkari_${p.id}`);
@@ -288,8 +470,10 @@ export default function ImageResizerPage() {
     downloadLink.click();
   };
 
-  // Status Validation Check
-  const isWithinLimits = resizedSizeKB >= minKB && resizedSizeKB <= targetKB;
+  // Status Validation Check according to official range
+  const isTooSmall = resizedSizeKB < minKB;
+  const isTooLarge = resizedSizeKB > maxKB;
+  const isWithinLimits = resizedSizeKB >= minKB && resizedSizeKB <= maxKB;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 transition-colors">
@@ -301,13 +485,13 @@ export default function ImageResizerPage() {
         <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/60 dark:to-indigo-950/60 border border-blue-200/80 dark:border-blue-500/30 text-blue-700 dark:text-blue-300 px-4 py-1 rounded-full text-xs font-bold shadow-xs">
             <Sparkles size={14} className="text-amber-500 animate-pulse" />
-            100% Free Sarkari Exam Utility &bull; Zero Server Upload
+            Official Sarkari Guidelines &bull; SSC &bull; UPSC &bull; RRB &bull; IBPS &bull; NTA
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-            Sarkari Photo, Signature &amp; Thumb Resizer Studio
+            Sarkari Photo &amp; Signature Resizer Studio
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-            Compress, crop, and adjust your passport photo and signature to exact KB and pixel dimensions for <strong>SSC, UPSC, RRB Railways, IBPS, SBI, and State Police</strong> online application forms without losing sharpness or clarity.
+            Compress and adjust your passport photo, signature, left thumb impression, and handwritten declaration to exact <strong>official KB ranges and pixel dimensions</strong> without rejection.
           </p>
         </div>
 
@@ -317,12 +501,12 @@ export default function ImageResizerPage() {
           {/* LEFT COLUMN: Controls & Exam Presets (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Upload Area */}
+            {/* Step 1: Upload Area */}
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-4 transition-colors">
               <div className="flex items-center justify-between">
                 <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                   <Upload size={18} className="text-blue-600 dark:text-blue-400" />
-                  Step 1: Upload Your Image
+                  Step 1: Upload Photo or Signature
                 </h2>
                 {rawImageSrc && (
                   <button
@@ -348,7 +532,7 @@ export default function ImageResizerPage() {
                 </div>
                 <div>
                   <span className="text-sm font-bold text-slate-900 dark:text-white block mb-0.5">
-                    {rawImageSrc ? 'Click to Choose Different Photo' : 'Click to Upload Photo or Signature'}
+                    {rawImageSrc ? 'Click to Choose Different Photo' : 'Click to Upload Document'}
                   </span>
                   <span className="text-xs text-slate-500 dark:text-slate-400">
                     Supports JPG, JPEG, PNG, WEBP &bull; Max 25 MB
@@ -372,19 +556,24 @@ export default function ImageResizerPage() {
               )}
             </div>
 
-            {/* Step 2: Exam Preset & Dimensions */}
+            {/* Step 2: Official Exam Presets & Generic Ranges */}
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-5 transition-colors">
               <div className="flex items-center justify-between">
-                <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <Sliders size={18} className="text-indigo-600 dark:text-indigo-400" />
-                  Step 2: Select Exam Format
-                </h2>
+                <div>
+                  <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Sliders size={18} className="text-indigo-600 dark:text-indigo-400" />
+                    Step 2: Select Exam Guidelines
+                  </h2>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                    Official verified size ranges from recruitment notifications
+                  </span>
+                </div>
                 <button
                   type="button"
                   onClick={() => setIsCustom(!isCustom)}
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer shrink-0"
                 >
-                  {isCustom ? 'Switch to Exam Presets' : '🔧 Custom Dimensions'}
+                  {isCustom ? 'Switch to Exam Presets' : '🔧 Custom Range'}
                 </button>
               </div>
 
@@ -403,17 +592,19 @@ export default function ImageResizerPage() {
                             : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 hover:bg-slate-100/50 dark:bg-slate-950/40 dark:hover:bg-slate-900/80'
                         }`}
                       >
-                        <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center justify-between mb-1.5">
                           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                             {preset.category}
                           </span>
-                          {isSelected && <Check size={14} className="text-blue-600 dark:text-blue-400" />}
+                          <span className="text-[10px] font-extrabold text-blue-600 dark:text-blue-400 bg-blue-100/80 dark:bg-blue-950/60 px-1.5 py-0.5 rounded">
+                            {preset.minKB} – {preset.maxKB} KB
+                          </span>
                         </div>
                         <span className="font-bold text-xs text-slate-900 dark:text-white block truncate mb-0.5">
                           {preset.name}
                         </span>
                         <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">
-                          Target: <strong>{preset.targetKB} KB</strong> &bull; {preset.width}x{preset.height}px
+                          {preset.width}x{preset.height} px &bull; {preset.format}
                         </span>
                       </button>
                     );
@@ -421,15 +612,26 @@ export default function ImageResizerPage() {
                 </div>
               ) : (
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-4">
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div>
-                      <label className="text-[11px] font-bold text-slate-600 dark:text-slate-400 block mb-1">Max KB Limit</label>
+                      <label className="text-[11px] font-bold text-slate-600 dark:text-slate-400 block mb-1">Min KB</label>
                       <input
                         type="number"
-                        min="5"
+                        min="1"
                         max="5000"
-                        value={customKB}
-                        onChange={(e) => setCustomKB(Math.max(5, Number(e.target.value)))}
+                        value={customMinKB}
+                        onChange={(e) => setCustomMinKB(Math.max(1, Number(e.target.value)))}
+                        className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-slate-900 dark:text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-bold text-slate-600 dark:text-slate-400 block mb-1">Max KB</label>
+                      <input
+                        type="number"
+                        min="2"
+                        max="5000"
+                        value={customMaxKB}
+                        onChange={(e) => setCustomMaxKB(Math.max(2, Number(e.target.value)))}
                         className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-slate-900 dark:text-white"
                       />
                     </div>
@@ -458,6 +660,19 @@ export default function ImageResizerPage() {
                   </div>
                 </div>
               )}
+
+              {/* Preset Guidelines Notice */}
+              {currentPreset && !isCustom && (
+                <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-500/20 text-xs text-slate-700 dark:text-slate-300 flex items-start gap-2">
+                  <Info size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 dark:text-white font-bold block mb-0.5">
+                      {currentPreset.name} Guidelines:
+                    </strong>
+                    <span>{currentPreset.guidelines}</span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Step 3: Crop, Rotate & High-Quality Resampling Options */}
@@ -471,7 +686,7 @@ export default function ImageResizerPage() {
                 {/* Resize Algorithm Selector */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-                    Resize Method (Zero Quality Compromise)
+                    Resize Method
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     <button
@@ -551,7 +766,7 @@ export default function ImageResizerPage() {
                   {/* Zoom Slider */}
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-[11px] font-bold text-slate-600 dark:text-slate-400">
-                      <span className="flex items-center gap-1"><ZoomIn size={12} /> Zoom &amp; Scale</span>
+                      <span className="flex items-center gap-1"><ZoomIn size={12} /> Zoom &amp; Position Scale</span>
                       <span>{(zoom * 100).toFixed(0)}%</span>
                     </div>
                     <input
@@ -565,28 +780,28 @@ export default function ImageResizerPage() {
                     />
                   </div>
 
-                  {/* Background Pad Color Selector */}
+                  {/* Padding Color Selector */}
                   <div className="flex items-center justify-between pt-1">
-                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Padding Background:</span>
+                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Padding Fill Color:</span>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => setBgColor('#ffffff')}
+                        onClick={() => setPaddingBgColor('#ffffff')}
                         className={`px-3 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
-                          bgColor === '#ffffff'
+                          paddingBgColor === '#ffffff'
                             ? 'border-blue-600 bg-white text-slate-900 shadow-xs'
-                            : 'border-slate-200 dark:border-slate-700 text-slate-500'
+                            : 'border-slate-200 dark:border-slate-700 text-slate-500 bg-slate-100 dark:bg-slate-800'
                         }`}
                       >
                         White (Standard)
                       </button>
                       <button
                         type="button"
-                        onClick={() => setBgColor('#000000')}
+                        onClick={() => setPaddingBgColor('#000000')}
                         className={`px-3 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
-                          bgColor === '#000000'
+                          paddingBgColor === '#000000'
                             ? 'border-blue-600 bg-slate-900 text-white shadow-xs'
-                            : 'border-slate-200 dark:border-slate-700 text-slate-500'
+                            : 'border-slate-200 dark:border-slate-700 text-slate-500 bg-slate-100 dark:bg-slate-800'
                         }`}
                       >
                         Black
@@ -611,22 +826,25 @@ export default function ImageResizerPage() {
                     className={`inline-flex items-center gap-1 text-[11px] font-black px-2.5 py-0.5 rounded-full ${
                       isWithinLimits
                         ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-500/30'
-                        : 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400 border border-amber-500/30'
+                        : isTooSmall
+                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400 border border-amber-500/30'
+                        : 'bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400 border border-rose-500/30'
                     }`}
                   >
                     {isWithinLimits ? <CheckCircle2 size={12} /> : <AlertCircle size={12} />}
-                    {isWithinLimits ? 'Exam Ready' : `${resizedSizeKB} KB`}
+                    {isWithinLimits ? `Valid Range (${minKB}-${maxKB} KB)` : isTooSmall ? `Too Small (${resizedSizeKB}KB < ${minKB}KB)` : `Too Large (${resizedSizeKB}KB > ${maxKB}KB)`}
                   </span>
                 )}
               </div>
 
               {resizedImage ? (
                 <div className="space-y-5">
-                  {/* Before & After Interactive Preview Display */}
-                  <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-4">
-                    <div className="flex items-center justify-center">
+                  {/* Distinct Canvas Viewport with Checkered Contrast Pattern to avoid boundary confusion */}
+                  <div className="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-4">
+                    <div className="flex items-center justify-center p-3 rounded-xl bg-radial from-slate-200/50 to-slate-300/50 dark:from-slate-800/40 dark:to-slate-900/80 border border-dashed border-slate-300 dark:border-slate-700/80">
+                      {/* Actual Document Frame with distinct solid shadow */}
                       <div
-                        className="relative rounded-2xl overflow-hidden bg-white border-2 border-emerald-500/60 shadow-md shadow-emerald-500/10 flex items-center justify-center p-1 cursor-move select-none"
+                        className="relative rounded-lg overflow-hidden border-2 border-slate-900 dark:border-slate-200 shadow-xl shadow-slate-900/15 flex items-center justify-center cursor-move select-none"
                         style={{
                           width: `${Math.min(260, targetWidth)}px`,
                           height: `${Math.min(300, (targetHeight / targetWidth) * Math.min(260, targetWidth))}px`,
@@ -635,29 +853,29 @@ export default function ImageResizerPage() {
                         onMouseMove={handleMouseMove}
                         onMouseUp={handleMouseUp}
                         onMouseLeave={handleMouseUp}
-                        title="Click & Drag to Adjust Position"
+                        title="Click & Drag to Adjust Position inside frame"
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={resizedImage}
                           alt="Resized Sarkari Output"
-                          className="max-h-full max-w-full object-contain pointer-events-none"
+                          className="w-full h-full object-contain pointer-events-none"
                         />
                       </div>
                     </div>
 
-                    {/* Dimensions & Quality Badge */}
+                    {/* Dimensions & Quality Range Summary */}
                     <div className="grid grid-cols-2 gap-2 text-center pt-1">
-                      <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
                         <span className="text-[10px] text-slate-500 block uppercase font-bold">Output Dimensions</span>
                         <span className="text-xs font-black text-slate-900 dark:text-white">
                           {outputDimensions.w} x {outputDimensions.h} px
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
-                        <span className="text-[10px] text-slate-500 block uppercase font-bold">Target File Size</span>
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
+                        <span className="text-[10px] text-slate-500 block uppercase font-bold">Official Range</span>
                         <span className={`text-xs font-black ${isWithinLimits ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600'}`}>
-                          {resizedSizeKB} KB <span className="text-[10px] text-slate-400">(Max {targetKB}KB)</span>
+                          {resizedSizeKB} KB <span className="text-[10px] text-slate-400 font-normal">({minKB}–{maxKB} KB)</span>
                         </span>
                       </div>
                     </div>
@@ -682,7 +900,7 @@ export default function ImageResizerPage() {
                         onChange={(e) => setExportFormat(e.target.value as ExportFormat)}
                         className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-900 dark:text-white"
                       >
-                        <option value="image/jpeg">.JPG</option>
+                        <option value="image/jpeg">.JPG (Standard)</option>
                         <option value="image/png">.PNG</option>
                         <option value="image/webp">.WEBP</option>
                       </select>
