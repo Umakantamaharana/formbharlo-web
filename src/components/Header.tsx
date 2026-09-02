@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Home, Briefcase, Award, CheckCircle2, Key, Crop, Info, Mail, Menu, X, Send, MessageCircle, Sparkles } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 

@@ -4,7 +4,7 @@ import { Job } from '../types';
 
 let cachedJobs: Job[] | null = null;
 let lastFetchTime = 0;
-const CACHE_TTL_MS = 1000 * 60 * 10; // 10 minutes in-memory cache
+const CACHE_TTL_MS = 1000 * 60 * 1; // 1 minute in-memory cache
 
 export function normalizeExternalUrl(url?: string): string {
   if (!url) return '';
@@ -193,21 +193,54 @@ export const fetchJobsServer = async (): Promise<Job[]> => {
 
   let rawData: RawJobData[] = [];
 
-  // Strategy 1: Look in backend folder first if available
-  const backendPath = path.join(process.cwd(), '..', 'formbharlo-scraper', 'latest_jobs.json');
-  const legacyBackendPath = path.join(process.cwd(), '..', 'job-scrapper-backend', 'latest_jobs.json');
-  const activeBackendPath = fs.existsSync(backendPath) ? backendPath : (fs.existsSync(legacyBackendPath) ? legacyBackendPath : null);
+  // Strategy 1: Prioritize Live Remote GitHub Data in Production / Serverless
+  try {
+    const urls = [
+      'https://raw.githubusercontent.com/Umakantamaharana/formbharlo-scraper/main/latest_jobs.json',
+      'https://raw.githubusercontent.com/Umakantamaharana/job-scrapper-backend/main/latest_jobs.json',
+    ];
+    for (const url of urls) {
+      try {
+        const response = await fetch(url, {
+          next: { revalidate: 60 },
+          signal: AbortSignal.timeout(4000),
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+          },
+        });
+        if (response.ok) {
+          const text = await response.text();
+          if (text && text.trim().startsWith('[')) {
+            rawData = JSON.parse(text) as RawJobData[];
+            if (rawData.length > 0) break;
+          }
+        }
+      } catch (err) {
+        console.warn(`Fetch from ${url} failed:`, err);
+      }
+    }
+  } catch (netError) {
+    console.warn('Network fetch from GitHub raw failed:', netError);
+  }
 
-  if (activeBackendPath) {
-    try {
-      const fileContent = fs.readFileSync(activeBackendPath, 'utf8');
-      rawData = JSON.parse(fileContent) as RawJobData[];
-    } catch (e) {
-      console.warn('Could not read backend JSON:', e);
+  // Strategy 2: Look in local scraper folder (for local development)
+  if (!rawData || rawData.length === 0) {
+    const backendPath = path.join(process.cwd(), '..', 'formbharlo-scraper', 'latest_jobs.json');
+    const legacyBackendPath = path.join(process.cwd(), '..', 'job-scrapper-backend', 'latest_jobs.json');
+    const activeBackendPath = fs.existsSync(backendPath) ? backendPath : (fs.existsSync(legacyBackendPath) ? legacyBackendPath : null);
+
+    if (activeBackendPath) {
+      try {
+        const fileContent = fs.readFileSync(activeBackendPath, 'utf8');
+        rawData = JSON.parse(fileContent) as RawJobData[];
+      } catch (e) {
+        console.warn('Could not read backend JSON:', e);
+      }
     }
   }
 
-  // Strategy 2: Look in local public folder
+  // Strategy 3: Fallback to bundled local public folder
   if (!rawData || rawData.length === 0) {
     const localFilePath = path.join(process.cwd(), 'public', 'latest_jobs.json');
     if (fs.existsSync(localFilePath)) {
@@ -217,29 +250,6 @@ export const fetchJobsServer = async (): Promise<Job[]> => {
       } catch (fsError) {
         console.warn('Could not read public JSON:', fsError);
       }
-    }
-  }
-
-  // Strategy 3: Fallback to remote GitHub repository
-  if (!rawData || rawData.length === 0) {
-    try {
-      const urls = [
-        'https://raw.githubusercontent.com/Umakantamaharana/formbharlo-scraper/main/latest_jobs.json',
-        'https://raw.githubusercontent.com/Umakantamaharana/job-scrapper-backend/main/latest_jobs.json',
-      ];
-      for (const url of urls) {
-        try {
-          const response = await fetch(url, { next: { revalidate: 1800 } });
-          if (response.ok) {
-            rawData = (await response.json()) as RawJobData[];
-            break;
-          }
-        } catch {
-          // try next
-        }
-      }
-    } catch (error) {
-      console.warn('Could not fetch from remote GitHub repo:', error);
     }
   }
 
