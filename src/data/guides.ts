@@ -20,11 +20,11 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'ssc-cgl-vs-rrb-ntpc-career-comparison-2026',
     title: 'SSC CGL vs. RRB NTPC: Comprehensive Career, Salary, Exam Pattern & Growth Comparison (2026 Guide)',
-    excerpt: 'Confused between Staff Selection Commission (SSC CGL) and Railway Recruitment Board (RRB NTPC)? Here is a 360-degree breakdown of pay scales, work pressure, posting locations, and promotional avenues to help you choose the right path.',
+    excerpt: 'Confused between Staff Selection Commission (SSC CGL) and Railway Recruitment Board (RRB NTPC)? Here is a 360-degree breakdown of pay scales, selection ratios (0.059% vs 0.009%), promotional timelines, and syllabus overlap.',
     category: 'Career Comparison',
-    readTime: '9 min read',
+    readTime: '10 min read',
     publishedAt: '2026-08-25',
-    updatedAt: '2026-09-01',
+    updatedAt: '2026-09-02',
     author: {
       name: 'Umakanta Maharana',
       role: 'Founder & Lead Recruitment Analyst',
@@ -33,114 +33,401 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     },
     keywords: [
       'SSC CGL vs RRB NTPC',
-      'SSC CGL Salary 2026',
+      'SSC CGL Selection Rate',
       'RRB NTPC Pay Scale',
       'Railway vs SSC Career Growth',
       'Best Govt Jobs in India',
       'SSC CGL Exam Pattern',
     ],
     content: `
-## Introduction: The Great Dilemma of Government Job Aspirants
+## Introduction: The Great Dilemma of Central Government Job Aspirants
 
-Every year, over 50 lakh aspirants in India prepare for Central Government recruitment examinations. Among the most sought-after examinations for graduates are the **Staff Selection Commission Combined Graduate Level (SSC CGL)** and the **Railway Recruitment Board Non-Technical Popular Categories (RRB NTPC)**.
+Every year, over 1.5 crore aspirants in India prepare for Central Government recruitment examinations. Among the most popular career routes for graduates are the **Staff Selection Commission Combined Graduate Level (SSC CGL)** and the **Railway Recruitment Board Non-Technical Popular Categories (RRB NTPC)**.
 
-While both examinations offer prestigious Group B and Group C posts with job security, pension benefits (under NPS), and handsome allowances, the nature of daily work, posting flexibility, transfer policies, and career trajectories differ drastically.
-
-In this comprehensive guide, we dissect every parameter—from recruitment tiers and syllabus overlap to in-hand salaries, perquisites, work-life balance, and promotional timelines—to help you make an informed career decision.
+While both examinations offer prestigious Central Government posts with unmatched job security, medical healthcare, and pension privileges (under the National Pension System), their competition rates, daily work dynamics, transfer policies, and career ladders differ substantially.
 
 ---
 
-## 1. Quick Overview & Conducting Bodies
+## 1. Core Exam Statistics & Competition Ratios
 
-| Parameter | SSC CGL | RRB NTPC |
+The statistical realities of both examinations reveal stark differences in candidate volume and final selection rates:
+
+| Examination Metric | SSC CGL Examination | RRB NTPC Examination |
 | :--- | :--- | :--- |
-| **Conducting Authority** | Staff Selection Commission (DoPT, Govt of India) | Railway Recruitment Boards (Ministry of Railways) |
-| **Post Classification** | Group B (Gazetted/Non-Gazetted) & Group C | Group C (Pay Level 2 to Level 6) |
-| **Typical Grade Pay / Levels** | Pay Level 4 (GP 2400) to Pay Level 8 (GP 4800) | Pay Level 2 (GP 1900) to Pay Level 6 (GP 4200/4600) |
-| **Minimum Educational Qualification** | Bachelor's Degree in any discipline | 12th Pass (Level 2/3) or Graduate (Level 4/5/6) |
-| **Major Ministries / Cadres** | CBDT (Income Tax), CBIC (GST & Customs), ED, MEA, CSS, CAG, CBI, IB | Indian Railways (Zonal Divisions across India) |
-| **Posting Geography** | Capital cities, Tier-1 metros, Regional headquarters | Railway stations, divisional headquarters, remote junctions |
+| **Total Applicants** | ~30 Lakh candidates | ~1.25 Crore candidates |
+| **Typical Vacancies** | 12,000 to 18,000 vacancies | 10,000 to 14,000 vacancies |
+| **Final Selection Rate** | **~0.059%** (1 in ~1,700 candidates) | **~0.009%** (1 in ~11,000 candidates) |
+| **Exam Structure** | 2 Main Tiers (Tier-1 Objective + Tier-2 Objective & Skill/Typing) | 2 Computer-Based Tests (CBT-1 + CBT-2) + CBAT/Typing |
+| **Syllabus Overlap** | **70% to 80%** core overlap (Maths, Reasoning, English, GA) | **70% to 80%** core overlap (English is optional/regional in RRB) |
+
+> **Key Takeaway on Competition:** RRB NTPC has an applicant pool more than four times larger than SSC CGL due to open educational criteria for certain levels (12th Pass vs. Graduate only). Consequently, the statistical odds of securing an RRB NTPC seat are nearly 6.5 times tougher purely on applicant volume.
 
 ---
 
-## 2. Salary Structure & In-Hand Pay Breakdown (7th Central Pay Commission)
+## 2. Salary & Starting In-Hand Pay Breakdown (7th Central Pay Commission)
 
-Both SSC CGL and RRB NTPC posts are structured under the 7th Central Pay Commission (CPC). In addition to Basic Pay, employees receive Dearness Allowance (DA), House Rent Allowance (HRA based on X, Y, Z city tiers), Transport Allowance (TPTA), and department-specific perks.
+Both cadres are governed by the 7th Central Pay Commission (CPC) with Dearness Allowance (DA), House Rent Allowance (HRA), and Transport Allowance (TPTA):
 
 ### SSC CGL Salary Levels:
-- **Assistant Audit Officer / Assistant Accounts Officer (Pay Level 8):** Basic Pay ₹47,600. In-hand gross in X-cities (Delhi, Mumbai, Bengaluru) ranges between **₹85,000 to ₹95,000/month**.
-- **Assistant Section Officer (CSS / MEA) & Inspector (Income Tax / GST / Preventive Officer) (Pay Level 7):** Basic Pay ₹44,900. In-hand gross in X-cities ranges between **₹78,000 to ₹88,000/month**.
-- **Auditor / Accountant / Tax Assistant (Pay Level 5 & 4):** In-hand pay ranges from **₹40,000 to ₹55,000/month**.
+- **Assistant Audit Officer / Accounts Officer (Pay Level 8 - GP 4800):** Basic Pay ₹47,600. In-hand gross in X-cities (Delhi, Mumbai) ranges between **₹58,000 to ₹62,600+ net / ₹85,000 to ₹95,000 gross**.
+- **Inspector (Income Tax, GST, Customs) & ASO in MEA/CSS (Pay Level 7 - GP 4600):** Basic Pay ₹44,900. In-hand starting pay is **₹44,900 to ₹55,000 net**.
+- **Auditor / Accountant / Tax Assistant (Pay Level 5 & 4):** In-hand starting pay ranges from **₹35,000 to ₹45,000/month**.
 
 ### RRB NTPC Salary Levels:
-- **Station Master & Commercial Apprentice (Level 6):** Basic Pay ₹35,400. With Running Allowances, Night Duty Allowance (NDA), and Overtime Allowances (OTA), gross pay often reaches **₹65,000 to ₹80,000/month**.
-- **Goods Train Manager (Goods Guard) & Senior Commercial Clerk (Level 5):** Basic Pay ₹29,200. Mileage allowances (running duty allowance of ₹500+ per 100 km) can push gross monthly compensation above **₹60,000/month**.
-- **Junior Clerk cum Typist & Trains Clerk (Level 2):** In-hand compensation ranges from **₹32,000 to ₹38,000/month**.
-
-> **Key Takeaway on Compensation:** While SSC CGL Level 7 and Level 8 positions offer a higher fixed basic salary, operating cadre posts in RRB NTPC (like Goods Guards and Station Masters) make up the difference through operational and running allowances.
+- **Station Master & Commercial Apprentice (Pay Level 6 - GP 4200):** Basic Pay ₹35,400. In-hand pay ranges from **₹35,400 to ₹51,900 net**. With Night Duty Allowance (NDA), National Holiday Allowance (NHA), and Overtime Allowances, gross monthly payout frequently reaches **₹65,000 to ₹80,000**.
+- **Goods Train Manager (Goods Guard) & Senior Commercial Clerk (Pay Level 5 - GP 2800):** Basic Pay ₹29,200. With Running Allowances (over ₹500 per 100 km), in-hand earnings regularly exceed **₹55,000/month**.
+- **Junior Clerk cum Typist & Trains Clerk (Pay Level 2 - GP 1900):** In-hand compensation ranges from **₹30,000 to ₹36,000/month**.
 
 ---
 
-## 3. Syllabus & Examination Pattern Comparison
+## 3. Career Ladder & Promotion Speed Comparison
 
-One of the greatest advantages for aspirants is the **high degree of syllabus overlap** between both examinations.
+Promotional velocity differs significantly between administrative ministries and operational railway divisions:
 
-### Common Subjects:
-1. **Quantitative Aptitude / Mathematics:** Arithmetic (Percentages, Profit & Loss, Ratio, Time & Work) and Advanced Maths (Algebra, Trigonometry, Geometry, Mensuration).
-2. **General Intelligence & Reasoning:** Analogies, Syllogism, Blood Relations, Coding-Decoding, Non-Verbal Puzzles.
-3. **General Awareness:** History, Polity, Geography, Economics, General Science (Physics, Chemistry, Biology), and Current Affairs.
-4. **English Language:** Comprehension, Error Spotting, Vocabulary, Idioms & Phrases *(Note: RRB NTPC allows Hindi or Regional language option; SSC CGL mandates English comprehension in Tier-2)*.
-
-### Examination Tier Structures:
-- **SSC CGL:**
-  - **Tier-1 (Qualifying):** 100 MCQs, 200 Marks (Maths, Reasoning, English, GA).
-  - **Tier-2 (Merit Determining):** Mathematical Abilities, Reasoning, English Language, General Awareness, plus mandatory Computer Knowledge & Typing Speed Test.
-- **RRB NTPC:**
-  - **CBT-1 (Screening):** 100 MCQs (Maths 30, Reasoning 30, GA 40).
-  - **CBT-2 (Merit):** 120 MCQs (Maths 35, Reasoning 35, GA 50).
-  - **CBAT / Typing Test:** Computer-Based Aptitude Test (for Station Master) or Typing Skill Test (for Clerks/Typists).
+### Promotion Speed & Timelines:
+- **RRB NTPC Promotion Velocity:** Candidates in operational posts (Station Master, Train Manager) typically reach Level 7 and Level 8 equivalent gazetted officer positions (Assistant Operations Manager - AOM, Assistant Commercial Manager - ACM) through **Limited Departmental Competitive Examinations (LDCE) in 8 to 10 years**.
+- **SSC CGL Promotion Velocity:** Promotion from Inspector or Assistant Section Officer (ASO) to Group A/B Gazetted rank (Assistant Commissioner or Under Secretary) is largely seniority-based in many cadres and requires **10 to 13 years** due to cadre restructuring bottlenecks.
 
 ---
 
-## 4. Work Culture, Timings & Posting Locations
+## 4. Work-Life Balance & Daily Realities
 
-### SSC CGL Work Culture:
-- **Desk & Field Split:** Ministry posts (ASO in CSS, MEA, Railways) are strictly **5-day week desk jobs (9:30 AM to 6:00 PM)** in New Delhi with weekends off.
-- **Inspector Posts (GST, Income Tax, Customs):** Involve investigative raids, field verifications, and port surveillance.
-- **Social Respect & Authority:** Investigating officers and ministry executives enjoy high societal prestige and administrative influence.
+- **SSC CGL:** Ministry posts (CSS, MEA, Defence) offer fixed 5-day office hours (9:30 AM to 6:00 PM) with weekends off in central state capitals and New Delhi. Field inspector posts involve raids, port checks, and enforcement duties.
+- **RRB NTPC:** Operating posts require 24x7 rotating shift duty rosters (Day, Evening, Night), including weekends and national festivals. However, employees receive generous All-India Railway AC Free Passes (Privilege Passes) and subsidized railway residential colonies.
+`,
+  },
+  {
+    slug: 'government-exam-document-photo-signature-upload-guidelines',
+    title: 'Government Exam Document & Photo Upload Guidelines 2026: UPSC, SSC, IBPS & SBI Official Standards',
+    excerpt: 'Comprehensive blueprint for uploading photos, signatures, and thumb impressions across UPSC OTR, SSC, IBPS, and SBI portals without rejection. Learn exact KB sizes, pixel limits, and background rules.',
+    category: 'Eligibility & Forms',
+    readTime: '9 min read',
+    publishedAt: '2026-08-22',
+    updatedAt: '2026-09-02',
+    author: {
+      name: 'Umakanta Maharana',
+      role: 'Founder & Lead Recruitment Analyst',
+      avatar: '/logo.svg',
+      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
+    },
+    keywords: [
+      'UPSC Photo Guidelines 2026',
+      'SSC OTR Photo Dimensions',
+      'IBPS Signature Capital Letters Ban',
+      'Govt Exam Photo Size KB',
+      'Photo Resizer for Sarkari Forms',
+    ],
+    content: `
+## Why Thousands of Govt Applications Get Rejected at Stage 1
 
-### RRB NTPC Work Culture:
-- **Shift Duties:** Operational posts like Station Master and Goods Guard operate on **24x7 rotating shift rosters** (Day, Evening, Night) including holidays and weekends.
-- **Stationary vs Traveling:** Commercial Clerks work in station ticket reservation counters; Goods Guards travel along continuous freight routes.
-- **Free Railway Travel Privileges:** Employees and dependent family members receive complimentary **All-India Railway AC Passes (Privilege Passes & PTOs)** annually.
+Every recruitment cycle, over 5% of all submitted application forms for examinations conducted by UPSC, SSC, IBPS, SBI, and State PSCs are summarily rejected during automated scrutiny due to **incorrect photograph dimensions, blurry signatures, or illegal ink colors**.
+
+Recruitment servers use automated AI image parsers to reject non-compliant files before a human reviewer even inspects them. In this guide, we outline the exact technical specifications mandated by India's top recruiting agencies for 2026.
 
 ---
 
-## 5. Promotional Prospects & Long-Term Career Ladder
+## 1. UPSC Specific Rules (Civil Services, NDA, CDS, CAPF)
 
-### SSC CGL Promotion Path:
-- **Income Tax Inspector** &rarr; Income Tax Officer (ITO - Group B Gazetted) &rarr; Assistant Commissioner of Income Tax (ACIT - IRS Entry Cadre) &rarr; Deputy Commissioner (DCIT).
-- **Assistant Section Officer (CSS)** &rarr; Section Officer (SO) &rarr; Under Secretary (US) &rarr; Deputy Secretary &rarr; Director in Govt of India.
+The Union Public Service Commission enforces the strictest automated image validation in the country:
 
-### RRB NTPC Promotion Path:
-- **Station Master** &rarr; Station Superintendent &rarr; Assistant Operations Manager (AOM - Group B Gazetted via LDCE) &rarr; Divisional Operations Manager (DOM).
-- **Commercial Apprentice** &rarr; Chief Commercial Inspector &rarr; Assistant Commercial Manager (ACM) &rarr; Divisional Commercial Manager (DCM).
+- **File Size Range:** Strictly between **20 KB and 200 KB** (some specific portals accept up to 300 KB) in \`.JPG\` / \`.JPEG\` format.
+- **Face Area Coverage:** The candidate's face must occupy at least **75% of the total photograph area**. Avoid long-distance or body-level portraits.
+- **Photo Recency (10-Day Rule):** The photograph must be captured within **10 days** prior to filling the online application form.
+- **Name & Date of Photo (DOP) Imprint:** The candidate's full name and the exact Date of Photo (DOP) must be clearly visible and legibly printed in black font on a white strip at the bottom of the image.
+- **Signature Ink Color Rule:** UPSC signatures must strictly be signed in **black ballpoint ink on clean white paper**. **Blue ink signatures are explicitly not accepted** and trigger instant rejection.
+- **Signature Dimensions:** 20 KB to 100 KB with minimum dimensions of 350 x 150 pixels.
 
 ---
 
-## 6. Final Recommendation: Which One Should You Target?
+## 2. Banking (IBPS PO/Clerk & SBI) Document Standards
 
-### Choose SSC CGL if:
-- You prefer metropolitan postings (Delhi, Mumbai, state capitals).
-- You want a predictable 5-day working week with fixed office hours.
-- You desire administrative authority in Central Ministries, Intelligence Bureau, or Revenue Enforcement.
+Banking examinations conducted by the Institute of Banking Personnel Selection (IBPS) and State Bank of India (SBI) require 4 separate uploads:
 
-### Choose RRB NTPC if:
-- You want the option to work near your home state/railway division.
-- You enjoy dynamic, operational logistics roles.
-- You value travel perks, subsidized railway housing colonies, and healthcare in specialized Railway Hospitals (Central & Divisional).
+| Document Type | File Size Limit | Dimensions | Crucial Rule to Avoid Rejection |
+| :--- | :--- | :--- | :--- |
+| **Passport Photograph** | 20 KB to 50 KB | 200 x 230 pixels | White/light background; eyes open; no reflections |
+| **Candidate Signature** | 10 KB to 20 KB | 140 x 60 pixels | **Must NEVER be in Block Capital letters** |
+| **Left Thumb Impression (LTI)** | 20 KB to 50 KB (up to 100 KB in SBI) | 240 x 240 pixels | Blue or Black ink on white paper; clear ridges |
+| **Handwritten Declaration** | 50 KB to 100 KB | 800 x 400 pixels | Must be written in candidate's own handwriting in English |
 
-**Preparation Strategy Tip:** Because 80% of the syllabus overlaps, candidates should prepare the combined core syllabus (Maths, Reasoning, General Science, Current Affairs) and take mock tests tailored to both formats.
+> **Critical Banking Warning on Signatures:** IBPS and SBI explicitly state that signatures written in capital / uppercase block letters (e.g., "UMAKANTA MAHARANA") will be rejected outright. The signature must be in natural cursive script.
+
+---
+
+## 3. Staff Selection Commission (SSC OTR) Guidelines
+
+Under the new SSC portal (\`ssc.gov.in\`), candidates must complete One Time Registration (OTR):
+
+- **Live Webcam Photo vs. Upload:** Candidates must capture a live photo via webcam/smartphone camera against a plain white background under ample lighting.
+- **Uploaded Document Sizing:** Any uploaded photo certificates must range between **20 KB and 50 KB** with standard 3.5 cm x 4.5 cm aspect ratio.
+- **Signature Dimensions:** 10 KB to 20 KB (4.0 cm width x 2.0 cm height).
+
+---
+
+## Pro-Tip: Resize in 3 Seconds with Zero Quality Loss
+
+You can use FormBharlo's free [Sarkari Photo & Signature Resizer Tool](/tools/image-resizer) to crop, adjust pixel dimensions, and compress your image to exact 20–50 KB ranges in your browser with 100% data privacy.
+`,
+  },
+  {
+    slug: '90-day-self-study-strategy-for-government-exams',
+    title: 'The 90-Day Self-Study Strategy for Government Exams: A Step-by-Step Blueprint for 2026 Aspirants',
+    excerpt: 'A comprehensive 90-day self-study roadmap for SSC, Railways, Banking, and State PSC aspirants. Master the 60% weak-subject rule, NCERT conceptual foundation, PYQ timing, and error-log tracking.',
+    category: 'Preparation Tips',
+    readTime: '11 min read',
+    publishedAt: '2026-08-30',
+    updatedAt: '2026-09-02',
+    author: {
+      name: 'Umakanta Maharana',
+      role: 'Founder & Lead Recruitment Analyst',
+      avatar: '/logo.svg',
+      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
+    },
+    keywords: [
+      '90 Day Govt Exam Strategy',
+      'How to Clear SSC in First Attempt',
+      'Self Study Plan for Railway Exams',
+      'Mock Test Analysis Strategy',
+      'NCERT for Competitive Exams',
+    ],
+    content: `
+## Introduction: Why Most Aspirants Burn Out Before Exam Day
+
+Securing a coveted Central or State Government job does not require 14 hours of daily cramming; it requires an engineered, structured preparation roadmap. Most unsuccessful candidates fail not due to a lack of effort, but because they delay solving mock tests until the final two weeks, neglect their weakest subject, and fail to track recurring errors.
+
+This 90-day study strategy is structured into three distinct 30-day phases designed to systematically build conceptual clarity, operational speed, and exam temperament.
+
+---
+
+## Phase 1 (Days 1–30): Foundation & The 60% Weak-Subject Rule
+
+The primary objective of the first month is completing 100% of the theoretical syllabus.
+
+### The 60% Rule for Weak Subjects:
+Divide your daily study schedule (ideally 6 to 8 hours) so that **60% of your dedicated focus time goes to your weakest subject** (typically Advanced Mathematics or English Grammar for many aspirants):
+- **Weak Subject (e.g., Quantitative Aptitude):** 3.5 to 4 Hours daily. Focus on foundational concepts, derivation of shortcuts, and solving 40 basic NCERT/Class 8-10 level arithmetic problems.
+- **Secondary Subject (e.g., Logical Reasoning):** 1.5 Hours daily.
+- **General Knowledge Protocol (30 Minutes Daily):** Allocate **15 minutes to Static GK** (Indian Polity, Geography, Modern History) and **15 minutes to Current Affairs** covering the last 6 months.
+
+---
+
+## Phase 2 (Days 31–60): Previous Year Questions (PYQs) & Weekly Mocks
+
+A critical mistake aspirants make is waiting until the entire syllabus is finished before looking at actual test questions.
+
+### The Week 3 Rule for PYQs:
+- Start solving topic-wise Previous Year Question (PYQ) sets from **Week 3** onwards.
+- Solve at least 150 questions per chapter from the last 5 years of exams (e.g., SSC CGL, CHSL, RRB NTPC).
+
+### Introduce 1 Weekly Mock Exam Starting Week 5:
+- Take **one full-length timed mock test every Sunday morning** under strict examination conditions.
+- Do not worry about your initial percentile; the goal of Phase 2 is building mental endurance for 60 to 120-minute continuous screen tests.
+
+---
+
+## Phase 3 (Days 61–90): The 20+ Mock Target & Error-Log Tracking
+
+The final 30 days are purely diagnostic. Your theoretical study should drop to 20%, while mock execution and revision increase to 80%.
+
+### The 20+ Full Mock Benchmark:
+Aim to complete a minimum of **20 to 25 full-length mock tests** prior to the official exam date (1 mock every alternate day).
+
+### The 3-Column Error Log Method:
+Never close your laptop after finishing a mock test without conducting a 60-minute post-test analysis. Maintain a physical notebook divided into three columns:
+
+| Column 1: Question & Concept | Column 2: Root Cause of Mistake | Column 3: Corrected Approach |
+| :--- | :--- | :--- |
+| *e.g., CI vs SI 3-year difference* | Calculation mistake / formula forgot | $D = P(R/100)^2 \times (3 + R/100)$ |
+| *e.g., Article 32 vs Article 226* | Conceptual confusion on High Court writ jurisdiction | Article 32 is Supreme Court; Article 226 is High Court |
+| *e.g., Time & Work efficiency ratio* | Misread question prompt (*"A alone"* vs *"A and B together"*) | Highlight target subject before calculating |
+
+Review your Error Log every morning before starting new drills. Eliminating recurring mistakes is the fastest way to add 15–20 marks to your final score.
+`,
+  },
+  {
+    slug: 'ews-and-obc-ncl-validity-dates-financial-year-rules',
+    title: 'The Confusing Reality of EWS & OBC-NCL Validity Dates: Financial Year Rules & Certificate Guidelines for 2026',
+    excerpt: 'Demystifying the critical Financial Year rules for EWS and OBC-NCL reservation certificates. Understand preceding financial year assessment, expiration dates, and competent issuing authorities.',
+    category: 'Eligibility & Forms',
+    readTime: '9 min read',
+    publishedAt: '2026-08-28',
+    updatedAt: '2026-09-02',
+    author: {
+      name: 'Umakanta Maharana',
+      role: 'Founder & Lead Recruitment Analyst',
+      avatar: '/logo.svg',
+      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
+    },
+    keywords: [
+      'EWS Certificate Validity 2026',
+      'OBC NCL Financial Year Rule',
+      'EWS Income Limit 8 Lakh',
+      'OBC Non Creamy Layer Certificate Validity',
+      'Competent Authority for EWS Certificate',
+    ],
+    content: `
+## Why Reservation Certificates Cause Mass Disqualifications at Document Verification
+
+Every year, hundreds of qualified candidates who score well above the general cutoff marks are disqualified during the final Document Verification (DV) stage of UPSC, SSC, and Railway recruitments simply because their **EWS (Economically Weaker Section) or OBC-NCL (Other Backward Classes Non-Creamy Layer) certificate was issued outside the valid financial year window**.
+
+Reservation category certificates are not permanent documents like Caste or Birth Certificates; they are time-bound economic certifications tied directly to the Indian Financial Year (April 1 to March 31).
+
+---
+
+## 1. The Financial Year Rule for EWS Certificates
+
+- **One Financial Year Validity:** An EWS certificate is valid strictly for **one single financial year (April 1 to March 31)**, regardless of when during that year it was issued.
+- **Example Scenario:** An EWS certificate issued on **December 15, 2025** is valid only until **March 31, 2026**. If your document verification takes place in May 2026, that certificate is legally expired and you must produce an EWS certificate issued after April 1, 2026.
+- **Income Assessment Period:** The EWS income criterion (gross annual family income below **₹8 Lakh**) assesses the family's income in the **preceding financial year** (e.g., an EWS certificate for the year 2026–2027 assesses income for the financial year 2025–2026).
+
+---
+
+## 2. The OBC-NCL 3-Year Income Evaluation Rule
+
+While EWS evaluates one preceding year, the Other Backward Classes Non-Creamy Layer (OBC-NCL) certificate has distinct criteria:
+
+- **3-Year Assessment Window:** The competent issuing authority must evaluate the candidate's parental income over the **three consecutive preceding financial years** to confirm that the candidate has continuously maintained non-creamy layer status.
+- **Post-April 1 Mandate for Central Exams:** For UPSC Civil Services, SSC CGL, and major central exams, notifications typically mandate that the OBC-NCL certificate must have been **issued on or after April 1 of the recruitment financial year** and on or before the crucial closing date of the application form.
+
+---
+
+## 3. Competent Issuing Authorities & The Self-Attestation Myth
+
+A common error among aspirants is submitting category formats signed by unauthorized local representatives. To be valid for Central Government employment, the certificate must be issued and digitally signed by an authorized revenue official:
+
+### Authorized Competent Authorities:
+1. District Magistrate / Additional District Magistrate / Collector / Deputy Commissioner.
+2. Sub-Divisional Magistrate (SDM) / Taluka Magistrate / Executive Magistrate.
+3. Chief Presidency Magistrate / Additional Chief Presidency Magistrate.
+4. **Revenue Officer not below the rank of Tehsildar**.
+
+> **Important Rule:** Certificates issued by Village Panchayat Sarpanches, Municipal Councilors, or Notary Public affidavits are **strictly rejected** by Central Government document verification boards.
+`,
+  },
+  {
+    slug: 'railway-medical-fitness-test-a1-to-c2-standards-explained',
+    title: 'Cracking the Railway Medical Fitness Test: Complete A1 to C2 Category Standards & Vision Rules Explained',
+    excerpt: 'Detailed guide to Indian Railway Medical Fitness standards. Learn distant vision, near vision, color blindness, and LASIK restrictions for Assistant Loco Pilot (A1), Station Master (A2), and JE (B1) posts.',
+    category: 'Eligibility & Forms',
+    readTime: '10 min read',
+    publishedAt: '2026-08-26',
+    updatedAt: '2026-09-02',
+    author: {
+      name: 'Umakanta Maharana',
+      role: 'Founder & Lead Recruitment Analyst',
+      avatar: '/logo.svg',
+      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
+    },
+    keywords: [
+      'Railway Medical Standards A1 A2 B1 C1',
+      'RRB ALP Eye Vision 6/6 without glasses',
+      'LASIK surgery allowed in Railway',
+      'Station Master Medical Test A2',
+      'Color Blindness in Indian Railway Jobs',
+    ],
+    content: `
+## Why Medical Classification is the Ultimate Hurdle in Indian Railways
+
+Indian Railways operates one of the most rigorous occupational health and medical examination frameworks in the public sector. Unlike other government services where medical tests are routine formalities, Railway candidates who pass all written and aptitude stages can be **unconditionally disqualified if they fail their assigned medical standard**.
+
+Medical standards in Indian Railways are classified into **A1, A2, A3, B1, B2, C1, and C2** based on safety-critical responsibilities and operational exposure.
+
+---
+
+## 1. The Safety-Critical Standards: A1 and A2
+
+### A1 Category (Assistant Loco Pilots & Train Drivers)
+The most stringent standard in the entire public sector:
+- **Distant Vision:** Must be **6/6 in both eyes completely without glasses**.
+- **Near Vision:** Snellen 0.6 in both eyes without glasses.
+- **LASIK / Refractive Surgery:** **Strictly PROHIBITED**. Any surgical intervention (LASIK, PRK, ICL) is detectable via slit-lamp examination and results in instant permanent disqualification.
+- **Color Perception:** Must pass Ishihara color plate tests with 100% accuracy.
+- **Night Vision & Binocular Vision:** Compulsory dark-adaptation tests and field-of-vision assessments.
+
+### A2 Category (Station Masters, Traffic Apprentices, Guard / Train Managers)
+- **Distant Vision:** Must be **6/9 in both eyes without glasses**.
+- **Color Vision & Night Vision:** Mandatory tests for signal color recognition (Red, Green, Amber).
+- **LASIK Rule:** Not permitted for entry-level direct recruits in safety-critical operational posts.
+
+---
+
+## 2. Technical & Support Standards: B1, B2, C1, and C2
+
+| Medical Standard | Key Railway Posts | Distant Visual Acuity | Glasses / Lens Power Limit | Color Perception Test |
+| :--- | :--- | :--- | :--- | :--- |
+| **B1** | Junior Engineers (JE), Technicians, Workshop Supervisors | 6/9, 6/12 with or without glasses | Corrective lens power cannot exceed **+4.0 Dioptres** | Mandatory (Passing required) |
+| **B2** | Depot Store Keepers, Electrical Support Cadres | 6/9, 6/12 with or without glasses | Corrective lens power cannot exceed **+4.0 Dioptres** | Relaxed for non-signaling duties |
+| **C1** | Commercial Clerks, Ticket Collectors, Office Superintendents | 6/12, 6/18 with or without glasses | Glasses permitted with no strict dioptre cap | No color vision requirement |
+| **C2** | Accounts Clerks, Typists, Data Entry Executives | 6/12, Nil with or without glasses | Focus primarily on near-vision task endurance | No color vision requirement |
+
+---
+
+## 3. The Decisive Impact of Color Blindness
+
+Color vision deficiency (Daltonism) is the number one cause of medical rejection in Indian Railways. If an applicant has even a mild red-green color blindness:
+- They are **instantly disqualified** from A1 (ALP), A2 (Station Master), and B1 (Junior Engineer) posts.
+- They can only be considered for administrative desk positions under Category C1 or C2 if they selected those preferences during initial form submission.
+`,
+  },
+  {
+    slug: 'how-to-audit-your-own-govt-job-application-form-before-submission',
+    title: 'How to Audit Your Own Application Form Before Submission: The 10-Point Checklist & The Crucial Date Rule',
+    excerpt: 'Step-by-step pre-submission audit checklist for government job application forms. Prevent rejections caused by Matriculation name mismatches, Aadhaar typos, and crucial date oversights.',
+    category: 'Eligibility & Forms',
+    readTime: '8 min read',
+    publishedAt: '2026-08-20',
+    updatedAt: '2026-09-02',
+    author: {
+      name: 'Umakanta Maharana',
+      role: 'Founder & Lead Recruitment Analyst',
+      avatar: '/logo.svg',
+      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
+    },
+    keywords: [
+      'Govt Application Form Correction',
+      'Name Mismatch 10th Certificate Aadhaar',
+      'The Crucial Date Rule in Sarkari Exams',
+      'How to Fill Online Application Form',
+      'Document Verification Disqualification',
+    ],
+    content: `
+## Why 10 Minutes of Final Form Audit Saves Years of Hard Work
+
+Hitting the final **"Submit Application"** button without an exhaustive field-by-field audit is one of the most dangerous gambles an aspirant can make. Even minor typographical errors in your date of birth, caste category, or educational passing date can lead to immediate cancellation of your candidature at the final stage—even after securing a top rank in the merit list.
+
+Use this 10-point self-audit checklist before submitting your next Central or State Government application form.
+
+---
+
+## The 10-Point Pre-Submission Audit Checklist
+
+### 1. The Character-for-Character Matriculation Rule
+- Your **Full Name, Father's Name, Mother's Name, and Date of Birth** must match your **Class 10th (Matriculation) Board Certificate** character-for-character, including spaces and abbreviations.
+- Do not prefix titles such as *Shri, Smt, Mr, Dr,* or *Late*.
+
+### 2. Handling Aadhaar & Photo ID Spelling Mismatches
+- If your Aadhaar Card or Voter ID has a minor discrepancy (e.g., "R. Kumar" vs "Rajesh Kumar"), prioritize the exact Class 10th spelling on your form.
+- Update your Aadhaar card at a local enrollment center before your document verification date, or obtain a **First Class Judicial Magistrate Notarized Affidavit** affirming that both names belong to the same individual.
+
+### 3. The "Crucial Date" Rule (The Non-Negotiable Deadline)
+- Every government recruitment notification defines a **"Crucial Date"** (typically the official closing date for the receipt of online applications).
+- **Essential Educational Qualification:** Your degree results must have been officially declared by your university **on or before the Crucial Date**.
+- **Category Certificates (EWS, OBC, SC, ST):** Your certificate must be valid and issued on or before this designated crucial date. Results declared even one day after the crucial date result in automatic rejection during Document Verification.
+
+### 4. Percentage Calculation & CGPA Conversion
+- Always verify your university's official CGPA-to-Percentage conversion formula (e.g., CBSE standard: $\text{Percentage} = \text{CGPA} \times 9.5$). Do not round off decimals unless explicitly authorized in the notification.
+
+### 5. Signature Script Verification
+- Ensure your signature is signed in **natural cursive handwriting** using a black ballpoint pen. Never use block capital letters.
+
+### 6. Photograph Recency & Name/Date Stamp
+- Confirm your photograph has a clean, plain white background, covers 75% face area, and includes your name and Date of Photo (DOP) imprint where mandated (such as UPSC and specific state boards).
+
+### 7. Active Contact Coordinates
+- Double-check that your primary mobile number and email ID will remain active for at least the next **24 months**, as all admit card alerts and interview call letters are dispatched exclusively via SMS and email.
+
+### 8. Download & Save the Final Submitted PDF
+- Immediately after payment confirmation, download and store multiple digital and printed copies of the final submitted application form containing the system-generated **Application Number and Transaction ID**.
 `,
   },
   {
@@ -167,113 +454,24 @@ One of the greatest advantages for aspirants is the **high degree of syllabus ov
     content: `
 ## Overview of Odisha State Recruitment Landscape in 2026
 
-The state government of Odisha, through the **Odisha Sub-Ordinate Staff Selection Commission (OSSSC)** and the **State Police Recruitment Board (OPRB)**, has released multiple major recruitment drives in 2026. These encompass:
-
-1. **Odisha Police Department:** Civil Constables, Sepoys, Sub-Inspectors, and Battalions.
-2. **OSSSC Combined Recruitment (Group C):** Revenue Inspector (RI), Assistant Revenue Inspector (ARI), Amin, ICDS Supervisor, and Forest Guards.
-
-Navigating these exams requires a targeted strategy, particularly for Odia language grammar, regional general knowledge, basic mathematics, and computer practical tests.
+The state government of Odisha, through the **Odisha Sub-Ordinate Staff Selection Commission (OSSSC)** and the **State Police Recruitment Board (OPRB)**, has released multiple major recruitment drives in 2026 encompassing Civil Constables, Sepoys, Sub-Inspectors, Revenue Inspectors (RI), Assistant Revenue Inspectors (ARI), Amin, and Forest Guards.
 
 ---
 
 ## 1. Exam Pattern & Marks Distribution
 
-### Odisha Police Constable Exam Blueprint:
-- **Written Examination (Computer-Based or OMR):** 100 Marks (100 Questions, 120 Minutes).
+### Odisha Police Constable Blueprint:
+- **Written Examination:** 100 Marks (100 Questions, 120 Minutes).
   - Odia Language: 15 Marks
   - English Language: 10 Marks
   - Arithmetic / Numerical Ability: 25 Marks
   - General Knowledge & Current Affairs: 25 Marks
   - Logical Reasoning: 25 Marks
-- **Negative Marking:** 0.25 marks deducted per wrong answer.
-- **Physical Standards & Efficiency Test (PST/PET):** Qualifying nature (Running, High Jump, Broad Jump).
+- **Physical Standards & Efficiency Test (PST/PET):** 1.6 km Run (6 min 30 sec for Male, 8 min 30 sec for Female), Broad Jump (3.66m), High Jump (1.22m).
 
 ### OSSSC Combined Group C Blueprint:
-- **Preliminary / Main Written Test (180 Marks):**
-  - General Awareness (History, Geography, Odisha Culture, Constitution): 35 Marks
-  - Mathematics (HCF/LCM, Profit/Loss, Mensuration, Algebra): 35 Marks
-  - Reasoning Ability: 35 Marks
-  - Odia Language & Grammar: 35 Marks
-  - English Language: 20 Marks
-  - Computer Knowledge: 20 Marks
+- **Written Test (180 Marks):** General Awareness (35), Mathematics (35), Reasoning (35), Odia Grammar (35), English (20), Computer Theory (20).
 - **Skill Test:** Practical Computer Skill Test (MS Word, Excel, PowerPoint, Internet) of 50 Marks (Qualifying minimum 40%).
-
----
-
-## 2. Subject-Wise Preparation Strategy
-
-### A. Odia Language & Grammar (High Scoring Area)
-Most non-native or English-medium students struggle with Odia grammar, giving disciplined candidates a significant competitive edge.
-
-**Key Topics to Master:**
-- *Rudhi O Lokabani* (Idioms & Proverbs)
-- *Samasa & Sandhi* (Compound words and phonological rules)
-- *Krudanta & Tadhita* (Derivational affixes)
-- *Shuddha Ashuddha Shabda* (Spelling correction and syntax errors)
-- *Biparitartha Bodhaka Shabda* (Antonyms & Synonyms)
-- *Gadyansha* (Reading Comprehension Passage)
-
-**Recommended Books:** *Saraswata Odia Byakarana* (Bidyadhar Mohapatra) and BSE Odisha Class 9th & 10th Odia Grammar textbooks.
-
----
-
-### B. Mathematics & Numerical Ability
-Questions are grounded in 10th standard matriculation arithmetic.
-
-**High-Yield Topics:**
-- Percentages, Profit & Loss, Simple & Compound Interest
-- Time, Speed & Distance (Train & Stream problems)
-- Ratio & Proportion, Partnership, Averages
-- 2D Mensuration (Area of Circle, Triangle, Rectangle) & 3D Volume
-
-**Practice Tip:** Avoid lengthy theoretical formulas. Practice 25 mixed-topic speed drills daily with a stopwatch to solve each question in under 45 seconds.
-
----
-
-### C. General Knowledge & Odisha Special GK
-General Knowledge in Odisha state exams allocates 30% to 40% of questions specifically to Odisha history, geography, and government welfare schemes.
-
-**Essential Odisha Topics:**
-- Famous Dynasties: Kalinga War, Ganga Dynasty, Gajapati Empire.
-- Major Rivers & Dams: Mahanadi, Brahmani, Baitarani, Hirakud Dam, Indravati.
-- National Parks & Wildlife Sanctuaries: Similipal Tiger Reserve, Bhitarkanika Mangroves, Chilika Lake (Ramsar Site).
-- State Schemes: BSKY, Kalia Yojana, Mo Seva Kendra, Ama Odisha Nabin Odisha.
-- Art, Handloom & Festivals: Ratha Yatra, Sambalpuri Handloom, Pattachitra, Odissi Dance icons.
-
----
-
-## 3. Physical Efficiency Test (PET) Benchmarks
-
-Passing the written exam is meaningless without clearing the physical test. Start your conditioning at least 60 days before the exam date.
-
-| Event | Male Candidates | Female Candidates |
-| :--- | :--- | :--- |
-| **Running (1.6 km / 1 mile)** | Complete within 6 minutes 30 seconds | Complete within 8 minutes 30 seconds |
-| **Broad Jump (Long Jump)** | 3.66 meters (3 attempts) | 2.75 meters (3 attempts) |
-| **High Jump** | 1.22 meters (3 attempts) | 0.90 meters (3 attempts) |
-| **Rope Climbing (if applicable)** | 6 meters in 3 attempts | Exempted |
-
-**Physical Training Protocol:**
-- Run 3 km in the early morning at a progressive steady pace to build aerobic stamina.
-- Strengthen calves and core with plyometric box jumps and squats to excel in long jump.
-- Stay hydrated and avoid heavy strength training 48 hours prior to the physical test.
-
----
-
-## 4. Practical Computer Skill Test Strategy (OSSSC)
-
-The 50-mark computer practical test decides qualification for Revenue Inspector and ARI posts.
-
-- **MS Word (15 Marks):** Formatting paragraphs, tables, header/footer, mail merge, bullets.
-- **MS Excel (15 Marks):** Basic functions (\`SUM\`, \`AVERAGE\`, \`IF\`, \`VLOOKUP\`, \`COUNTIF\`), pivot tables, cell formatting, charts.
-- **MS PowerPoint (10 Marks):** Creating 3 slides with custom layout, transitions, and bullet points.
-- **MS Access / Internet (10 Marks):** Database table creation, browser shortcuts, file attachment handling.
-
----
-
-## Conclusion
-
-Success in Odisha state recruitment relies on consistency in daily revisions. Allocate 2 hours to Odia/English grammar, 2 hours to Mathematics, 2 hours to General Awareness, and 1 hour to computer theory. Take a full-length mock test every Sunday and analyze your weak chapters.
 `,
   },
   {
@@ -300,161 +498,9 @@ Success in Odisha state recruitment relies on consistency in daily revisions. Al
     content: `
 ## The Rising Demand for Healthcare Professionals in Public Sector
 
-In 2026, government healthcare recruitment has surged across premier central institutions including **AIIMS (NORCET)**, **ESIC Hospitals**, **Railway Hospitals (RRB Paramedical)**, **DSSSB Delhi**, and state public service health commissions.
+In 2026, government healthcare recruitment has surged across premier central institutions including **AIIMS (NORCET)**, **ESIC Hospitals**, **Railway Hospitals (RRB Paramedical)**, **DSSSB Delhi**, and state health commissions.
 
-Nursing Officer posts are classified as **Group B (Non-Gazetted)** with a lucrative starting basic pay of **₹44,900 (Pay Level 7)**, translating to a gross in-hand monthly salary of **₹75,000 to ₹85,000** along with nursing allowances, uniform allowance, and central government health privileges.
-
-This guide outlines the high-yield clinical subjects, scenario-based question techniques, and non-nursing scoring secrets needed to secure a top rank.
-
----
-
-## 1. Exam Structure & Blueprint (AIIMS NORCET Model)
-
-AIIMS NORCET is conducted in two distinct stages:
-
-### Stage 1: NORCET Preliminary Examination (Qualifying)
-- **Total Questions:** 100 MCQs (100 Marks) | Duration: 90 Minutes
-- **Subject Distribution:**
-  - Nursing Core Subjects: 80 Questions
-  - General Knowledge, Aptitude & Reasoning: 20 Questions
-- **Qualifying Cutoff:** 50% for UR/EWS, 45% for OBC, 40% for SC/ST.
-- **Negative Marking:** 1/3rd (0.33 mark) per incorrect answer.
-
-### Stage 2: NORCET Mains Examination (Merit Ranking)
-- **Total Questions:** 100 Clinical Case & Scenario-Based MCQs | Duration: 90 Minutes
-- **Content:** Practical nursing skills, triage priorities, ICU/Emergency procedures, drug calculations, OT sterilization, and diagnostic interpretation.
-
----
-
-## 2. High-Yield Clinical Subjects & Priority Weightage
-
-| Subject | Expected Questions | High-Yield Topics |
-| :--- | :--- | :--- |
-| **Medical-Surgical Nursing (MSN)** | 25–30 | ECG interpretation, Shock types, Burns (Rule of Nines), Diabetes Ketoacidosis (DKA), COPD, Renal Failure, Stroke management |
-| **Obstetrics & Gynecological Nursing (OBG)** | 18–22 | Stages of Labour, Post-Partum Hemorrhage (PPH), Fetal Heart Rate monitoring, Contraceptive methods, High-risk pregnancy |
-| **Child Health (Pediatric Nursing)** | 12–15 | APGAR Score, Developmental milestones, Congenital anomalies (Spina Bifida, TOF), Neonatal Resuscitation Protocol, Immunization Schedule |
-| **Fundamentals of Nursing & Pharmacology** | 15–20 | CPR (BLS/ACLS protocols), IV fluid calculations, Drug dosages (Dopamine, Digoxin, Insulin), Bedsores (Braden Scale), Cannula color codes |
-| **Community Health Nursing (CHN)** | 10–12 | National Health Programs, Epidemiological triad, Contraception, Demography, Primary Health Center (PHC/CHC) staffing |
-| **Mental Health (Psychiatric Nursing)** | 8–10 | Schizophrenia, Bipolar disorder, Defense mechanisms, Therapeutic communication, Electroconvulsive Therapy (ECT) protocols |
-
----
-
-## 3. Mastering Clinical & Image-Based Scenario Questions
-
-Modern nursing officer exams have shifted from direct textbook definitions to **clinical situation analysis**.
-
-### Sample Scenario Breakdown:
-> *A 45-year-old patient admitted to the ICU with severe head injury displays a blood pressure of 190/60 mmHg, bradycardia (heart rate 45 bpm), and irregular respirations. What clinical phenomenon is the patient experiencing, and what is the nurse's priority action?*
-
-- **Clinical Insight:** This triad (Hypertension with widening pulse pressure, Bradycardia, Irregular respiration) is the **Cushing's Triad**, indicating critically elevated Intracranial Pressure (ICP).
-- **Priority Nursing Action:** Elevate the head of the bed to 30 degrees, ensure airway patency, avoid hip flexion, and notify the neurosurgeon immediately for osmotic diuretics (Mannitol).
-
-### Essential Image-Based Topics to Memorize:
-1. **Surgical Instruments:** Sponge holding forceps, Allis forceps, Babcock tissue forceps, Needle holders, Trocar and cannula.
-2. **Medical Devices:** Infusion pumps, Endotracheal (ET) tubes, Tracheostomy tubes, Chest tube drainage systems (Water-seal chambers), BiPAP masks.
-3. **ECG Strips:** Ventricular Fibrillation (VF), Ventricular Tachycardia (VT), Atrial Fibrillation, ST-segment elevation (STEMI).
-
----
-
-## 4. Don't Neglect the Non-Nursing Section (20 Marks)
-
-Many nursing candidates ignore the 20 marks allocated to General Awareness, Arithmetic, and Logical Reasoning. However, in competitive exams where nursing scores are closely clustered, scoring 14+ in the non-nursing section guarantees a top 500 rank.
-
-- **Basic Reasoning:** Direction sense tests, number series, seating arrangements, coding-decoding.
-- **Arithmetic:** Ratio and proportions, percentages, unitary method (essential for pediatric drug dosage calculation).
-- **Current Affairs:** Recent health summits, WHO announcements, Nobel Prize in Medicine, Padma awards in healthcare.
-
----
-
-## 5. Negative Marking Control Strategy
-
-With a steep **1/3rd penalty for wrong answers**, guessing can easily drag a qualifying score below the cutoff line.
-
-1. **The 50:50 Rule:** Attempt a question only if you can confidently eliminate at least two options.
-2. **First Round Target:** In the first 45 minutes, solve all direct, 100% certain questions (aim for 55–65 answers).
-3. **Second Round Target:** In the next 30 minutes, tackle calculation-intensive and scenario questions where you eliminated choices.
-4. **Final 15 Minutes:** Never blind-guess in the final minutes. Double-check flagged questions for misread keywords like *"EXCEPT"*, *"NOT"*, or *"PRIORITY"*.
-`,
-  },
-  {
-    slug: 'upsc-otr-registration-and-document-guidelines',
-    title: 'Step-by-Step UPSC One Time Registration (OTR), Photo Specifications & Common Application Mistakes to Avoid',
-    excerpt: 'A complete practical walkthrough of UPSC OTR registration on upsc.gov.in, exact passport photo naming and pixel dimensions, live webcam photo rules, and how to avoid application rejection.',
-    category: 'Eligibility & Forms',
-    readTime: '7 min read',
-    publishedAt: '2026-08-22',
-    updatedAt: '2026-09-02',
-    author: {
-      name: 'Umakanta Maharana',
-      role: 'Founder & Lead Recruitment Analyst',
-      avatar: '/logo.svg',
-      bio: 'Recruitment policy researcher specializing in public sector examinations, Staff Selection Commission (SSC) hiring pipelines, and Indian Railway career pathways.',
-    },
-    keywords: [
-      'UPSC OTR Registration 2026',
-      'UPSC Photo Size Guidelines',
-      'UPSC Civil Services Online Form',
-      'UPSC Signature Dimensions',
-      'How to Fill UPSC OTR',
-    ],
-    content: `
-## Why One Time Registration (OTR) is Mandatory for UPSC
-
-The **Union Public Service Commission (UPSC)** mandates that all candidates applying for examinations—including Civil Services Examination (CSE/IAS), NDA, CDS, CAPF, Engineering Services (ESE), and Combined Medical Services (CMS)—must complete **One Time Registration (OTR)** on the official portal (\`upsconline.nic.in\`).
-
-Once your OTR profile is verified, your personal details, educational qualifications, and identification credentials remain securely stored, allowing you to apply for any UPSC examination in under 5 minutes without re-entering demographic data.
-
----
-
-## 1. Step-by-Step OTR Registration Process
-
-### Step 1: Access the Official Portal
-1. Navigate to the authenticated UPSC application portal at [upsconline.nic.in](https://upsconline.nic.in).
-2. Click on the **"New Registration"** button in the top menu.
-
-### Step 2: Enter Primary Demographics
-Ensure every single spelling matches your **Class 10th (Matriculation) Certificate** verbatim:
-- Candidate's Full Name (Do not prefix with Mr., Ms., Dr., or Shri).
-- Gender and Date of Birth (DD/MM/YYYY).
-- Father's Name and Mother's Name.
-- Minority Status (Yes/No).
-- Valid Mobile Number and Primary Email ID (Both will be verified via real-time OTP).
-- Class 10th Board Examination Roll Number.
-- Security Questions & Answers (for password recovery).
-
-### Step 3: OTP Verification & OTR ID Generation
-Enter the separate 6-digit OTPs received on your registered mobile number and email. Upon submission, the system generates a unique **OTR ID** (e.g., \`OTR1000987654\`). Save and take a screenshot of this ID.
-
----
-
-## 2. Official Photo & Signature Technical Guidelines
-
-UPSC strictly enforces automated image validation algorithms. Any image failing pixel resolution or byte limits is rejected immediately during form upload.
-
-### A. Photograph Specifications:
-- **Recency:** Must be taken within the last **10 days** prior to filling the application.
-- **Name & Date Imprint:** The photograph **must clearly show the candidate's full name and the exact date** on which the photo was taken at the bottom of the picture.
-- **Face Coverage:** The candidate's face must occupy at least **3/4th (75%)** of the photograph frame.
-- **Background:** Clean, plain white or very light background. No caps, dark goggles, or tinted lenses.
-- **Pixel Dimensions:** Minimum **350 x 350 pixels**; Maximum **1000 x 1000 pixels**.
-- **File Size Range:** **20 KB to 300 KB** in \`.JPG\` / \`.JPEG\` format only.
-
-### B. Signature Specifications:
-- **Ink & Paper:** Must be signed using a **black ink ballpoint pen** on plain, clean white paper (no lines or grid marks).
-- **Pixel Dimensions:** Minimum **350 x 150 pixels**; Maximum **1000 x 1000 pixels**.
-- **File Size Range:** **20 KB to 100 KB** in \`.JPG\` / \`.JPEG\` format.
-
-> **Pro Tip:** You can use FormBharlo's built-in [Sarkari Photo Resizer Tool](/tools/image-resizer) to crop, adjust pixel dimensions (350x350 px), and compress your photo and signature to exact official ranges in 3 seconds directly on your phone.
-
----
-
-## 3. Common Application Mistakes That Lead to Rejection
-
-1. **Spelling Discrepancies:** Name spelled differently than the 10th certificate (e.g., adding an extra initial or misspelling father's name).
-2. **Uploading Old Photos without Date Stamp:** UPSC notifications mandate that photos must have the candidate's name and photo-capture date imprinted at the bottom.
-3. **Blurry Signature Scans:** Taking a camera photo of a signature in dim lighting with shadows. Always use a proper scanner or high-contrast crop.
-4. **Invalid Photo ID Number:** Entering the Aadhaar or Voter ID number with a typo. You must carry the **original physical copy of the exact same ID** to the examination hall on exam day.
-5. **Waiting Until the Last Day:** The UPSC server experiences heavy traffic and gateway timeouts during the final 48 hours of an application window. Always submit your application at least 5 days before the deadline.
+Nursing Officer posts are classified as **Group B (Non-Gazetted)** with starting basic pay of **₹44,900 (Pay Level 7)**, translating to gross monthly salaries of **₹75,000 to ₹85,000** along with nursing allowances, uniform allowance, and central health benefits.
 `,
   },
   {
@@ -481,95 +527,7 @@ UPSC strictly enforces automated image validation algorithms. Any image failing 
     content: `
 ## Government Career Opportunities Right After Class 12th
 
-Many students believe that high-paying government careers are reserved exclusively for university graduates. However, the Central and State Governments offer prestigious Group B and Group C career pipelines for candidates who have completed **Class 12th (Intermediate / +2 in Arts, Science, or Commerce)**.
-
-These positions offer starting salaries ranging from **₹32,000 to over ₹65,000 per month**, accompanied by housing allowances, medical benefits, and rapid internal promotion schemes through departmental examinations (LDCE).
-
----
-
-## Top 10 Government Jobs After 12th (Ranked by Career Growth & Pay)
-
-### 1. National Defence Academy (NDA & NA) - Army, Navy & Air Force
-- **Conducting Body:** Union Public Service Commission (UPSC)
-- **Eligibility:** 12th Pass (PCM for Navy/Air Force; any stream for Army). Age 16.5 to 19.5 years.
-- **Starting Rank:** Lieutenant / Sub Lieutenant / Flying Officer (Group A Gazetted Officer).
-- **Starting Salary:** **₹56,100 (Pay Level 10) + Military Service Pay (MSP) ₹15,500 = ₹71,600+ Gross Basic**.
-- **Career Peak:** General, Admiral, or Air Chief Marshal.
-
----
-
-### 2. SSC Combined Higher Secondary Level (SSC CHSL)
-- **Conducting Body:** Staff Selection Commission
-- **Key Posts:** Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Data Entry Operator (DEO).
-- **Pay Scale:** Pay Level 2 (₹19,900) to Pay Level 4 (₹25,500). Gross in-hand salary: **₹35,000 to ₹48,000/month**.
-- **Ministries:** Ministry of External Affairs, Central Bureau of Investigation, Ministry of Defence, CBDT.
-
----
-
-### 3. SSC Stenographer (Grade C & Grade D)
-- **Conducting Body:** Staff Selection Commission
-- **Eligibility:** 12th pass with Shorthand and Typing proficiency (80 to 100 words per minute).
-- **Pay Scale:** Grade C is **Pay Level 6 (₹35,400 Basic)** and Grade D is **Pay Level 4 (₹25,500 Basic)**.
-- **Monthly Compensation:** **₹42,000 to ₹65,000/month** in Central Ministries.
-
----
-
-### 4. RRB NTPC Under-Graduate Posts (Railways)
-- **Conducting Body:** Railway Recruitment Board
-- **Key Posts:** Junior Clerk cum Typist, Accounts Clerk cum Typist, Trains Clerk, Commercial cum Ticket Clerk.
-- **Pay Scale:** Pay Level 2 & Level 3.
-- **Monthly Compensation:** **₹32,000 to ₹42,000/month** + Free All-India Railway Passes.
-
----
-
-### 5. Indian Coast Guard Navik (General Duty) & Yantrik
-- **Conducting Body:** Ministry of Defence
-- **Eligibility:** 12th Pass with Maths & Physics from an AICTE/COBSE recognized board.
-- **Starting Basic Pay:** ₹21,700 (Pay Level 3) + Dearness Allowance + Hardship & Sea Duty allowances (Gross: **₹40,000 to ₹50,000/month**).
-
----
-
-### 6. SSC General Duty (GD) Constable
-- **Departments:** BSF, CISF, CRPF, ITBP, SSB, SSF, and Assam Rifles.
-- **Eligibility:** 10th / 12th Pass with Physical Fitness standards.
-- **Salary:** Pay Level 3 (₹21,700 - ₹69,100). Gross: **₹35,000 to ₹42,000/month** plus ration allowances.
-
----
-
-### 7. State Police Constable & Fireman
-- **Conducting Bodies:** State Police Recruitment Boards (UPPRPB, Odisha Police, Bihar Police, Maharashtra Police, Delhi Police).
-- **Eligibility:** 12th Pass with Physical Standards test.
-- **Monthly Compensation:** **₹30,000 to ₹40,000/month** with uniform allowance and state pension provisions.
-
----
-
-### 8. Indian Air Force Agniveer Vayu
-- **Conducting Body:** Indian Air Force (IAF)
-- **Eligibility:** 12th pass with Mathematics, Physics & English with minimum 50% marks.
-- **Salary Package:** ₹30,000 in Year 1 increasing to ₹40,000 in Year 4, plus ₹10.04 Lakh tax-free *Seva Nidhi* exit package and permanent cadre absorption opportunity.
-
----
-
-### 9. Forest Guard & Wildlife Guard (State Forestry Cadres)
-- **Eligibility:** 12th Pass with Physical Endurance Test (Walking 25 km in 4 hours).
-- **Salary:** Pay Level 2/3 (Gross: **₹28,000 to ₹36,000/month**).
-- **Work Environment:** Peaceful, nature-centric wildlife reserves and state forest divisions.
-
----
-
-### 10. High Court & District Court Junior Clerk / Typist
-- **Conducting Bodies:** State High Courts (Allahabad, Orissa, Patna, Bombay, Delhi).
-- **Eligibility:** 12th Pass with Computer Typing Certificate.
-- **Monthly Salary:** **₹32,000 to ₹42,000/month** with rapid promotion to Senior Judicial Assistant.
-
----
-
-## 4-Step Action Plan for 12th Pass Candidates
-
-1. **Master Basic Arithmetic:** Strengthen Class 8-10 maths fundamentals (Percentages, Ratio, Time & Work).
-2. **Build English / Hindi Vocabulary:** Daily reading of editorial columns to score high in SSC and Court exams.
-3. **Maintain Physical Fitness:** Run 2–3 km every morning to stay ready for Police and Defence Physical Tests.
-4. **Learn Computer Typing:** Achieve 35 WPM English typing speed; this alone qualifies you for over 50,000 central clerk posts every year.
+Many students believe that high-paying government careers are reserved exclusively for university graduates. However, the Central and State Governments offer prestigious Group B and Group C career pipelines for candidates who have completed **Class 12th (Intermediate / +2 in Arts, Science, or Commerce)** with starting salaries ranging from **₹32,000 to over ₹65,000 per month**.
 `,
   },
 ];
