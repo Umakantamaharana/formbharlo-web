@@ -175,6 +175,7 @@ export default function RootLayout({
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-4">Quick Resources</h4>
                 <ul className="space-y-2 text-xs">
+                  <li><Link href="/guides" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline transition-colors">Career &amp; Exam Guides</Link></li>
                   <li><Link href="/tools/image-resizer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Photo &amp; Signature Resizer</Link></li>
                   <li><Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About FormBharlo</Link></li>
                   <li><Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Support</Link></li>

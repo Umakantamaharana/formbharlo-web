@@ -22,6 +22,7 @@ import SocialLinks from '@/components/SocialLinks';
 import ShareButtons from '@/components/ShareButtons';
 import JobCard from '@/components/JobCard';
 import MarkdownContent from '@/components/MarkdownContent';
+import AuthorCard from '@/components/AuthorCard';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -440,6 +441,9 @@ export default async function JobPage({ params }: Props) {
                     </div>
                   </div>
                 </div>
+
+                {/* E-E-A-T Author & Fact-Checking Badge */}
+                <AuthorCard lastUpdated={job.date || 'August 2026'} />
 
                 {/* Social Share Buttons */}
                 <div className="pt-6 border-t border-slate-200 dark:border-slate-800">

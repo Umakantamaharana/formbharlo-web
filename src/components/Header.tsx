@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Briefcase, Award, CheckCircle2, Key, Crop, Info, Mail, Menu, X, Send, MessageCircle, Sparkles } from 'lucide-react';
+import { Home, Briefcase, Award, CheckCircle2, Key, Crop, Info, Mail, Menu, X, Send, MessageCircle, Sparkles, BookOpen } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
@@ -11,7 +11,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharlo';
+  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharloin';
   const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo';
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', href: '/', icon: <Home size={14} className="text-blue-500" /> },
     { label: 'Top Forms', href: '/?q=form#recruitment-feed-top', icon: <Briefcase size={14} className="text-blue-600" /> },
+    { label: 'Career Guides', href: '/guides', icon: <BookOpen size={14} className="text-indigo-500" /> },
+    { label: 'Photo Resizer', href: '/tools/image-resizer', icon: <Crop size={14} className="text-purple-500" /> },
     { label: 'Admit Cards', href: '/?q=admit#recruitment-feed-top', icon: <Award size={14} className="text-emerald-500" /> },
     { label: 'Results', href: '/?q=result#recruitment-feed-top', icon: <CheckCircle2 size={14} className="text-rose-500" /> },
-    { label: 'Answer Keys', href: '/?q=key#recruitment-feed-top', icon: <Key size={14} className="text-amber-500" /> },
-    { label: 'Photo Resizer', href: '/tools/image-resizer', icon: <Crop size={14} className="text-purple-500" /> },
     { label: 'About', href: '/about', icon: <Info size={14} className="text-slate-500" /> },
     { label: 'Contact', href: '/contact', icon: <Mail size={14} className="text-slate-500" /> },
   ];

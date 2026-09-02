@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { fetchJobsServer } from '@/services/serverJobService';
+import { GUIDE_ARTICLES } from '@/data/guides';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
@@ -12,10 +13,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
+      url: `${siteUrl}/guides`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/tools/image-resizer`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.7,
     },
     {
       url: `${siteUrl}/contact`,
@@ -27,15 +40,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.4,
     },
     {
       url: `${siteUrl}/terms`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.4,
     },
   ];
+
+  const guidePages: MetadataRoute.Sitemap = GUIDE_ARTICLES.map((guide) => ({
+    url: `${siteUrl}/guides/${guide.slug}`,
+    lastModified: new Date(guide.updatedAt),
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
 
   try {
     const jobs = await fetchJobsServer();
@@ -46,9 +66,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
 
-    return [...staticPages, ...jobPages];
+    return [...staticPages, ...guidePages, ...jobPages];
   } catch (error) {
     console.error('Error generating sitemap:', error);
-    return staticPages;
+    return [...staticPages, ...guidePages];
   }
 }
