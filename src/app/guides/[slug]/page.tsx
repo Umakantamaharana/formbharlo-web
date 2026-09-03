@@ -19,6 +19,7 @@ import {
 import { GUIDE_ARTICLES, GuideArticle } from '@/data/guides';
 import AuthorCard from '@/components/AuthorCard';
 import AdBanner from '@/components/AdBanner';
+import MarkdownContent from '@/components/MarkdownContent';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -168,10 +169,8 @@ export default async function GuideDetailPage({ params }: Props) {
         </header>
 
         {/* Article Body */}
-        <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-xs">
-          <div className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 prose-headings:font-black prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:border-b prose-h2:border-slate-200 dark:prose-h2:border-slate-800 prose-h2:pb-2 prose-h3:text-lg prose-table:text-xs prose-th:bg-slate-100 dark:prose-th:bg-slate-800 prose-th:p-3 prose-td:p-3 prose-td:border prose-td:border-slate-200 dark:prose-td:border-slate-800 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:font-bold leading-relaxed">
-            <ReactMarkdown>{guide.content}</ReactMarkdown>
-          </div>
+        <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xs">
+          <MarkdownContent content={guide.content} />
 
           {/* Keywords / Tags */}
           <div className="pt-8 mt-8 border-t border-slate-100 dark:border-slate-800 space-y-3">

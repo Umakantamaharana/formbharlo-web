@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { CheckCircle2, BookmarkCheck, Info, ExternalLink, ChevronRight, HelpCircle } from 'lucide-react';
 
 interface MarkdownContentProps {
@@ -25,6 +26,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
   return (
     <div className="markdown-content text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed space-y-4">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children }) => (
             <h2 className="text-lg sm:text-xl md:text-2xl font-black text-slate-900 dark:text-white mt-6 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
