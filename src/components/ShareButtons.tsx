@@ -43,17 +43,19 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title, url }) => {
 
   const shareWhatsApp = () => {
     const activeUrl = getActiveUrl();
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(`🔔 ${title}\n\nApply here: ${activeUrl}`)}`, '_blank');
+    const text = `🔥 *${title}*\n\n✅ *Verified Notification & Direct Apply Link:*\n👉 ${activeUrl}\n\n📢 *Join FormBharlo for instant Govt Job Alerts:*\nhttps://t.me/formbharloin`;
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const shareTelegram = () => {
     const activeUrl = getActiveUrl();
-    window.open(`https://t.me/share/url?url=${encodeURIComponent(activeUrl)}&text=${encodeURIComponent(`🔔 ${title}`)}`, '_blank');
+    const text = `🔥 ${title}\n\n✅ Direct Official Portal Link:\n👉 ${activeUrl}\n\n📢 Join @formbharloin for fast alerts!`;
+    window.open(`https://t.me/share/url?url=${encodeURIComponent(activeUrl)}&text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const shareTwitter = () => {
     const activeUrl = getActiveUrl();
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🔔 ${title}`)}&url=${encodeURIComponent(activeUrl)}`, '_blank');
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🔥 ${title}\n\nCheck details & direct link:`)}&url=${encodeURIComponent(activeUrl)}`, '_blank');
   };
 
   return (

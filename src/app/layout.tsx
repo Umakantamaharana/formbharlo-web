@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'FormBharlo',
     images: [
       {
-        url: `${siteUrl}/globe.svg`,
+        url: `${siteUrl}/api/og`,
         width: 1200,
         height: 630,
         alt: 'FormBharlo Sarkari Job Portal',
@@ -60,6 +60,10 @@ export const metadata: Metadata = {
     title: 'FormBharlo | Har Sarkari Bharti, Ek Jagah',
     description: 'Instant notification on Latest Govt Jobs, Exam Dates, Results, Admit Cards & Online Registration Links.',
     creator: '@formbharlo',
+    images: [`${siteUrl}/api/og`],
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
   robots: {
     index: true,
@@ -83,6 +87,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'FormBharlo',
+    alternateName: ['FormBharlo.in', 'Form Bharlo', 'Formbharlo Jobs'],
     url: siteUrl,
     potentialAction: {
       '@type': 'SearchAction',

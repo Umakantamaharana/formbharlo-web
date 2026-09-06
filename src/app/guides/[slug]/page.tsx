@@ -59,6 +59,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: guide.excerpt,
       url: canonicalUrl,
       siteName: 'FormBharlo',
+      images: [
+        {
+          url: `${siteUrl}/api/og?title=${encodeURIComponent(guide.title)}&cat=${encodeURIComponent(guide.category)}&org=${encodeURIComponent('Career & Exam Strategy Guide')}`,
+          width: 1200,
+          height: 630,
+          alt: guide.title,
+        },
+      ],
       type: 'article',
       publishedTime: guide.publishedAt,
       modifiedTime: guide.updatedAt,
@@ -69,6 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: guide.title,
       description: guide.excerpt,
+      images: [`${siteUrl}/api/og?title=${encodeURIComponent(guide.title)}&cat=${encodeURIComponent(guide.category)}&org=${encodeURIComponent('Career & Exam Strategy Guide')}`],
     },
   };
 }

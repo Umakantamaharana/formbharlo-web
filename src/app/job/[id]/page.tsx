@@ -123,7 +123,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'FormBharlo',
       images: [
         {
-          url: job.image_url || `${siteUrl}/api/og?title=${encodeURIComponent(jobTitle)}`,
+          url: job.image_url || `${siteUrl}/api/og?title=${encodeURIComponent(jobTitle)}&cat=${encodeURIComponent(job.category || 'Govt Alert')}&org=${encodeURIComponent(job.organization || 'Govt Authority')}`,
           width: 1200,
           height: 630,
           alt: jobTitle,
@@ -136,7 +136,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: jobTitle,
       description,
-      images: [job.image_url || `${siteUrl}/api/og?title=${encodeURIComponent(jobTitle)}`],
+      images: [job.image_url || `${siteUrl}/api/og?title=${encodeURIComponent(jobTitle)}&cat=${encodeURIComponent(job.category || 'Govt Alert')}&org=${encodeURIComponent(job.organization || 'Govt Authority')}`],
     },
   };
 }
