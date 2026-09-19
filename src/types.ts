@@ -10,6 +10,9 @@ export interface Job {
     actual_link: string;
     action: string;
     summary?: string;
+    apply_link?: string;
+    notification_pdf?: string;
+    official_website?: string;
   };
   social_posts?: {
     x?: string;

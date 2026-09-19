@@ -167,6 +167,11 @@ export default async function JobDetailPage({ params }: Props) {
   }
 
   const directLink = normalizeExternalUrl(job.website_content?.actual_link);
+  const applyLink = normalizeExternalUrl(job.website_content?.apply_link) || directLink;
+  const notifPdf = normalizeExternalUrl(job.website_content?.notification_pdf);
+  const officialWebsite =
+    normalizeExternalUrl(job.website_content?.official_website) ||
+    (directLink && !directLink.endsWith('.pdf') ? directLink : undefined);
   const actionText = job.website_content?.action || 'Apply Online / Check Notice';
   const canonicalUrl = `${siteUrl}/job/${job.id}`;
   const jobTitle = job.website_content?.title || 'Govt Recruitment Notification';
@@ -422,40 +427,64 @@ export default async function JobDetailPage({ params }: Props) {
 
                   <div className="divide-y divide-slate-100 dark:divide-slate-800 text-xs sm:text-sm">
                     {/* Row 1: Direct Action / Apply Link */}
-                    {directLink ? (
+                    {applyLink ? (
                       <div className="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-blue-50/50 dark:bg-blue-950/20 hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors">
                         <div>
-                          <span className="font-bold text-slate-900 dark:text-white block">{actionText}</span>
-                          <span className="text-[11px] text-slate-500 dark:text-slate-400">Direct official registration &amp; notification link</span>
+                          <span className="font-bold text-slate-900 dark:text-white block flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            {actionText}
+                          </span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400">Direct online application &amp; registration portal</span>
                         </div>
                         <a
-                          href={directLink}
+                          href={applyLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-xs shrink-0 min-h-[40px]"
                         >
-                          <span>Click Here</span>
+                          <span>Click Here to Apply</span>
                           <ExternalLink size={13} />
                         </a>
                       </div>
                     ) : null}
 
-                    {/* Row 2: Official Authority Website */}
-                    <div className="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-white dark:bg-slate-900">
-                      <div>
-                        <span className="font-bold text-slate-900 dark:text-white block">Official Website</span>
-                        <span className="text-[11px] text-slate-500 dark:text-slate-400">Visit recruiting authority official homepage</span>
+                    {/* Row 2: Official Notification PDF (if available) */}
+                    {notifPdf ? (
+                      <div className="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-amber-50/40 dark:bg-amber-950/10 hover:bg-amber-50 dark:hover:bg-amber-950/20 transition-colors">
+                        <div>
+                          <span className="font-bold text-slate-900 dark:text-white block">Official Notification (PDF)</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400">Download official advertisement, rules &amp; syllabus PDF</span>
+                        </div>
+                        <a
+                          href={notifPdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-xs shrink-0 min-h-[40px]"
+                        >
+                          <span>Download PDF</span>
+                          <ExternalLink size={13} />
+                        </a>
                       </div>
-                      <a
-                        href={directLink || '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-900 text-white dark:bg-slate-700 dark:hover:bg-slate-600 font-bold text-xs py-2.5 px-5 rounded-xl border border-slate-700 shrink-0 min-h-[40px]"
-                      >
-                        <span>Official Portal</span>
-                        <ExternalLink size={13} />
-                      </a>
-                    </div>
+                    ) : null}
+
+                    {/* Row 3: Official Authority Website */}
+                    {officialWebsite ? (
+                      <div className="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-white dark:bg-slate-900">
+                        <div>
+                          <span className="font-bold text-slate-900 dark:text-white block">Official Authority Website</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400">Visit recruiting authority homepage</span>
+                        </div>
+                        <a
+                          href={officialWebsite}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-900 text-white dark:bg-slate-700 dark:hover:bg-slate-600 font-bold text-xs py-2.5 px-5 rounded-xl border border-slate-700 shrink-0 min-h-[40px]"
+                        >
+                          <span>Official Portal</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
 
