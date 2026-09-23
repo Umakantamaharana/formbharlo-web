@@ -25,7 +25,8 @@ const AdBanner: React.FC<AdBannerProps> = ({
 }) => {
   const adRef = useRef<HTMLModElement | null>(null);
   const adClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-  const isAdSenseActive = Boolean(adClientId && adClientId.startsWith('ca-pub-'));
+  const adsEnabled = process.env.NEXT_PUBLIC_ENABLE_ADS === 'true';
+  const isAdSenseActive = Boolean(adsEnabled && adClientId && adClientId.startsWith('ca-pub-'));
 
   const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/formbharloin';
   const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://whatsapp.com/channel/formbharlo';
