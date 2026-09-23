@@ -17,6 +17,7 @@ import {
   Briefcase,
   Users,
   CheckCircle2,
+  Crop,
 } from 'lucide-react';
 import { getJobByIdServer, fetchJobsServer, getRelatedJobsServer, normalizeExternalUrl } from '@/services/serverJobService';
 import AdBanner from '@/components/AdBanner';
@@ -413,6 +414,30 @@ export default async function JobDetailPage({ params }: Props) {
                 {/* In-Feed Ad Unit */}
                 <div className="my-4 sm:my-6">
                   <AdBanner format="in-feed" slot="job-detail-pre-links" />
+                </div>
+
+                {/* Free Tool Funnel: Photo & Signature Resizer */}
+                <div className="bg-gradient-to-r from-purple-50 via-indigo-50 to-blue-50 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-blue-950/40 border border-purple-200 dark:border-purple-800/60 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-purple-600 text-white shadow-xs shrink-0 mt-0.5">
+                      <Crop size={18} />
+                    </div>
+                    <div>
+                      <span className="text-xs sm:text-sm font-bold text-purple-900 dark:text-purple-200 block">
+                        Applying for this post? Ready your Photo &amp; Signature
+                      </span>
+                      <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                        Free 1-click crop and compression to exact 20–50 KB &amp; 3.5×4.5 cm government portal specs (100% private).
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/tools/image-resizer"
+                    className="inline-flex items-center justify-center gap-1.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-xs shrink-0 transition-all min-h-[38px]"
+                  >
+                    <span>Resize Free</span>
+                    <Sparkles size={13} />
+                  </Link>
                 </div>
 
                 {/* Important Official Links Table */}
