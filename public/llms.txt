@@ -1,0 +1,32 @@
+# FormBharlo
+
+> Har Sarkari Bharti, Ek Jagah. FormBharlo (https://formbharlo.in) is a verified Indian government job recruitment alert portal, exam scorecard tracker, admit card repository, and career guidance platform.
+
+## Overview
+FormBharlo delivers verified, spam-free alerts for Central and State Government examinations in India (SSC, RRB, UPSC, State PSCs, Banking/IBPS, Defence, Police, and Teaching). All job listings feature verified 1-click official application links, official notification PDFs, and eligibility criteria without clickbait redirects or intermediate spam.
+
+## Core Sections & Discovery
+- [Latest Sarkari Jobs & Results](https://formbharlo.in): Real-time searchable feed of live recruitment notifications, scorecards, and admit cards.
+- [Career Guides & Exam Strategies](https://formbharlo.in/guides): Comprehensive research-backed pillar guides on exam preparation, syllabus comparisons, and age relaxation rules.
+- [Govt Exam Photo & Signature Resizer](https://formbharlo.in/tools/image-resizer): Free, 100% client-side tool to crop, compress, and resize passport photos and signatures to exact government portal requirements (SSC, UPSC, RRB, NTA).
+- [Odisha Govt Jobs Hub](https://formbharlo.in/?cat=odisha): Dedicated state recruitment portal for OSSSC, OPSC, and Odisha Police.
+- [12th Pass Govt Jobs Hub](https://formbharlo.in/?cat=12th): Opportunities for 10th and 12th pass aspirants across Railways, SSC GD/CHSL, and State Police.
+- [About & Editorial Methodology](https://formbharlo.in/about): 4-step verification standards and author credentials led by Umakanta Maharana.
+- [Contact & Support](https://formbharlo.in/contact): Direct editorial contact and correction desk.
+
+## Career Guides Engine
+- [SSC CGL vs RRB NTPC Comparison 2026](https://formbharlo.in/guides/ssc-cgl-vs-rrb-ntpc-career-comparison-2026): Salary, promotion speed, selection ratios, and syllabus overlap analysis.
+- [Government Exam Document Upload Guidelines](https://formbharlo.in/guides/government-exam-document-photo-signature-upload-guidelines): Exact pixel, DPI, and KB file size specifications for SSC, UPSC, IBPS, and NTA.
+- [90-Day Self-Study Strategy for Govt Exams](https://formbharlo.in/guides/90-day-self-study-strategy-for-government-exams): Structured phase-wise blueprint for cracking competitive exams without coaching.
+- [State Govt vs Central Govt Jobs Comparison](https://formbharlo.in/guides/state-govt-vs-central-govt-jobs-comparison): Transfer policies, home state postings, and pension benefits.
+- [OBC NCL, EWS & SC/ST Certificate Guidelines](https://formbharlo.in/guides/obc-ncl-ews-sc-st-certificate-guidelines): Crucial financial year validity, issuing authorities, and common rejection pitfalls.
+- [Govt Exam Negative Marking Mastery](https://formbharlo.in/guides/government-exam-negative-marking-accuracy-strategy): Mathematical elimination and probabilistic risk frameworks for objective MCQs.
+
+## Feeds & Machine-Readable Endpoints
+- [RSS XML Feed](https://formbharlo.in/feed.xml): Machine-readable XML feed of all live recruitments.
+- [XML Sitemap](https://formbharlo.in/sitemap.xml): Complete URL index for search engines.
+- [JSON API Endpoint](https://formbharlo.in/api/jobs): Public JSON endpoint returning active recruitment records.
+
+## Official Community Channels
+- [Telegram Channel](https://t.me/formbharloin): Instant recruitment alerts broadcast to Telegram.
+- [WhatsApp Channel](https://whatsapp.com/channel/0029Vb4qE0fHAdNR0bK3eL0P): Live job updates.

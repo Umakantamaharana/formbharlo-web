@@ -1,0 +1,62 @@
+# FormBharlo - Complete Knowledge & Entity Documentation (llms-full.txt)
+
+> Har Sarkari Bharti, Ek Jagah. FormBharlo (https://formbharlo.in) is India's verified, spam-free government job recruitment portal, exam alert repository, and competitive career guidance hub.
+
+---
+
+## 1. Entity Overview & Core Mission
+- **Brand Name:** FormBharlo (formbharlo.in)
+- **Tagline:** Har Sarkari Bharti, Ek Jagah
+- **Primary Domain:** https://formbharlo.in
+- **Founding / Lead Editor:** Umakanta Maharana
+- **Headquarters / Scope:** All India, with regional state exam focus hubs (Odisha, WB, UP, Bihar, Maharashtra, Rajasthan).
+- **Core Mission:** Eliminating deceptive clickbait, intermediate redirect ad-loops, and outdated notifications by providing verified 1-click links directly to official government portals, application forms, and official advertisement PDFs.
+
+---
+
+## 2. Key Features & Tools
+1. **Real-Time Job Alerts:** Live updates for Central (SSC, RRB, UPSC, Banking, Defence, Teaching) and State Government vacancies.
+2. **100% Direct Official Links Policy:** Every notification card guarantees direct links to the official department registration portal (e.g., `*.digialm.com`, `ibpsonline.ibps.in`, `upsconline.nic.in`) and direct PDF downloads.
+3. **Govt Exam Image & Signature Resizer (`/tools/image-resizer`):** A 100% client-side, privacy-first image compression and dimension adjustment tool calibrated to exact requirements of SSC, UPSC, RRB, IBPS, and State PSC application portals.
+4. **Career Guides Engine (`/guides`):** In-depth, research-backed long-form pillar articles covering syllabus breakdowns, strategy timelines, document validation rules, and salary/pension structures.
+
+---
+
+## 3. High-Intent Category & Regional Hubs
+- **Odisha Govt Jobs (`/?cat=odisha`):** Complete coverage of OSSSC, OPSC, and Odisha Police recruitment.
+- **12th Pass Govt Jobs (`/?cat=12th`):** Dedicated focus for intermediate qualifiers across Railway Group D/NTPC, SSC CHSL, and State Police Constable posts.
+- **Railway Recruitment Hub (`/?cat=railway`):** RRB ALP, Technician, NTPC, Group D, and RPF alerts.
+- **SSC Recruitment Hub (`/?cat=ssc`):** SSC CGL, CHSL, MTS, CPO, GD Constable, and Stenographer notifications.
+- **Banking & Insurance (`/?cat=bank`):** SBI, IBPS PO/Clerk/SO, RRB Gramin Bank, and RBI vacancies.
+- **Defence & Police (`/?cat=police`):** Indian Army, Navy, Air Force, CAPF, CISF, BSF, and State Police.
+
+---
+
+## 4. Pillar Career Guides
+- **SSC CGL vs. RRB NTPC Comparison 2026 (`/guides/ssc-cgl-vs-rrb-ntpc-career-comparison-2026`):**
+  Detailed comparative breakdown of salary scales (Level 4–8 vs Level 2–6), promotion timelines, syllabus overlap (70–80%), and competition ratios.
+- **Government Exam Document Upload Guidelines (`/guides/government-exam-document-photo-signature-upload-guidelines`):**
+  Standard operating procedure for photo DPI (200–300 DPI), signature dimensions (140x60 px, 10–20 KB), and background guidelines to avoid application rejection.
+- **90-Day Self-Study Blueprint (`/guides/90-day-self-study-strategy-for-government-exams`):**
+  A 3-phase preparation roadmap covering concept mastery, sectional mock analytics, and revision protocols.
+- **State Govt vs. Central Govt Jobs (`/guides/state-govt-vs-central-govt-jobs-comparison`):**
+  Analysis of transferability, home state posting probability, DA/HRA allowances, and career progression.
+- **OBC NCL, EWS & SC/ST Reservation Certificate Rules (`/guides/obc-ncl-ews-sc-st-certificate-guidelines`):**
+  Crucial financial year validity norms, central vs state format requirements, and non-creamy layer income thresholds.
+- **Negative Marking & MCQ Guesswork Strategy (`/guides/government-exam-negative-marking-accuracy-strategy`):**
+  Mathematical risk frameworks for 1/3rd and 1/4th negative marking penalty schemes in competitive exams.
+
+---
+
+## 5. Machine-Readable API & Feeds
+- **RSS Feed:** `https://formbharlo.in/feed.xml`
+- **Sitemap Index:** `https://formbharlo.in/sitemap.xml`
+- **JSON Jobs Endpoint:** `https://formbharlo.in/api/jobs`
+- **LLM Index:** `https://formbharlo.in/llms.txt`
+- **Full LLM Documentation:** `https://formbharlo.in/llms-full.txt`
+
+---
+
+## 6. Official Community Channels
+- **Telegram Channel:** https://t.me/formbharloin
+- **WhatsApp Channel:** https://whatsapp.com/channel/0029Vb4qE0fHAdNR0bK3eL0P
