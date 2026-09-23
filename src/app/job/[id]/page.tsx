@@ -33,6 +33,8 @@ interface Props {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 
+export const revalidate = 86400; // 24 hours ISR revalidation (updates automatically when scraper pushes or deploys)
+
 function getActionContext(actionText: string, titleText: string) {
   const combined = `${actionText} ${titleText}`.toLowerCase();
 

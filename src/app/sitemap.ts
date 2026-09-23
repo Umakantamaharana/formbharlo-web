@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { fetchJobsServer } from '@/services/serverJobService';
 import { GUIDE_ARTICLES } from '@/data/guides';
 
+export const revalidate = 86400; // Revalidate sitemap once every 24 hours
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://formbharlo.in';
 

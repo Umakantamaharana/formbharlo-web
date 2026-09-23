@@ -202,7 +202,7 @@ export const fetchJobsServer = async (): Promise<Job[]> => {
     for (const url of urls) {
       try {
         const response = await fetch(url, {
-          next: { revalidate: 60 },
+          next: { revalidate: 3600 },
           signal: AbortSignal.timeout(4000),
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
