@@ -12,6 +12,29 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: [
+          'Bingbot',
+          'msnbot',
+          'BingPreview',
+          'Slurp',
+          'DuckDuckBot',
+          'YandexBot',
+          'Baiduspider',
+          'Qwantify',
+        ],
+        allow: '/',
+        disallow: ['/admin/', '/api/admin/'],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/admin/', '/api/admin/'],
+      },
+      {
+        userAgent: 'Mediapartners-Google',
+        allow: '/',
+      },
+      {
+        userAgent: [
           'GPTBot',
           'ChatGPT-User',
           'ClaudeBot',
@@ -22,15 +45,6 @@ export default function robots(): MetadataRoute.Robots {
           'Bytespider',
           'cohere-ai',
         ],
-        allow: '/',
-      },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/admin/', '/api/admin/'],
-      },
-      {
-        userAgent: 'Mediapartners-Google',
         allow: '/',
       },
     ],

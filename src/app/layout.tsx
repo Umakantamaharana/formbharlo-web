@@ -63,7 +63,15 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/api/og`],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+        ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+        : {}),
+      ...(process.env.NEXT_PUBLIC_YANDEX_SITE_VERIFICATION
+        ? { 'yandex-verification': process.env.NEXT_PUBLIC_YANDEX_SITE_VERIFICATION }
+        : {}),
+    },
   },
   icons: {
     icon: [
@@ -82,6 +90,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,

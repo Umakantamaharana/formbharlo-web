@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fetchJobsServer } from '@/services/serverJobService';
 import { Job } from '@/types';
+import { handleCors, handleOptionsCors } from '@/lib/cors';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 1800; // 30 minutes cache
 
+export async function OPTIONS(request: NextRequest) {
+  return handleOptionsCors(request);
+}
+
 export async function GET(request: NextRequest) {
+  const corsResult = handleCors(request);
+  if (!corsResult.isAllowed && corsResult.response) {
+    return corsResult.response;
+  }
   try {
     const jobs = await fetchJobsServer();
     const { searchParams } = new URL(request.url);
@@ -49,6 +58,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(filtered, {
         headers: {
           'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+          ...corsResult.headers,
         },
       });
     }
@@ -84,11 +94,15 @@ export async function GET(request: NextRequest) {
       {
         headers: {
           'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+          ...corsResult.headers,
         },
       }
     );
   } catch (error) {
     console.error('API Error reading jobs:', error);
-    return NextResponse.json({ error: 'Failed to load jobs' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to load jobs' },
+      { status: 500, headers: corsResult.headers }
+    );
   }
 }
